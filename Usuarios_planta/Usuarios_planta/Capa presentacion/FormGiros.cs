@@ -13,6 +13,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Net.Security;
 using System.Globalization;
 using Color = System.Drawing.Color;
+using System.ComponentModel.Design;
 
 namespace Usuarios_planta.Formularios
 {
@@ -51,8 +52,7 @@ namespace Usuarios_planta.Formularios
                 currentBtn = (Button)senderBtn;
                 currentBtn.BackColor = Color.FromArgb(37, 36, 81);
                 currentBtn.ForeColor = Color.FromArgb(215,219,222);
-                currentBtn.TextAlign = ContentAlignment.MiddleCenter;
-                
+                currentBtn.TextAlign = ContentAlignment.MiddleCenter;                
             }
         }
 
@@ -70,9 +70,10 @@ namespace Usuarios_planta.Formularios
         private void FormGiros_Load(object sender, EventArgs e)
         {
             lblfecha_actual.Text = fecha.ToString("dd/MM/yyyy");
-            dtpcargue.Text = "01/01/2020";
-            dtpfecha_desembolso.Text = "01/01/2020";
-            dtpfecha_rpta.Text = "01/01/2020";
+            dtpFecha_Envio.Text = "01/01/2020";
+            dtpFecha_Cierre_Etapa.Text = "01/01/2020";
+            dtpFecha_Posible_Rta.Text = "01/01/2020";
+            dtpFecha_Restriccion.Text = "01/01/2020";
             TxtCod_Militar1.Enabled = false;
             TxtCod_militar2.Enabled = false;
             cmbGrado.Enabled = false;
@@ -85,42 +86,10 @@ namespace Usuarios_planta.Formularios
             lbcartera3.Visible = false;
             lbcartera4.Visible = false;
         }
-
-        //private void Txtcuota_TextChanged(object sender, EventArgs e)
-        //{
-        //      Txtcuota_letras.Text = c.enletras(Txtcuota.Text).ToUpper() + " PESOS";           
-        //}
-
-        private void TxtIDfuncionario_TextChanged(object sender, EventArgs e)
-        {
-            MySqlCommand comando = new MySqlCommand("SELECT * FROM tf_usuarios WHERE Identificacion = @Identificacion ", con);
-            comando.Parameters.AddWithValue("@Identificacion", TxtIDfuncionario.Text);
-            con.Open();
-            MySqlDataReader registro = comando.ExecuteReader();
-            if (registro.Read())
-            {
-                TxtNomFuncionario.Text = registro["Nombre"].ToString();
-            }
-            con.Close();
-        }
-
+        
         private void Txttotal_TextChanged(object sender, EventArgs e)
         {
-            Txttotal_letras.Text = c.enletras(Txttotal.Text).ToUpper() + " PESOS";
-        }
-
-        private void Txtafiliacion2_Validated(object sender, EventArgs e)
-        {
-            //if (Txtafiliacion1.Text == Txtafiliacion2.Text)
-            //    lbafiliacion.Text = "Ok Afiliacion";
-            //else
-            //{
-            //    MessageBox.Show("Numero de Afiliacion no coincide","Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Warning);
-            //    lbafiliacion.Visible = false;
-            //    Txtafiliacion1.Focus();
-            //    Txtafiliacion1.Text = "";
-            //    Txtafiliacion2.Text = "";
-            //}
+            TxtTotal_Letras.Text = c.enletras(TxtTotal_Credito.Text).ToUpper() + " PESOS";
         }
 
         private void Btnbuscar_Click(object sender, EventArgs e)
@@ -140,12 +109,12 @@ namespace Usuarios_planta.Formularios
 
         private void Btncopy1_Click(object sender, EventArgs e)
         {
-            Clipboard.SetDataObject(Txtcuota_letras.Text, true);
+            Clipboard.SetDataObject(TxtMonto_Letras.Text, true);
         }
 
         private void Btncopy_Click(object sender, EventArgs e)
         {
-            Clipboard.SetDataObject(Txttotal_letras.Text, true);
+            Clipboard.SetDataObject(TxtTotal_Letras.Text, true);
         }
 
         private void Btncopy2_Click(object sender, EventArgs e)
@@ -155,14 +124,14 @@ namespace Usuarios_planta.Formularios
 
         private void Txtmonto_Validated(object sender, EventArgs e)
         {
-            if (Convert.ToDouble(Txtmonto.Text) > 0)
+            if (Convert.ToDouble(TxtMonto_Aprobado.Text) > 0)
             {
-                Txtmonto.Text = string.Format("{0:#,##0}", double.Parse(Txtmonto.Text));
+                TxtMonto_Aprobado.Text = string.Format("{0:#,##0}", double.Parse(TxtMonto_Aprobado.Text));
                 
             }
-            else if (Txtmonto.Text == "")
+            else if (TxtMonto_Aprobado.Text == "")
             {
-                Txtmonto.Text = Convert.ToString(0);
+                TxtMonto_Aprobado.Text = Convert.ToString(0);
             }
         }
 
@@ -171,30 +140,20 @@ namespace Usuarios_planta.Formularios
         {
             bool ok = true;
 
-            if (TxtCod_Militar1.Text == "")
-            {
-                ok = false;
-                epError.SetError(TxtCod_Militar1, "Debes digitar N° Afiliacion");
-            }
-            //if (Txtafiliacion2.Text == "")
-            //{
-            //    ok = false;
-            //    epError.SetError(Txtafiliacion2, "Debes digitar N° Afiliacion");
-            //}
             if (TxtScoring.Text == "")
             {
                 ok = false;
                 epError.SetError(TxtScoring, "Debes digitar N° Scoring");
             }
-            if (Txtmonto.Text == "")
+            if (TxtMonto_Aprobado.Text == "")
             {
                 ok = false;
-                epError.SetError(Txtmonto, "Debes digitar Monto");
+                epError.SetError(TxtMonto_Aprobado, "Debes digitar Monto");
             }
-            if (Txtplazo.Text == "")
+            if (TxtPlazo_Aprobado.Text == "")
             {
                 ok = false;
-                epError.SetError(Txtplazo, "Debes digitar Plazo");
+                epError.SetError(TxtPlazo_Aprobado, "Debes digitar Plazo");
             }
             if (TxtIDfuncionario.Text == "")
             {
@@ -206,28 +165,26 @@ namespace Usuarios_planta.Formularios
 
         private void BorrarMensajeError()
         {
-            epError.SetError(TxtCod_Militar1, "");
-            //epError.SetError(Txtafiliacion2, "");
             epError.SetError(TxtScoring, "");
-            epError.SetError(Txtmonto, "");
-            epError.SetError(Txtplazo, "");
+            epError.SetError(TxtMonto_Aprobado, "");
+            epError.SetError(TxtPlazo_Aprobado, "");
             epError.SetError(TxtIDfuncionario, "");
         }
 
 
         private void Txtcuota_Validated(object sender, EventArgs e)
         {
-            Txtcuota.Text = string.Format("{0:#,##0}", double.Parse(Txtcuota.Text));
-            Txttotal.Text = (double.Parse(Txtcuota.Text) * double.Parse(Txtplazo.Text)).ToString();
+            TxtValor_Cuota.Text = string.Format("{0:#,##0}", double.Parse(TxtValor_Cuota.Text));
+            TxtTotal_Credito.Text = (double.Parse(TxtValor_Cuota.Text) * double.Parse(TxtPlazo_Aprobado.Text)).ToString();
 
-            if (Convert.ToDouble(Txttotal.Text) > 0)
+            if (Convert.ToDouble(TxtTotal_Credito.Text) > 0)
             {
-                Txttotal.Text = string.Format("{0:#,##0}", double.Parse(Txttotal.Text));
+                TxtTotal_Credito.Text = string.Format("{0:#,##0}", double.Parse(TxtTotal_Credito.Text));
 
             }
-            else if (Txttotal.Text == "")
+            else if (TxtTotal_Credito.Text == "")
             {
-                Txttotal.Text = Convert.ToString(0);
+                TxtTotal_Credito.Text = Convert.ToString(0);
             }
         }
               
@@ -252,12 +209,12 @@ namespace Usuarios_planta.Formularios
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            Clipboard.SetDataObject(Txtcuota.Text, true);
+            Clipboard.SetDataObject(TxtValor_Cuota.Text, true);
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)
         {
-            Clipboard.SetDataObject(Txtplazo.Text, true);
+            Clipboard.SetDataObject(TxtPlazo_Aprobado.Text, true);
         }
 
         private void Btn_Guardar_MouseHover(object sender, EventArgs e)
@@ -289,23 +246,47 @@ namespace Usuarios_planta.Formularios
 
         private void pictureBox8_Click(object sender, EventArgs e)
         {
-            Clipboard.SetDataObject(Txttotal.Text, true);
+            Clipboard.SetDataObject(TxtTotal_Credito.Text, true);
         }
 
         private void cmbestado_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbestado.Text=="Avanza")
+            if (TxtIDfuncionario.Text!="")
             {
-                Txtcomentarios.Text = "Operacion ISS CPK Libranza desembolso sin VoBo" + " " +fecha.ToString("dd/MM/yyyy"); ;
+                string extrae_codfuncionario;
+
+                extrae_codfuncionario = TxtIDfuncionario.Text.Substring(TxtIDfuncionario.Text.Length - 3); // extrae los ultimos 5 digitos del textbox 
+
+                if (cmbEstado_Operacion.Text == "Aprobado")
+                {
+                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Crédito aprobado scoring " + TxtScoring.Text + " Monto " + TxtMonto_Aprobado.Text + " Plazo " + TxtPlazo_Aprobado.Text + " Meses Destino " + cmbDestino.Text + " " + extrae_codfuncionario;
+                }
+                else if (cmbEstado_Operacion.Text == "Negado")
+                {
+                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Crédito negado por el pagador " + extrae_codfuncionario;
+                }
+                else if (cmbEstado_Operacion.Text == "Devuelto 1")
+                {
+                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Gestionar con el pensionado la autorización para la consulta de cupo y reactivar el caso adjuntando el pantallazo de autorizacion en pdf que arroja la herramienta. " + extrae_codfuncionario;
+                }
+                else if (cmbEstado_Operacion.Text == "Devuelto 2")
+                {
+                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Gestionar con el cliente la confirmación de la libranza a través de www.sygnus.co el Plazo máximo para la confirmación es de 48 Horas y reactivar el caso para continuar el proceso de lo contrario se tendrá que reprocesar nuevamente en plataforma. " + extrae_codfuncionario;
+                }
+                else if (cmbEstado_Operacion.Text == "Devuelto 3")
+                {
+                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Se realiza devolución ya que al ingresar a la plataforma Sygnus esta indica que el afiliado debe actualizar sus datos personales. Realizar proceso de actualización con el cliente y reactivar operación. " + extrae_codfuncionario;
+                }
+                else
+                {
+                    Txtcomentarios.Text = "";
+                }
             }
-            else if(cmbestado.Text == "Devuelta")
+            else if(TxtIDfuncionario.Text =="")
             {
-                Txtcomentarios.Text = "Operacion devuelta por: ";
-            }
-            else if (cmbestado.Text == "Suspendida")
-            {
-                Txtcomentarios.Text = "Operacion suspendida por: ";
-            }
+                MessageBox.Show("Antes de seleccionar estado de la operacion por favor digitar la cedula del funcionario")
+;           }
+           
         }
 
         private void pictureBox10_Click(object sender, EventArgs e)
@@ -451,29 +432,9 @@ namespace Usuarios_planta.Formularios
             }
         }
 
-        private void Btn_Actualizar_Click(object sender, EventArgs e)
-        {
-
-            //BorrarMensajeError();
-            //if (validar())
-            //{
-            //    cmds.actualizar_colp(Txtradicado, Txtcedula, Txtnombre, TxtEstado_cliente, Txtafiliacion1, Txtafiliacion2, cmbtipo,
-            //                        Txtscoring, Txtconsecutivo, cmbfuerza, cmbdestino, Txtmonto, Txtplazo, Txtcuota, Txttotal, Txtpagare, Txtnit, Txtentidad,
-            //                        Txtcuota_letras, Txttotal_letras, cmbestado, cmbcargue, dtpcargue, dtpfecha_desembolso, cmbresultado,
-            //                        cmbrechazo, dtpfecha_rpta, Txtplano_dia, Txtplano_pre, TxtN_Plano, Txtcomentarios, TxtIDfuncionario,
-            //                        TxtNomFuncionario);
-
-            //    Btn_Actualizar.Enabled = true;
-            //    Btn_Guardar.Enabled = true;
-            //    this.Close();
-            //    Form formulario = new FormGiros();
-            //    formulario.Show();
-            //}
-        }
-
         private void Txtmonto_TextChanged(object sender, EventArgs e)
         {
-            Txtcuota_letras.Text = c.enletras(Txtmonto.Text).ToUpper() + " PESOS";
+            TxtMonto_Letras.Text = c.enletras(TxtMonto_Aprobado.Text).ToUpper() + "DE PESOS";
         }
 
         private void TxtCod_militar2_Validated(object sender, EventArgs e)
@@ -506,6 +467,163 @@ namespace Usuarios_planta.Formularios
             {
                 TxtCartera4.Visible = true;
                 lbcartera4.Visible = true;
+            }
+        }
+
+        private void TxtIDfuncionario_Validated(object sender, EventArgs e)
+        {
+            MySqlCommand comando = new MySqlCommand("SELECT * FROM tf_usuarios WHERE Identificacion = @Identificacion ", con);
+            comando.Parameters.AddWithValue("@Identificacion", TxtIDfuncionario.Text);
+            con.Open();
+            MySqlDataReader registro = comando.ExecuteReader();
+            if (registro.Read())
+            {
+                TxtNomFuncionario.Text = registro["Nombre"].ToString();
+            }
+            con.Close();
+        }
+
+        private void cmbTipologia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            if (cmbEstado_Operacion.Text == "Suspendido" && TxtIDfuncionario.Text!="")
+            {
+                string extrae_codfuncionario;
+
+                extrae_codfuncionario = TxtIDfuncionario.Text.Substring(TxtIDfuncionario.Text.Length - 3); // extrae los ultimos 3 digitos del textbox 
+
+                if (cmbTipologia.Text == "900")
+                {
+                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio " + TxtCodigo_Convenio.Text + " " + cmbDestino.Text + " " + " se envía a VoBo Pagador el " + dtpFecha_Envio.Text + " " + " Con posible fecha de respuesta el " + dtpFecha_Posible_Rta.Text + extrae_codfuncionario + " " + cmbTipologia.Text;
+                }
+                else if (cmbTipologia.Text == "901")
+                {
+                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Se envia a VoBo Gic planilla " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                }
+                else if (cmbTipologia.Text == "902")
+                {
+                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio " + TxtCodigo_Convenio.Text +" Destino "+ cmbDestino.Text + " Se envia planilla para gestión centro de acopio el " + dtpFecha_Envio.Text + " " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                }
+                else if (cmbTipologia.Text == "903")
+                {
+                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Se envía para reporte fin de mes ante el convenio: posible respuesta "+ dtpFecha_Posible_Rta.Text + " "+ extrae_codfuncionario + " " + cmbTipologia.Text;
+                }
+                else if (cmbTipologia.Text == "904")
+                {
+                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio " + TxtCodigo_Convenio.Text + " Destino " + cmbDestino.Text + " Convenio en periodo de restricción hasta el "+dtpFecha_Restriccion.Text+" " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                }
+                else if (cmbTipologia.Text == "905")
+                {
+                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio " + TxtCodigo_Convenio.Text + " Destino " + cmbDestino.Text + " Se radicará en plataforma el día lunes puesto que de acuerdo al circuito no se puede radicar los días viernes. " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                }
+                else if (cmbTipologia.Text == "906")
+                {
+                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Centro de acopio informa: " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                }
+                else if (cmbTipologia.Text == "907")
+                {
+                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio se encuentra en periodo de restriccion desde " + dtpFecha_Envio.Text + " Hasta "+ dtpFecha_Restriccion.Text + " " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                }
+                else if (cmbTipologia.Text == "909")
+                {
+                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio " + TxtCodigo_Convenio.Text + " Destino " + cmbDestino.Text+ " se reporta demora convenio al GIC: en espera de respuesta nuevamente del convenio. " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                }
+                else if (cmbTipologia.Text == "910")
+                {
+                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio " + TxtCodigo_Convenio.Text + " Destino " + cmbDestino.Text + " se solicitan documentos al archivo para tramite con el convenio. " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                }
+                else if (cmbTipologia.Text == "911")
+                {
+                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio " + TxtCodigo_Convenio.Text + " Destino " + cmbDestino.Text + " área archivo informa que no se han recibido documentos, se solicitaran nuevamente el dia (fecha solicitud documentos archivo). " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                }
+                else if (cmbTipologia.Text == "912")
+                {
+                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio " + TxtCodigo_Convenio.Text + " Destino " + cmbDestino.Text + " en espera de llegada de documentación física por parte de la oficina para proceder con el tramite VoBo (3 días hábiles). " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                }
+                else if (cmbTipologia.Text == "913")
+                {
+                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio " + TxtCodigo_Convenio.Text + " Destino " + cmbDestino.Text + " en espera de llegada de copias de cedula al 150% a color  física por parte de la oficina para proceder con el tramite VoBo (3 días hábiles) " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                }
+                else if (cmbTipologia.Text == "914")
+                {
+                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Operación reportada al area de retoques por novedad evaluacion y sancion " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                }
+                else if (cmbTipologia.Text == "915")
+                {
+                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Operación con novedad en validacion con el centro de acopio " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                }
+                else if (cmbTipologia.Text == "917")
+                {
+                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " se solicita bajar monto del credito al area encargada a solicitud del gic del convenio " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                }
+                else if (cmbTipologia.Text == "918")
+                {
+                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Operación validada con medios - Operación con recuperación de descuento se gestionará próxima apertura de plataforma " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                }
+                else if (cmbTipologia.Text == "919")
+                {
+                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " se reporta al area de scoring / cierre operativo para ratificacion de condiciones del credito " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                }
+                else if (cmbTipologia.Text == "920")
+                {
+                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio " + TxtCodigo_Convenio.Text + " Destino " + cmbDestino.Text + " se reporta novedad a área encargada. " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                }
+                else if (cmbTipologia.Text == "921")
+                {
+                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + "  " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                }
+                else if (cmbTipologia.Text == "922")
+                {
+                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + "  " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                }
+                else if (cmbTipologia.Text == "923")
+                {
+                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + "  " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                }
+                else if (cmbTipologia.Text == "924")
+                {
+                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + "  " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                }
+                else if (cmbTipologia.Text == "925")
+                {
+                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + "  " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                }
+                else if (cmbTipologia.Text == "926")
+                {
+                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + "  " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                }
+                else if (cmbTipologia.Text == "927")
+                {
+                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + "  " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                }
+                else if (cmbTipologia.Text == "928")
+                {
+                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + "  " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                }
+                else if (cmbTipologia.Text == "929")
+                {
+                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + "  " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                }
+                else if (cmbTipologia.Text == "930")
+                {
+                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + "  " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                }
+                else if (cmbTipologia.Text == "931")
+                {
+                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + "  " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                }
+                else if (cmbTipologia.Text == "729")
+                {
+                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + "  " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                }
+            }else if (cmbEstado_Operacion.Text == "Suspendido" && TxtIDfuncionario.Text == "")
+            {
+                MessageBox.Show("Debe digitar cedula del funcionario que esta gestionando la operacion");
+            }
+            else
+            {
+                MessageBox.Show("Antes de seleccionar una tipologia debe indicar en el estado de la operacion Suspendido");   
+                cmbTipologia.Text=null;
             }
         }
     }
