@@ -73,7 +73,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.dtpFecha_Envio = new System.Windows.Forms.DateTimePicker();
-            this.Txtcomentarios = new System.Windows.Forms.TextBox();
+            this.TxtComentarios = new System.Windows.Forms.TextBox();
             this.TxtIDfuncionario = new System.Windows.Forms.TextBox();
             this.TxtNomFuncionario = new System.Windows.Forms.TextBox();
             this.cmbEstado_Operacion = new System.Windows.Forms.ComboBox();
@@ -100,9 +100,9 @@
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.btnAñadir_cartera = new System.Windows.Forms.PictureBox();
-            this.Btncopy = new System.Windows.Forms.PictureBox();
+            this.BtnCopiar_Total_Letras = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.Btncopy1 = new System.Windows.Forms.PictureBox();
+            this.BtnCopiar_Monto_letras = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.Btnbuscar = new System.Windows.Forms.PictureBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
@@ -117,18 +117,19 @@
             this.label38 = new System.Windows.Forms.Label();
             this.TxtLLave = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.BtnCopiar_Comentarios = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.epError)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnAñadir_cartera)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Btncopy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnCopiar_Total_Letras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Btncopy1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnCopiar_Monto_letras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Btnbuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnCopiar_Comentarios)).BeginInit();
             this.SuspendLayout();
             // 
             // label15
@@ -145,14 +146,15 @@
             // 
             this.TxtConsecutivo.BackColor = System.Drawing.SystemColors.Window;
             this.TxtConsecutivo.Font = new System.Drawing.Font("Segoe UI Emoji", 11.25F);
-            this.TxtConsecutivo.Location = new System.Drawing.Point(434, 186);
+            this.TxtConsecutivo.Location = new System.Drawing.Point(634, 132);
             this.TxtConsecutivo.MaxLength = 100;
             this.TxtConsecutivo.Multiline = true;
             this.TxtConsecutivo.Name = "TxtConsecutivo";
             this.TxtConsecutivo.Size = new System.Drawing.Size(102, 26);
-            this.TxtConsecutivo.TabIndex = 10;
+            this.TxtConsecutivo.TabIndex = 6;
             this.TxtConsecutivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TxtConsecutivo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtconsecutivo_KeyPress);
+            this.TxtConsecutivo.Validated += new System.EventHandler(this.TxtConsecutivo_Validated);
             // 
             // cmbDestino
             // 
@@ -166,10 +168,10 @@
             "Libre Inversion",
             "Ck Libranza y Rtq",
             "Ck Consumo y Rtq"});
-            this.cmbDestino.Location = new System.Drawing.Point(234, 186);
+            this.cmbDestino.Location = new System.Drawing.Point(529, 186);
             this.cmbDestino.Name = "cmbDestino";
             this.cmbDestino.Size = new System.Drawing.Size(162, 28);
-            this.cmbDestino.TabIndex = 9;
+            this.cmbDestino.TabIndex = 10;
             // 
             // TxtTotal_Credito
             // 
@@ -275,9 +277,9 @@
             "Red Oficina",
             "Gestor Movil",
             "Gestor Remoto"});
-            this.cmbFuerza_Venta.Location = new System.Drawing.Point(269, 132);
+            this.cmbFuerza_Venta.Location = new System.Drawing.Point(281, 132);
             this.cmbFuerza_Venta.Name = "cmbFuerza_Venta";
-            this.cmbFuerza_Venta.Size = new System.Drawing.Size(144, 28);
+            this.cmbFuerza_Venta.Size = new System.Drawing.Size(153, 28);
             this.cmbFuerza_Venta.TabIndex = 4;
             // 
             // label6
@@ -344,7 +346,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label26.Location = new System.Drawing.Point(232, 165);
+            this.label26.Location = new System.Drawing.Point(527, 165);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(59, 18);
             this.label26.TabIndex = 160;
@@ -354,7 +356,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label7.Location = new System.Drawing.Point(269, 111);
+            this.label7.Location = new System.Drawing.Point(281, 111);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(67, 18);
             this.label7.TabIndex = 19;
@@ -374,7 +376,7 @@
             // 
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label37.Location = new System.Drawing.Point(430, 165);
+            this.label37.Location = new System.Drawing.Point(630, 111);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(91, 18);
             this.label37.TabIndex = 162;
@@ -387,7 +389,7 @@
             this.TxtCartera1.Location = new System.Drawing.Point(176, 383);
             this.TxtCartera1.Multiline = true;
             this.TxtCartera1.Name = "TxtCartera1";
-            this.TxtCartera1.Size = new System.Drawing.Size(176, 26);
+            this.TxtCartera1.Size = new System.Drawing.Size(155, 26);
             this.TxtCartera1.TabIndex = 20;
             this.TxtCartera1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TxtCartera1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtentidad_KeyPress);
@@ -408,13 +410,13 @@
             // 
             this.TxtCod_Militar1.BackColor = System.Drawing.SystemColors.Window;
             this.TxtCod_Militar1.Font = new System.Drawing.Font("Segoe UI Emoji", 11.25F);
-            this.TxtCod_Militar1.Location = new System.Drawing.Point(584, 132);
+            this.TxtCod_Militar1.Location = new System.Drawing.Point(224, 186);
             this.TxtCod_Militar1.MaxLength = 20;
             this.TxtCod_Militar1.Multiline = true;
             this.TxtCod_Militar1.Name = "TxtCod_Militar1";
             this.TxtCod_Militar1.ShortcutsEnabled = false;
             this.TxtCod_Militar1.Size = new System.Drawing.Size(135, 26);
-            this.TxtCod_Militar1.TabIndex = 6;
+            this.TxtCod_Militar1.TabIndex = 8;
             this.TxtCod_Militar1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TxtCod_Militar1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txtafiliacion1_KeyPress);
             // 
@@ -476,7 +478,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label4.Location = new System.Drawing.Point(581, 111);
+            this.label4.Location = new System.Drawing.Point(221, 165);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 18);
             this.label4.TabIndex = 14;
@@ -490,7 +492,7 @@
             // 
             this.panel1.Controls.Add(this.Btn_Actualizar);
             this.panel1.Controls.Add(this.Btn_Guardar);
-            this.panel1.Location = new System.Drawing.Point(60, 681);
+            this.panel1.Location = new System.Drawing.Point(60, 690);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(223, 40);
             this.panel1.TabIndex = 45;
@@ -505,7 +507,7 @@
             this.Btn_Actualizar.Location = new System.Drawing.Point(120, 6);
             this.Btn_Actualizar.Name = "Btn_Actualizar";
             this.Btn_Actualizar.Size = new System.Drawing.Size(94, 27);
-            this.Btn_Actualizar.TabIndex = 24;
+            this.Btn_Actualizar.TabIndex = 34;
             this.Btn_Actualizar.Text = "Nuevo";
             this.Btn_Actualizar.UseVisualStyleBackColor = false;
             this.Btn_Actualizar.MouseHover += new System.EventHandler(this.Btn_Actualizar_MouseHover);
@@ -520,7 +522,7 @@
             this.Btn_Guardar.Location = new System.Drawing.Point(12, 6);
             this.Btn_Guardar.Name = "Btn_Guardar";
             this.Btn_Guardar.Size = new System.Drawing.Size(87, 27);
-            this.Btn_Guardar.TabIndex = 23;
+            this.Btn_Guardar.TabIndex = 33;
             this.Btn_Guardar.Text = "Guardar";
             this.Btn_Guardar.UseVisualStyleBackColor = false;
             this.Btn_Guardar.Click += new System.EventHandler(this.Btn_Guardar_Click);
@@ -551,7 +553,7 @@
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label30.Location = new System.Drawing.Point(234, 628);
+            this.label30.Location = new System.Drawing.Point(234, 639);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(144, 18);
             this.label30.TabIndex = 55;
@@ -561,7 +563,7 @@
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label31.Location = new System.Drawing.Point(58, 628);
+            this.label31.Location = new System.Drawing.Point(58, 639);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(112, 18);
             this.label31.TabIndex = 54;
@@ -571,7 +573,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label18.Location = new System.Drawing.Point(57, 534);
+            this.label18.Location = new System.Drawing.Point(57, 530);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(171, 18);
             this.label18.TabIndex = 29;
@@ -582,7 +584,7 @@
             this.label28.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label28.Location = new System.Drawing.Point(424, 480);
+            this.label28.Location = new System.Drawing.Point(454, 478);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(139, 18);
             this.label28.TabIndex = 148;
@@ -602,7 +604,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label16.Location = new System.Drawing.Point(58, 479);
+            this.label16.Location = new System.Drawing.Point(58, 477);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(128, 18);
             this.label16.TabIndex = 179;
@@ -617,29 +619,29 @@
             this.dtpFecha_Envio.Location = new System.Drawing.Point(61, 444);
             this.dtpFecha_Envio.Name = "dtpFecha_Envio";
             this.dtpFecha_Envio.Size = new System.Drawing.Size(121, 27);
-            this.dtpFecha_Envio.TabIndex = 21;
+            this.dtpFecha_Envio.TabIndex = 24;
             // 
-            // Txtcomentarios
+            // TxtComentarios
             // 
-            this.Txtcomentarios.BackColor = System.Drawing.SystemColors.Window;
-            this.Txtcomentarios.Font = new System.Drawing.Font("Segoe UI Emoji", 11.25F);
-            this.Txtcomentarios.Location = new System.Drawing.Point(61, 555);
-            this.Txtcomentarios.MaxLength = 3000;
-            this.Txtcomentarios.Multiline = true;
-            this.Txtcomentarios.Name = "Txtcomentarios";
-            this.Txtcomentarios.Size = new System.Drawing.Size(776, 69);
-            this.Txtcomentarios.TabIndex = 28;
+            this.TxtComentarios.BackColor = System.Drawing.SystemColors.Window;
+            this.TxtComentarios.Font = new System.Drawing.Font("Segoe UI Emoji", 11.25F);
+            this.TxtComentarios.Location = new System.Drawing.Point(61, 551);
+            this.TxtComentarios.MaxLength = 3000;
+            this.TxtComentarios.Multiline = true;
+            this.TxtComentarios.Name = "TxtComentarios";
+            this.TxtComentarios.Size = new System.Drawing.Size(823, 83);
+            this.TxtComentarios.TabIndex = 31;
             // 
             // TxtIDfuncionario
             // 
             this.TxtIDfuncionario.BackColor = System.Drawing.SystemColors.Window;
             this.TxtIDfuncionario.Font = new System.Drawing.Font("Segoe UI Emoji", 11.25F);
-            this.TxtIDfuncionario.Location = new System.Drawing.Point(61, 650);
+            this.TxtIDfuncionario.Location = new System.Drawing.Point(61, 661);
             this.TxtIDfuncionario.MaxLength = 10;
             this.TxtIDfuncionario.Multiline = true;
             this.TxtIDfuncionario.Name = "TxtIDfuncionario";
             this.TxtIDfuncionario.Size = new System.Drawing.Size(123, 26);
-            this.TxtIDfuncionario.TabIndex = 22;
+            this.TxtIDfuncionario.TabIndex = 32;
             this.TxtIDfuncionario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TxtIDfuncionario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtIDfuncionario_KeyPress);
             this.TxtIDfuncionario.Validated += new System.EventHandler(this.TxtIDfuncionario_Validated);
@@ -649,7 +651,7 @@
             this.TxtNomFuncionario.BackColor = System.Drawing.SystemColors.Menu;
             this.TxtNomFuncionario.Enabled = false;
             this.TxtNomFuncionario.Font = new System.Drawing.Font("Segoe UI Emoji", 11.25F);
-            this.TxtNomFuncionario.Location = new System.Drawing.Point(237, 650);
+            this.TxtNomFuncionario.Location = new System.Drawing.Point(237, 661);
             this.TxtNomFuncionario.MaxLength = 100;
             this.TxtNomFuncionario.Multiline = true;
             this.TxtNomFuncionario.Name = "TxtNomFuncionario";
@@ -668,11 +670,12 @@
             "Suspendido",
             "Devuelto 1",
             "Devuelto 2",
-            "Devuelto 3"});
-            this.cmbEstado_Operacion.Location = new System.Drawing.Point(61, 501);
+            "Devuelto 3",
+            "Gestion Comercial VoBo"});
+            this.cmbEstado_Operacion.Location = new System.Drawing.Point(61, 499);
             this.cmbEstado_Operacion.Name = "cmbEstado_Operacion";
-            this.cmbEstado_Operacion.Size = new System.Drawing.Size(148, 28);
-            this.cmbEstado_Operacion.TabIndex = 25;
+            this.cmbEstado_Operacion.Size = new System.Drawing.Size(196, 28);
+            this.cmbEstado_Operacion.TabIndex = 28;
             this.cmbEstado_Operacion.SelectedIndexChanged += new System.EventHandler(this.cmbestado_SelectedIndexChanged);
             // 
             // dtpFecha_Posible_Rta
@@ -685,7 +688,7 @@
             this.dtpFecha_Posible_Rta.Location = new System.Drawing.Point(427, 444);
             this.dtpFecha_Posible_Rta.Name = "dtpFecha_Posible_Rta";
             this.dtpFecha_Posible_Rta.Size = new System.Drawing.Size(121, 27);
-            this.dtpFecha_Posible_Rta.TabIndex = 23;
+            this.dtpFecha_Posible_Rta.TabIndex = 26;
             // 
             // dtpFecha_Cierre_Etapa
             // 
@@ -694,10 +697,10 @@
             this.dtpFecha_Cierre_Etapa.CustomFormat = "dd/MM/yyyy";
             this.dtpFecha_Cierre_Etapa.Font = new System.Drawing.Font("Segoe UI Emoji", 11.25F);
             this.dtpFecha_Cierre_Etapa.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFecha_Cierre_Etapa.Location = new System.Drawing.Point(427, 502);
+            this.dtpFecha_Cierre_Etapa.Location = new System.Drawing.Point(457, 500);
             this.dtpFecha_Cierre_Etapa.Name = "dtpFecha_Cierre_Etapa";
             this.dtpFecha_Cierre_Etapa.Size = new System.Drawing.Size(121, 27);
-            this.dtpFecha_Cierre_Etapa.TabIndex = 27;
+            this.dtpFecha_Cierre_Etapa.TabIndex = 30;
             // 
             // label14
             // 
@@ -732,13 +735,13 @@
             this.cmbGrado.Location = new System.Drawing.Point(60, 186);
             this.cmbGrado.Name = "cmbGrado";
             this.cmbGrado.Size = new System.Drawing.Size(149, 28);
-            this.cmbGrado.TabIndex = 8;
+            this.cmbGrado.TabIndex = 7;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label19.Location = new System.Drawing.Point(431, 111);
+            this.label19.Location = new System.Drawing.Point(461, 111);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(123, 18);
             this.label19.TabIndex = 191;
@@ -748,11 +751,11 @@
             // 
             this.TxtCodigo_Convenio.BackColor = System.Drawing.SystemColors.Window;
             this.TxtCodigo_Convenio.Font = new System.Drawing.Font("Segoe UI Emoji", 11.25F);
-            this.TxtCodigo_Convenio.Location = new System.Drawing.Point(434, 132);
+            this.TxtCodigo_Convenio.Location = new System.Drawing.Point(464, 132);
             this.TxtCodigo_Convenio.MaxLength = 10;
             this.TxtCodigo_Convenio.Multiline = true;
             this.TxtCodigo_Convenio.Name = "TxtCodigo_Convenio";
-            this.TxtCodigo_Convenio.Size = new System.Drawing.Size(120, 26);
+            this.TxtCodigo_Convenio.Size = new System.Drawing.Size(132, 26);
             this.TxtCodigo_Convenio.TabIndex = 5;
             this.TxtCodigo_Convenio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -760,11 +763,11 @@
             // 
             this.TxtSubproducto.BackColor = System.Drawing.SystemColors.Window;
             this.TxtSubproducto.Font = new System.Drawing.Font("Segoe UI Emoji", 11.25F);
-            this.TxtSubproducto.Location = new System.Drawing.Point(565, 186);
+            this.TxtSubproducto.Location = new System.Drawing.Point(705, 186);
             this.TxtSubproducto.MaxLength = 100;
             this.TxtSubproducto.Multiline = true;
             this.TxtSubproducto.Name = "TxtSubproducto";
-            this.TxtSubproducto.Size = new System.Drawing.Size(102, 26);
+            this.TxtSubproducto.Size = new System.Drawing.Size(79, 26);
             this.TxtSubproducto.TabIndex = 11;
             this.TxtSubproducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -772,7 +775,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label21.Location = new System.Drawing.Point(561, 165);
+            this.label21.Location = new System.Drawing.Point(701, 165);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(93, 18);
             this.label21.TabIndex = 194;
@@ -782,11 +785,11 @@
             // 
             this.TxtTasa_E_A.BackColor = System.Drawing.SystemColors.Window;
             this.TxtTasa_E_A.Font = new System.Drawing.Font("Segoe UI Emoji", 11.25F);
-            this.TxtTasa_E_A.Location = new System.Drawing.Point(797, 185);
+            this.TxtTasa_E_A.Location = new System.Drawing.Point(809, 186);
             this.TxtTasa_E_A.MaxLength = 100;
             this.TxtTasa_E_A.Multiline = true;
             this.TxtTasa_E_A.Name = "TxtTasa_E_A";
-            this.TxtTasa_E_A.Size = new System.Drawing.Size(87, 26);
+            this.TxtTasa_E_A.Size = new System.Drawing.Size(75, 26);
             this.TxtTasa_E_A.TabIndex = 12;
             this.TxtTasa_E_A.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -794,7 +797,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label22.Location = new System.Drawing.Point(795, 164);
+            this.label22.Location = new System.Drawing.Point(804, 165);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(68, 18);
             this.label22.TabIndex = 196;
@@ -813,7 +816,7 @@
             this.cmbCorte_Envio.Location = new System.Drawing.Point(226, 444);
             this.cmbCorte_Envio.Name = "cmbCorte_Envio";
             this.cmbCorte_Envio.Size = new System.Drawing.Size(148, 28);
-            this.cmbCorte_Envio.TabIndex = 22;
+            this.cmbCorte_Envio.TabIndex = 25;
             // 
             // label25
             // 
@@ -835,7 +838,7 @@
             this.dtpFecha_Restriccion.Location = new System.Drawing.Point(604, 444);
             this.dtpFecha_Restriccion.Name = "dtpFecha_Restriccion";
             this.dtpFecha_Restriccion.Size = new System.Drawing.Size(121, 27);
-            this.dtpFecha_Restriccion.TabIndex = 24;
+            this.dtpFecha_Restriccion.TabIndex = 27;
             // 
             // label24
             // 
@@ -876,27 +879,25 @@
             "920",
             "921",
             "922",
-            "923",
             "924",
             "925",
-            "926",
             "927",
             "928",
             "929",
             "930",
             "931",
             "729"});
-            this.cmbTipologia.Location = new System.Drawing.Point(255, 501);
+            this.cmbTipologia.Location = new System.Drawing.Point(285, 499);
             this.cmbTipologia.Name = "cmbTipologia";
             this.cmbTipologia.Size = new System.Drawing.Size(97, 28);
-            this.cmbTipologia.TabIndex = 26;
+            this.cmbTipologia.TabIndex = 29;
             this.cmbTipologia.SelectedIndexChanged += new System.EventHandler(this.cmbTipologia_SelectedIndexChanged);
             // 
             // label27
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label27.Location = new System.Drawing.Point(252, 479);
+            this.label27.Location = new System.Drawing.Point(282, 477);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(158, 18);
             this.label27.TabIndex = 204;
@@ -906,13 +907,13 @@
             // 
             this.TxtCod_militar2.BackColor = System.Drawing.SystemColors.Window;
             this.TxtCod_militar2.Font = new System.Drawing.Font("Segoe UI Emoji", 11.25F);
-            this.TxtCod_militar2.Location = new System.Drawing.Point(746, 132);
+            this.TxtCod_militar2.Location = new System.Drawing.Point(377, 186);
             this.TxtCod_militar2.MaxLength = 20;
             this.TxtCod_militar2.Multiline = true;
             this.TxtCod_militar2.Name = "TxtCod_militar2";
             this.TxtCod_militar2.ShortcutsEnabled = false;
             this.TxtCod_militar2.Size = new System.Drawing.Size(138, 26);
-            this.TxtCod_militar2.TabIndex = 7;
+            this.TxtCod_militar2.TabIndex = 9;
             this.TxtCod_militar2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TxtCod_militar2.Validated += new System.EventHandler(this.TxtCod_militar2_Validated);
             // 
@@ -920,7 +921,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label23.Location = new System.Drawing.Point(743, 111);
+            this.label23.Location = new System.Drawing.Point(379, 165);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(91, 18);
             this.label23.TabIndex = 206;
@@ -973,18 +974,18 @@
             this.btnAñadir_cartera.TabStop = false;
             this.btnAñadir_cartera.Click += new System.EventHandler(this.btnAñadir_cartera_Click);
             // 
-            // Btncopy
+            // BtnCopiar_Total_Letras
             // 
-            this.Btncopy.BackColor = System.Drawing.SystemColors.Menu;
-            this.Btncopy.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btncopy.Image = global::Usuarios_planta.Properties.Resources.copy_64px;
-            this.Btncopy.Location = new System.Drawing.Point(883, 306);
-            this.Btncopy.Name = "Btncopy";
-            this.Btncopy.Size = new System.Drawing.Size(30, 30);
-            this.Btncopy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Btncopy.TabIndex = 146;
-            this.Btncopy.TabStop = false;
-            this.Btncopy.Click += new System.EventHandler(this.Btncopy_Click);
+            this.BtnCopiar_Total_Letras.BackColor = System.Drawing.SystemColors.Window;
+            this.BtnCopiar_Total_Letras.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnCopiar_Total_Letras.Image = global::Usuarios_planta.Properties.Resources.copy_64px;
+            this.BtnCopiar_Total_Letras.Location = new System.Drawing.Point(885, 306);
+            this.BtnCopiar_Total_Letras.Name = "BtnCopiar_Total_Letras";
+            this.BtnCopiar_Total_Letras.Size = new System.Drawing.Size(30, 30);
+            this.BtnCopiar_Total_Letras.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.BtnCopiar_Total_Letras.TabIndex = 146;
+            this.BtnCopiar_Total_Letras.TabStop = false;
+            this.BtnCopiar_Total_Letras.Click += new System.EventHandler(this.BtnCopiar_Total_Letras_Click);
             // 
             // pictureBox10
             // 
@@ -999,18 +1000,18 @@
             this.pictureBox10.TabStop = false;
             this.pictureBox10.Click += new System.EventHandler(this.pictureBox10_Click);
             // 
-            // Btncopy1
+            // BtnCopiar_Monto_letras
             // 
-            this.Btncopy1.BackColor = System.Drawing.SystemColors.Menu;
-            this.Btncopy1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btncopy1.Image = global::Usuarios_planta.Properties.Resources.copy_64px;
-            this.Btncopy1.Location = new System.Drawing.Point(434, 306);
-            this.Btncopy1.Name = "Btncopy1";
-            this.Btncopy1.Size = new System.Drawing.Size(30, 30);
-            this.Btncopy1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Btncopy1.TabIndex = 145;
-            this.Btncopy1.TabStop = false;
-            this.Btncopy1.Click += new System.EventHandler(this.Btncopy1_Click);
+            this.BtnCopiar_Monto_letras.BackColor = System.Drawing.SystemColors.Window;
+            this.BtnCopiar_Monto_letras.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnCopiar_Monto_letras.Image = global::Usuarios_planta.Properties.Resources.copy_64px;
+            this.BtnCopiar_Monto_letras.Location = new System.Drawing.Point(435, 306);
+            this.BtnCopiar_Monto_letras.Name = "BtnCopiar_Monto_letras";
+            this.BtnCopiar_Monto_letras.Size = new System.Drawing.Size(30, 30);
+            this.BtnCopiar_Monto_letras.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.BtnCopiar_Monto_letras.TabIndex = 145;
+            this.BtnCopiar_Monto_letras.TabStop = false;
+            this.BtnCopiar_Monto_letras.Click += new System.EventHandler(this.BtnCopiar_Monto_letras_Click);
             // 
             // pictureBox9
             // 
@@ -1064,29 +1065,29 @@
             // 
             this.TxtCartera2.BackColor = System.Drawing.SystemColors.Window;
             this.TxtCartera2.Font = new System.Drawing.Font("Segoe UI Emoji", 11.25F);
-            this.TxtCartera2.Location = new System.Drawing.Point(366, 383);
+            this.TxtCartera2.Location = new System.Drawing.Point(348, 383);
             this.TxtCartera2.Multiline = true;
             this.TxtCartera2.Name = "TxtCartera2";
-            this.TxtCartera2.Size = new System.Drawing.Size(176, 26);
-            this.TxtCartera2.TabIndex = 213;
+            this.TxtCartera2.Size = new System.Drawing.Size(155, 26);
+            this.TxtCartera2.TabIndex = 21;
             this.TxtCartera2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // TxtCartera3
             // 
             this.TxtCartera3.BackColor = System.Drawing.SystemColors.Window;
             this.TxtCartera3.Font = new System.Drawing.Font("Segoe UI Emoji", 11.25F);
-            this.TxtCartera3.Location = new System.Drawing.Point(552, 383);
+            this.TxtCartera3.Location = new System.Drawing.Point(523, 383);
             this.TxtCartera3.Multiline = true;
             this.TxtCartera3.Name = "TxtCartera3";
-            this.TxtCartera3.Size = new System.Drawing.Size(176, 26);
-            this.TxtCartera3.TabIndex = 214;
+            this.TxtCartera3.Size = new System.Drawing.Size(155, 26);
+            this.TxtCartera3.TabIndex = 22;
             this.TxtCartera3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lbcartera2
             // 
             this.lbcartera2.AutoSize = true;
             this.lbcartera2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.lbcartera2.Location = new System.Drawing.Point(364, 360);
+            this.lbcartera2.Location = new System.Drawing.Point(346, 360);
             this.lbcartera2.Name = "lbcartera2";
             this.lbcartera2.Size = new System.Drawing.Size(69, 18);
             this.lbcartera2.TabIndex = 215;
@@ -1096,7 +1097,7 @@
             // 
             this.lbcartera3.AutoSize = true;
             this.lbcartera3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.lbcartera3.Location = new System.Drawing.Point(549, 360);
+            this.lbcartera3.Location = new System.Drawing.Point(520, 360);
             this.lbcartera3.Name = "lbcartera3";
             this.lbcartera3.Size = new System.Drawing.Size(69, 18);
             this.lbcartera3.TabIndex = 216;
@@ -1106,7 +1107,7 @@
             // 
             this.lbcartera4.AutoSize = true;
             this.lbcartera4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.lbcartera4.Location = new System.Drawing.Point(734, 360);
+            this.lbcartera4.Location = new System.Drawing.Point(695, 360);
             this.lbcartera4.Name = "lbcartera4";
             this.lbcartera4.Size = new System.Drawing.Size(69, 18);
             this.lbcartera4.TabIndex = 217;
@@ -1116,11 +1117,11 @@
             // 
             this.TxtCartera4.BackColor = System.Drawing.SystemColors.Window;
             this.TxtCartera4.Font = new System.Drawing.Font("Segoe UI Emoji", 11.25F);
-            this.TxtCartera4.Location = new System.Drawing.Point(737, 383);
+            this.TxtCartera4.Location = new System.Drawing.Point(698, 383);
             this.TxtCartera4.Multiline = true;
             this.TxtCartera4.Name = "TxtCartera4";
-            this.TxtCartera4.Size = new System.Drawing.Size(176, 26);
-            this.TxtCartera4.TabIndex = 218;
+            this.TxtCartera4.Size = new System.Drawing.Size(155, 26);
+            this.TxtCartera4.TabIndex = 23;
             this.TxtCartera4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lbcartera1
@@ -1137,7 +1138,7 @@
             // 
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label38.Location = new System.Drawing.Point(58, 360);
+            this.label38.Location = new System.Drawing.Point(65, 360);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(102, 18);
             this.label38.TabIndex = 220;
@@ -1145,9 +1146,10 @@
             // 
             // TxtLLave
             // 
-            this.TxtLLave.BackColor = System.Drawing.SystemColors.Window;
+            this.TxtLLave.BackColor = System.Drawing.SystemColors.Menu;
+            this.TxtLLave.Enabled = false;
             this.TxtLLave.Font = new System.Drawing.Font("Segoe UI Emoji", 11.25F);
-            this.TxtLLave.Location = new System.Drawing.Point(681, 186);
+            this.TxtLLave.Location = new System.Drawing.Point(782, 132);
             this.TxtLLave.MaxLength = 100;
             this.TxtLLave.Multiline = true;
             this.TxtLLave.Name = "TxtLLave";
@@ -1159,23 +1161,32 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label5.Location = new System.Drawing.Point(677, 165);
+            this.label5.Location = new System.Drawing.Point(778, 111);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(42, 18);
             this.label5.TabIndex = 222;
             this.label5.Text = "Llave";
             // 
-            // pictureBox2
+            // BtnCopiar_Comentarios
             // 
-            this.pictureBox2.BackColor = System.Drawing.SystemColors.Menu;
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Image = global::Usuarios_planta.Properties.Resources.copy_64px;
-            this.pictureBox2.Location = new System.Drawing.Point(843, 572);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 223;
-            this.pictureBox2.TabStop = false;
+            this.BtnCopiar_Comentarios.BackColor = System.Drawing.SystemColors.Window;
+            this.BtnCopiar_Comentarios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnCopiar_Comentarios.Image = global::Usuarios_planta.Properties.Resources.copy_64px;
+            this.BtnCopiar_Comentarios.Location = new System.Drawing.Point(886, 576);
+            this.BtnCopiar_Comentarios.Name = "BtnCopiar_Comentarios";
+            this.BtnCopiar_Comentarios.Size = new System.Drawing.Size(30, 30);
+            this.BtnCopiar_Comentarios.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.BtnCopiar_Comentarios.TabIndex = 223;
+            this.BtnCopiar_Comentarios.TabStop = false;
+            this.BtnCopiar_Comentarios.Click += new System.EventHandler(this.BtnCopiar_Comentarios_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Location = new System.Drawing.Point(60, 354);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(824, 62);
+            this.panel2.TabIndex = 224;
             // 
             // FormGiros
             // 
@@ -1183,10 +1194,10 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(990, 733);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.label38);
+            this.Controls.Add(this.BtnCopiar_Comentarios);
             this.Controls.Add(this.TxtLLave);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label38);
             this.Controls.Add(this.lbcartera1);
             this.Controls.Add(this.TxtCartera4);
             this.Controls.Add(this.lbcartera4);
@@ -1206,7 +1217,7 @@
             this.Controls.Add(this.label24);
             this.Controls.Add(this.cmbCorte_Envio);
             this.Controls.Add(this.label25);
-            this.Controls.Add(this.Txtcomentarios);
+            this.Controls.Add(this.TxtComentarios);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.cmbEstado_Operacion);
             this.Controls.Add(this.dtpFecha_Cierre_Etapa);
@@ -1228,10 +1239,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.Btncopy);
+            this.Controls.Add(this.BtnCopiar_Total_Letras);
             this.Controls.Add(this.pictureBox10);
             this.Controls.Add(this.label31);
-            this.Controls.Add(this.Btncopy1);
+            this.Controls.Add(this.BtnCopiar_Monto_letras);
             this.Controls.Add(this.label30);
             this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.TxtTotal_Letras);
@@ -1268,6 +1279,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label26);
+            this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1278,14 +1290,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.epError)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnAñadir_cartera)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Btncopy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnCopiar_Total_Letras)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Btncopy1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnCopiar_Monto_letras)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Btnbuscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnCopiar_Comentarios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1320,8 +1332,8 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ErrorProvider epError;
         private System.Windows.Forms.PictureBox Btnbuscar;
-        private System.Windows.Forms.PictureBox Btncopy1;
-        private System.Windows.Forms.PictureBox Btncopy;
+        private System.Windows.Forms.PictureBox BtnCopiar_Monto_letras;
+        private System.Windows.Forms.PictureBox BtnCopiar_Total_Letras;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button Btn_Guardar;
         private System.Windows.Forms.TextBox TxtCartera1;
@@ -1337,7 +1349,7 @@
         private System.Windows.Forms.ComboBox cmbEstado_Operacion;
         private System.Windows.Forms.TextBox TxtNomFuncionario;
         private System.Windows.Forms.TextBox TxtIDfuncionario;
-        private System.Windows.Forms.TextBox Txtcomentarios;
+        private System.Windows.Forms.TextBox TxtComentarios;
         private System.Windows.Forms.DateTimePicker dtpFecha_Envio;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label13;
@@ -1379,6 +1391,7 @@
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.TextBox TxtLLave;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox BtnCopiar_Comentarios;
+        private System.Windows.Forms.Panel panel2;
     }
 }

@@ -100,6 +100,11 @@ namespace Usuarios_planta.Formularios
             //                 Txttotal_letras, cmbestado, cmbcargue, dtpcargue, dtpfecha_desembolso, cmbresultado, cmbrechazo, dtpfecha_rpta,
             //                 Txtplano_dia, Txtplano_pre, TxtN_Plano, Txtcomentarios, TxtIDfuncionario, TxtNomFuncionario);
 
+            if (TxtCartera1.Text!="")
+            {
+                TxtCartera1.Visible = true;
+            }
+
         }
 
         private void Btnsalir_Click(object sender, EventArgs e)
@@ -107,19 +112,9 @@ namespace Usuarios_planta.Formularios
             this.Close();
         }
 
-        private void Btncopy1_Click(object sender, EventArgs e)
-        {
-            Clipboard.SetDataObject(TxtMonto_Letras.Text, true);
-        }
-
-        private void Btncopy_Click(object sender, EventArgs e)
-        {
-            Clipboard.SetDataObject(TxtTotal_Letras.Text, true);
-        }
-
         private void Btncopy2_Click(object sender, EventArgs e)
         {
-            Clipboard.SetDataObject(Txtcomentarios.Text, true);
+            Clipboard.SetDataObject(TxtComentarios.Text, true);
         }
 
         private void Txtmonto_Validated(object sender, EventArgs e)
@@ -259,27 +254,27 @@ namespace Usuarios_planta.Formularios
 
                 if (cmbEstado_Operacion.Text == "Aprobado")
                 {
-                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Crédito aprobado scoring " + TxtScoring.Text + " Monto " + TxtMonto_Aprobado.Text + " Plazo " + TxtPlazo_Aprobado.Text + " Meses Destino " + cmbDestino.Text + " " + extrae_codfuncionario;
+                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Crédito aprobado scoring " + TxtScoring.Text + " Monto " + TxtMonto_Aprobado.Text + " Plazo " + TxtPlazo_Aprobado.Text + " Meses Destino " + cmbDestino.Text + " " + extrae_codfuncionario;
                 }
                 else if (cmbEstado_Operacion.Text == "Negado")
                 {
-                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Crédito negado por el pagador " + extrae_codfuncionario;
+                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Crédito negado por el pagador " + extrae_codfuncionario;
                 }
                 else if (cmbEstado_Operacion.Text == "Devuelto 1")
                 {
-                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Gestionar con el pensionado la autorización para la consulta de cupo y reactivar el caso adjuntando el pantallazo de autorizacion en pdf que arroja la herramienta. " + extrae_codfuncionario;
+                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Gestionar con el pensionado la autorización para la consulta de cupo y reactivar el caso adjuntando el pantallazo de autorizacion en pdf que arroja la herramienta. " + extrae_codfuncionario;
                 }
                 else if (cmbEstado_Operacion.Text == "Devuelto 2")
                 {
-                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Gestionar con el cliente la confirmación de la libranza a través de www.sygnus.co el Plazo máximo para la confirmación es de 48 Horas y reactivar el caso para continuar el proceso de lo contrario se tendrá que reprocesar nuevamente en plataforma. " + extrae_codfuncionario;
+                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Gestionar con el cliente la confirmación de la libranza a través de www.sygnus.co el Plazo máximo para la confirmación es de 48 Horas y reactivar el caso para continuar el proceso de lo contrario se tendrá que reprocesar nuevamente en plataforma. " + extrae_codfuncionario;
                 }
                 else if (cmbEstado_Operacion.Text == "Devuelto 3")
                 {
-                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Se realiza devolución ya que al ingresar a la plataforma Sygnus esta indica que el afiliado debe actualizar sus datos personales. Realizar proceso de actualización con el cliente y reactivar operación. " + extrae_codfuncionario;
+                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Se realiza devolución ya que al ingresar a la plataforma Sygnus esta indica que el afiliado debe actualizar sus datos personales. Realizar proceso de actualización con el cliente y reactivar operación. " + extrae_codfuncionario;
                 }
                 else
                 {
-                    Txtcomentarios.Text = "";
+                    TxtComentarios.Text = "";
                 }
             }
             else if(TxtIDfuncionario.Text =="")
@@ -494,129 +489,123 @@ namespace Usuarios_planta.Formularios
 
                 if (cmbTipologia.Text == "900")
                 {
-                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio " + TxtCodigo_Convenio.Text + " " + cmbDestino.Text + " " + " se envía a VoBo Pagador el " + dtpFecha_Envio.Text + " " + " Con posible fecha de respuesta el " + dtpFecha_Posible_Rta.Text + extrae_codfuncionario + " " + cmbTipologia.Text;
+                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio " + TxtCodigo_Convenio.Text + " " + cmbDestino.Text + " " + " se envía a VoBo Pagador el " + dtpFecha_Envio.Text + " " + " Con posible fecha de respuesta el " + dtpFecha_Posible_Rta.Text + extrae_codfuncionario + " " + cmbTipologia.Text;
                 }
                 else if (cmbTipologia.Text == "901")
                 {
-                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Se envia a VoBo Gic planilla " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Se envia a VoBo Gic planilla " + extrae_codfuncionario + " " + cmbTipologia.Text;
                 }
                 else if (cmbTipologia.Text == "902")
                 {
-                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio " + TxtCodigo_Convenio.Text +" Destino "+ cmbDestino.Text + " Se envia planilla para gestión centro de acopio el " + dtpFecha_Envio.Text + " " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio " + TxtCodigo_Convenio.Text +" Destino "+ cmbDestino.Text + " Se envia planilla para gestión centro de acopio el " + dtpFecha_Envio.Text + " " + extrae_codfuncionario + " " + cmbTipologia.Text;
                 }
                 else if (cmbTipologia.Text == "903")
                 {
-                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Se envía para reporte fin de mes ante el convenio: posible respuesta "+ dtpFecha_Posible_Rta.Text + " "+ extrae_codfuncionario + " " + cmbTipologia.Text;
+                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Se envía para reporte fin de mes ante el convenio: posible respuesta "+ dtpFecha_Posible_Rta.Text + " "+ extrae_codfuncionario + " " + cmbTipologia.Text;
                 }
                 else if (cmbTipologia.Text == "904")
                 {
-                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio " + TxtCodigo_Convenio.Text + " Destino " + cmbDestino.Text + " Convenio en periodo de restricción hasta el "+dtpFecha_Restriccion.Text+" " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio " + TxtCodigo_Convenio.Text + " Destino " + cmbDestino.Text + " Convenio en periodo de restricción hasta el "+dtpFecha_Restriccion.Text+" " + extrae_codfuncionario + " " + cmbTipologia.Text;
                 }
                 else if (cmbTipologia.Text == "905")
                 {
-                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio " + TxtCodigo_Convenio.Text + " Destino " + cmbDestino.Text + " Se radicará en plataforma el día lunes puesto que de acuerdo al circuito no se puede radicar los días viernes. " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio " + TxtCodigo_Convenio.Text + " Destino " + cmbDestino.Text + " Se radicará en plataforma el día lunes puesto que de acuerdo al circuito no se puede radicar los días viernes. " + extrae_codfuncionario + " " + cmbTipologia.Text;
                 }
                 else if (cmbTipologia.Text == "906")
                 {
-                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Centro de acopio informa: " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Centro de acopio informa: " + extrae_codfuncionario + " " + cmbTipologia.Text;
                 }
                 else if (cmbTipologia.Text == "907")
                 {
-                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio se encuentra en periodo de restriccion desde " + dtpFecha_Envio.Text + " Hasta "+ dtpFecha_Restriccion.Text + " " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio se encuentra en periodo de restriccion desde " + dtpFecha_Envio.Text + " Hasta "+ dtpFecha_Restriccion.Text + " " + extrae_codfuncionario + " " + cmbTipologia.Text;
                 }
                 else if (cmbTipologia.Text == "909")
                 {
-                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio " + TxtCodigo_Convenio.Text + " Destino " + cmbDestino.Text+ " se reporta demora convenio al GIC: en espera de respuesta nuevamente del convenio. " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio " + TxtCodigo_Convenio.Text + " Destino " + cmbDestino.Text+ " se reporta demora convenio al GIC: en espera de respuesta nuevamente del convenio. " + extrae_codfuncionario + " " + cmbTipologia.Text;
                 }
                 else if (cmbTipologia.Text == "910")
                 {
-                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio " + TxtCodigo_Convenio.Text + " Destino " + cmbDestino.Text + " se solicitan documentos al archivo para tramite con el convenio. " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio " + TxtCodigo_Convenio.Text + " Destino " + cmbDestino.Text + " se solicitan documentos al archivo para tramite con el convenio. " + extrae_codfuncionario + " " + cmbTipologia.Text;
                 }
                 else if (cmbTipologia.Text == "911")
                 {
-                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio " + TxtCodigo_Convenio.Text + " Destino " + cmbDestino.Text + " área archivo informa que no se han recibido documentos, se solicitaran nuevamente el dia (fecha solicitud documentos archivo). " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio " + TxtCodigo_Convenio.Text + " Destino " + cmbDestino.Text + " área archivo informa que no se han recibido documentos, se solicitaran nuevamente el dia (fecha solicitud documentos archivo). " + extrae_codfuncionario + " " + cmbTipologia.Text;
                 }
                 else if (cmbTipologia.Text == "912")
                 {
-                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio " + TxtCodigo_Convenio.Text + " Destino " + cmbDestino.Text + " en espera de llegada de documentación física por parte de la oficina para proceder con el tramite VoBo (3 días hábiles). " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio " + TxtCodigo_Convenio.Text + " Destino " + cmbDestino.Text + " en espera de llegada de documentación física por parte de la oficina para proceder con el tramite VoBo (3 días hábiles). " + extrae_codfuncionario + " " + cmbTipologia.Text;
                 }
                 else if (cmbTipologia.Text == "913")
                 {
-                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio " + TxtCodigo_Convenio.Text + " Destino " + cmbDestino.Text + " en espera de llegada de copias de cedula al 150% a color  física por parte de la oficina para proceder con el tramite VoBo (3 días hábiles) " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio " + TxtCodigo_Convenio.Text + " Destino " + cmbDestino.Text + " en espera de llegada de copias de cedula al 150% a color  física por parte de la oficina para proceder con el tramite VoBo (3 días hábiles) " + extrae_codfuncionario + " " + cmbTipologia.Text;
                 }
                 else if (cmbTipologia.Text == "914")
                 {
-                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Operación reportada al area de retoques por novedad evaluacion y sancion " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Operación reportada al area de retoques por novedad evaluacion y sancion " + extrae_codfuncionario + " " + cmbTipologia.Text;
                 }
                 else if (cmbTipologia.Text == "915")
                 {
-                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Operación con novedad en validacion con el centro de acopio " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Operación con novedad en validacion con el centro de acopio " + extrae_codfuncionario + " " + cmbTipologia.Text;
                 }
                 else if (cmbTipologia.Text == "917")
                 {
-                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " se solicita bajar monto del credito al area encargada a solicitud del gic del convenio " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " se solicita bajar monto del credito al area encargada a solicitud del gic del convenio " + extrae_codfuncionario + " " + cmbTipologia.Text;
                 }
                 else if (cmbTipologia.Text == "918")
                 {
-                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Operación validada con medios - Operación con recuperación de descuento se gestionará próxima apertura de plataforma " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Operación validada con medios - Operación con recuperación de descuento se gestionará próxima apertura de plataforma " + extrae_codfuncionario + " " + cmbTipologia.Text;
                 }
                 else if (cmbTipologia.Text == "919")
                 {
-                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " se reporta al area de scoring / cierre operativo para ratificacion de condiciones del credito " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " se reporta al area de scoring / cierre operativo para ratificacion de condiciones del credito " + extrae_codfuncionario + " " + cmbTipologia.Text;
                 }
                 else if (cmbTipologia.Text == "920")
                 {
-                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio " + TxtCodigo_Convenio.Text + " Destino " + cmbDestino.Text + " se reporta novedad a área encargada. " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio " + TxtCodigo_Convenio.Text + " Destino " + cmbDestino.Text + " se reporta novedad a área encargada. " + extrae_codfuncionario + " " + cmbTipologia.Text;
                 }
                 else if (cmbTipologia.Text == "921")
                 {
-                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + "  " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio " + TxtCodigo_Convenio.Text + " Destino " + cmbDestino.Text + " información de libranza visada en validación. " + extrae_codfuncionario + " " + cmbTipologia.Text;
                 }
                 else if (cmbTipologia.Text == "922")
                 {
-                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + "  " + extrae_codfuncionario + " " + cmbTipologia.Text;
-                }
-                else if (cmbTipologia.Text == "923")
-                {
-                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + "  " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio " + TxtCodigo_Convenio.Text + " Destino " + cmbDestino.Text + " solicitud de VoBo enviada a la nómina el día " + dtpFecha_Envio.Text + " tiempo máximo de respuesta superado. " + extrae_codfuncionario + " " + cmbTipologia.Text;
                 }
                 else if (cmbTipologia.Text == "924")
                 {
-                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + "  " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio CGR Destino " +cmbDestino.Text +" caso en espera de correo de aprobacion de la contraloria informo datos del credito scoring " + TxtScoring.Text +" Monto " + TxtMonto_Aprobado.Text + " Plazo " + TxtPlazo_Aprobado.Text + " Meses Cuota " + TxtValor_Cuota.Text + " Recuerde enviar Correo de Visto bueno al buzón oscar.godoy@contraloria.gov.co y una vez tenga la respuesta remitirla al buzón de gestion.vobodigital@bbva.com.co " + extrae_codfuncionario + " " + cmbTipologia.Text;
                 }
                 else if (cmbTipologia.Text == "925")
                 {
-                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + "  " + extrae_codfuncionario + " " + cmbTipologia.Text;
-                }
-                else if (cmbTipologia.Text == "926")
-                {
-                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + "  " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " se reporta novedad en herramienta " + extrae_codfuncionario + " " + cmbTipologia.Text;
                 }
                 else if (cmbTipologia.Text == "927")
                 {
-                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + "  " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " pendiente notificacion por cambio de circuito de vobo " + extrae_codfuncionario + " " + cmbTipologia.Text;
                 }
                 else if (cmbTipologia.Text == "928")
                 {
-                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + "  " + extrae_codfuncionario + " " + cmbTipologia.Text;
-                }
-                else if (cmbTipologia.Text == "929")
-                {
-                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + "  " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Se reporta al área de seguros BBVA en espera de respuesta para continuar tramite de visto bueno pagador convenio. " + extrae_codfuncionario + " " + cmbTipologia.Text;
                 }
                 else if (cmbTipologia.Text == "930")
                 {
-                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + "  " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Novedad en el convenio, dirección que indica matriz no se ajusta (esto lo indica el funcionario de domesa). " + extrae_codfuncionario + " " + cmbTipologia.Text;
                 }
                 else if (cmbTipologia.Text == "931")
                 {
-                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + "  " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " se remite informacion del credito al comercial para tramite de vobo ante el convenio " + extrae_codfuncionario + " " + cmbTipologia.Text;
                 }
-                else if (cmbTipologia.Text == "729")
+                
+            }
+            else if (cmbEstado_Operacion.Text == "Gestion Comercial VoBo" && cmbTipologia.Text == "729")
+            {
+                string extrae_codfuncionario;
+                extrae_codfuncionario = TxtIDfuncionario.Text.Substring(TxtIDfuncionario.Text.Length - 3); // extrae los ultimos 3 digitos del textbox 
                 {
-                    Txtcomentarios.Text = fecha.ToString("dd/MM/yyyy") + "  " + extrae_codfuncionario + " " + cmbTipologia.Text;
+                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Para la consecución del VoBo se informa Monto "+ TxtMonto_Aprobado.Text + " Plazo " + TxtPlazo_Aprobado.Text + " Meses por un valor de cuota de " + TxtValor_Cuota.Text + " Valor total crédito " + TxtTotal_Credito.Text +" Gracias "+ extrae_codfuncionario + " " + cmbTipologia.Text;
                 }
-            }else if (cmbEstado_Operacion.Text == "Suspendido" && TxtIDfuncionario.Text == "")
+            }
+            else if (cmbEstado_Operacion.Text == "Suspendido" && TxtIDfuncionario.Text == "")
             {
                 MessageBox.Show("Debe digitar cedula del funcionario que esta gestionando la operacion");
             }
@@ -625,6 +614,26 @@ namespace Usuarios_planta.Formularios
                 MessageBox.Show("Antes de seleccionar una tipologia debe indicar en el estado de la operacion Suspendido");   
                 cmbTipologia.Text=null;
             }
+        }
+
+        private void BtnCopiar_Monto_letras_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetDataObject(TxtMonto_Letras.Text, true);
+        }
+
+        private void BtnCopiar_Total_Letras_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetDataObject(TxtTotal_Letras.Text, true);
+        }
+
+        private void BtnCopiar_Comentarios_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetDataObject(TxtComentarios.Text,true);
+        }
+
+        private void TxtConsecutivo_Validated(object sender, EventArgs e)
+        {
+            TxtLLave.Text = TxtCodigo_Convenio.Text + TxtConsecutivo.Text;
         }
     }
 }
