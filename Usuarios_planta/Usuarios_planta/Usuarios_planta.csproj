@@ -77,12 +77,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Capa presentacion\Cargue_archivos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Capa presentacion\Cargue_archivos.Designer.cs">
-      <DependentUpon>Cargue_archivos.cs</DependentUpon>
-    </Compile>
     <Compile Include="Capa presentacion\Planos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,9 +118,7 @@
     <Compile Include="dia_dia.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Capa presentacion\Cargue_archivos.resx">
-      <DependentUpon>Cargue_archivos.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="usuario.cs" />
     <EmbeddedResource Include="Capa presentacion\Planos.resx">
       <DependentUpon>Planos.cs</DependentUpon>
     </EmbeddedResource>

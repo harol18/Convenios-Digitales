@@ -69,6 +69,8 @@ namespace Usuarios_planta.Formularios
 
         private void FormGiros_Load(object sender, EventArgs e)
         {
+            TxtIDfuncionario.Text = usuario.Identificacion;
+            TxtNomFuncionario.Text = usuario.Nombre;
             lblfecha_actual.Text = fecha.ToString("dd/MM/yyyy");
             dtpFecha_Envio.Text = "01/01/2020";
             dtpFecha_Cierre_Etapa.Text = "01/01/2020";
@@ -232,12 +234,12 @@ namespace Usuarios_planta.Formularios
             ActivateButton(sender, RGBColors.color4);
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            Form formulario = new VoBo();
-            formulario.Show();
-        }
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        //    this.Close();
+        //    Form formulario = new VoBo();
+        //    formulario.Show();
+        //}
 
         private void pictureBox8_Click(object sender, EventArgs e)
         {
@@ -284,12 +286,12 @@ namespace Usuarios_planta.Formularios
            
         }
 
-        private void pictureBox10_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            Form formulario = new VoBo();
-            formulario.Show();
-        }
+        //private void pictureBox10_Click(object sender, EventArgs e)
+        //{
+        //    this.Close();
+        //    Form formulario = new VoBo();
+        //    formulario.Show();
+        //}
 
         private void pictureBox9_Click(object sender, EventArgs e)
         {
@@ -633,7 +635,69 @@ namespace Usuarios_planta.Formularios
 
         private void TxtConsecutivo_Validated(object sender, EventArgs e)
         {
+            string largo = TxtConsecutivo.Text;
+            string extrae;
+            string length = Convert.ToString(largo.Length);
+
+            if (length == "1")
+            {
+                TxtConsecutivo.Text = "0000" + TxtConsecutivo.Text;
+                extrae = TxtConsecutivo.Text.Substring(TxtConsecutivo.Text.Length - 1); // extrae los ultimos 5 digitos del textbox 
+                TxtLLave.Text = TxtCodigo_Convenio.Text + extrae;
+            }
+            else if (length == "2")
+            {
+                TxtConsecutivo.Text = "000" + TxtConsecutivo.Text;
+                extrae = TxtConsecutivo.Text.Substring(TxtConsecutivo.Text.Length - 2); // extrae los ultimos 5 digitos del textbox 
+                TxtLLave.Text = TxtCodigo_Convenio.Text + extrae;
+            }          
+        }
+
+        private void Btn_Nuevo_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Form formulario = new FormGiros();
+            formulario.Show();
+        }
+
+        private void pictureBox10_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Form formulario = new VoBo();
+            formulario.Show();
+        }
+
+        private void TxtCodigo_Convenio_Validated(object sender, EventArgs e)
+        {
+            if (TxtCodigo_Convenio.Text=="NEJ01")
+            {
+                cmbGrado.Enabled = true;
+                TxtCod_Militar1.Enabled = true;
+                TxtCod_militar2.Enabled = true;
+            }
+            else
+            {
+                cmbGrado.Enabled = false;
+                TxtCod_Militar1.Enabled = false;
+                TxtCod_militar2.Enabled = false;
+            }
+        }
+
+        private void TxtCodigo_Convenio_TextChanged(object sender, EventArgs e)
+        {
             TxtLLave.Text = TxtCodigo_Convenio.Text + TxtConsecutivo.Text;
+        }
+
+        private void TxtScoring_Validated(object sender, EventArgs e)
+        {
+            string largo = TxtScoring.Text;
+            string length = Convert.ToString(largo.Length);
+
+            if (Convert.ToInt32(length) < 20)
+            {
+                MessageBox.Show("Numero de scoring no cuenta con los 20 digitos correspondientes !! por favor revisar");
+                TxtScoring.Focus();
+            }           
         }
     }
 }

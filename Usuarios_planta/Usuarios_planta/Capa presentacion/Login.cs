@@ -23,61 +23,42 @@ namespace Usuarios_planta.Capa_presentacion
             InitializeComponent();
         }
 
-        private bool validate_login(string user, string pass)
+
+        public void loguear(string user, string pass)
         {
-            con.Open();
-            MySqlCommand cmd = new MySqlCommand();
-            cmd.CommandText = "Select * from tf_usuarios where Identificacion=@Identificacion and Contraseña=@Contraseña";
-            cmd.Parameters.AddWithValue("@Identificacion", user);
-            cmd.Parameters.AddWithValue("@Contraseña", pass);
-            cmd.Connection = con;
-            MySqlDataReader login = cmd.ExecuteReader();
-            if (login.Read())
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("Select Identificacion,nombre from tf_usuarios where Identificacion=@Identificacion and Contraseña=@Contraseña", con);
+                cmd.Parameters.AddWithValue("@Identificacion", user);
+                cmd.Parameters.AddWithValue("@Contraseña", pass);
+                MySqlDataAdapter sda = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+
+                if (dt.Rows.Count==1)
+                {
+                    this.Hide();
+                    MessageBox.Show("Bienvenido !! " + dt.Rows[0][1].ToString());
+                    usuario.Identificacion = dt.Rows[0][0].ToString();
+                    usuario.Nombre= dt.Rows[0][1].ToString();
+                    Form formulario = new VoBo();
+                    formulario.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Usuario y/o Contraseña incorrectos");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
             {
                 con.Close();
-                return true;
-            }
-            else
-            {
-                con.Close();
-                return false;
             }
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            string user = Txtusuario.Text;
-            string pass = Txtcontraseña.Text;
-            if (user == "" || pass == "")
-            {
-                MessageBox.Show("Campos vacíos detectados ! Por favor, rellene todos los campos");
-                return;
-            }
-            bool r = validate_login(user, pass);
-            if (r)
-            {
-                MessageBox.Show("Bienvenido!!! " + Txtusuario.Text);
-                Form formulario = new VoBo();
-                formulario.Show();
-                this.Hide();
-            }               
-            else
-                MessageBox.Show("Credenciales de inicio de sesión incorrectas");
-                Txtusuario.Clear();
-                Txtcontraseña.Clear();
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-            Txtcontraseña.PasswordChar = '*';
-        }
-
-        private void iconButton3_Click(object sender, EventArgs e)
-        {
-            Txtcontraseña.UseSystemPasswordChar = true;
-            
-        }
-
         private void Txtusuario_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)8;// bloquea el ingreso de letras y el 8 corresponde a la barra espaciador
@@ -86,6 +67,11 @@ namespace Usuarios_planta.Capa_presentacion
         private void button2_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            loguear(Txtusuario.Text, Txtcontraseña.Text);
         }
     }
 }

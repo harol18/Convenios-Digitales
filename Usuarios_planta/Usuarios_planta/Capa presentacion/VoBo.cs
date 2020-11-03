@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Usuarios_planta.Formularios;
 using Usuarios_planta.Capa_presentacion;
-using FontAwesome.Sharp; // libreria para utilizar los iconbutton y los iconos
+using FontAwesome.Sharp; // libreria para utilizar los iconbutton
 
 namespace Usuarios_planta
 {
@@ -174,11 +174,6 @@ namespace Usuarios_planta
             panelSideMenu.Visible = false;
         }
 
-        private void BtnCargue_archivos_Click(object sender, EventArgs e)
-        {
-            AbrirFormHijo(new Cargue_archivos());
-        }
-
         private void BtnCargue_archivos_MouseHover(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color4);
@@ -230,6 +225,17 @@ namespace Usuarios_planta
         private void Btnplanos_dia_Click(object sender, EventArgs e)
         {
             AbrirFormHijo(new Planos_dia());
+        }
+
+        private void Btn_Notificacion_Click(object sender, EventArgs e)
+        {
+
+            AbrirFormHijo(new Informes());
+        }
+
+        private void VoBo_Load(object sender, EventArgs e)
+        {
+            lbfuncionario.Text = usuario.Nombre;
         }
     }
 }
