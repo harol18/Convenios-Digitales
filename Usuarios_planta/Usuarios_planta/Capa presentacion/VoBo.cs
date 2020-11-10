@@ -201,7 +201,7 @@ namespace Usuarios_planta
 
         private void Btnplanos_ckl_Click(object sender, EventArgs e)
         {
-            AbrirFormHijo(new Planos());
+            
         }
 
         private void panelTitulo_MouseMove(object sender, MouseEventArgs e)
@@ -224,7 +224,7 @@ namespace Usuarios_planta
 
         private void Btnplanos_dia_Click(object sender, EventArgs e)
         {
-            AbrirFormHijo(new Planos_dia());
+            
         }
 
         private void Btn_Notificacion_Click(object sender, EventArgs e)

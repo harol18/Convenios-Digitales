@@ -14,18 +14,18 @@ using System.Net.Security;
 using System.Globalization;
 using Color = System.Drawing.Color;
 using System.ComponentModel.Design;
+using Usuarios_planta.Capa_presentacion;
 
 namespace Usuarios_planta.Formularios
 {
     public partial class FormGiros : Form
     {
-        MySqlConnection con = new MySqlConnection("server=;Uid=;password=;database=dblibranza;port=3306;persistsecurityinfo=True;");
+        MySqlConnection con = new MySqlConnection("server=localhost;Uid=root;password=Indr42020$;database=dblibranza;port=3306;persistsecurityinfo=True;");
 
         Comandos cmds = new Comandos();
         Conversion c = new Conversion();
         private Button currentBtn;
         
-
 
         public FormGiros()
         {
@@ -69,15 +69,13 @@ namespace Usuarios_planta.Formularios
 
         private void FormGiros_Load(object sender, EventArgs e)
         {
-            TxtIDfuncionario.Text = usuario.Identificacion;
-            TxtNomFuncionario.Text = usuario.Nombre;
             lblfecha_actual.Text = fecha.ToString("dd/MM/yyyy");
             dtpFecha_Envio.Text = "01/01/2020";
-            dtpFecha_Cierre_Etapa.Text = "01/01/2020";
             dtpFecha_Posible_Rta.Text = "01/01/2020";
             dtpFecha_Restriccion.Text = "01/01/2020";
+            dtpFecha_Cierre_Etapa.Text = "01/01/2020";
             TxtCod_Militar1.Enabled = false;
-            TxtCod_militar2.Enabled = false;
+            TxtCod_Militar2.Enabled = false;
             cmbGrado.Enabled = false;
             TxtCartera1.Visible = false;
             TxtCartera2.Visible = false;
@@ -96,17 +94,67 @@ namespace Usuarios_planta.Formularios
 
         private void Btnbuscar_Click(object sender, EventArgs e)
         {
-
-            //cmds.buscar_colp(Txtradicado, Txtcedula, Txtnombre, TxtEstado_cliente,Txtafiliacion1, Txtafiliacion2, cmbtipo, Txtscoring, Txtconsecutivo,
-            //                 cmbfuerza, cmbdestino, Txtmonto, Txtplazo, Txtcuota, Txttotal, Txtpagare, Txtnit, Txtentidad, Txtcuota_letras,
-            //                 Txttotal_letras, cmbestado, cmbcargue, dtpcargue, dtpfecha_desembolso, cmbresultado, cmbrechazo, dtpfecha_rpta,
-            //                 Txtplano_dia, Txtplano_pre, TxtN_Plano, Txtcomentarios, TxtIDfuncionario, TxtNomFuncionario);
-
-            if (TxtCartera1.Text!="")
+            cmds.Buscar_vobo(TxtRadicado, TxtCedula_Cliente, TxtNombre_Cliente, TxtScoring, cmbFuerza_Venta, TxtCodigo_Convenio, TxtConsecutivo,
+                             TxtLLave, cmbGrado, TxtCod_Militar1, TxtCod_Militar2, cmbDestino, TxtSubproducto, TxtTasa_E_A, TxtTasa_N_M,
+                             TxtMonto_Aprobado, TxtPlazo_Aprobado, TxtValor_Cuota, TxtTotal_Credito, TxtMonto_Letras, TxtTotal_Letras, TxtCartera1,
+                             TxtCartera2, TxtCartera3, TxtCartera4, dtpFecha_Envio, cmbCorte_Envio, dtpHora_Envio, dtpFecha_Posible_Rta,
+                             dtpFecha_Restriccion, cmbEstado_Operacion, cmbTipologia, TxtEstado_Correo, TtxRespuesta_Correo, dtpFecha_Cierre_Etapa,
+                             TxtComentarios);
+            if (TxtCartera1.Text!="" && TxtCartera2.Text != ""&& TxtCartera3.Text != ""&& TxtCartera4.Text != "")
             {
                 TxtCartera1.Visible = true;
+                TxtCartera2.Visible = true;
+                TxtCartera3.Visible = true;
+                TxtCartera4.Visible = true;
+                lbcartera1.Visible = true;
+                lbcartera2.Visible = true;
+                lbcartera3.Visible = true;
+                lbcartera4.Visible = true;
             }
-
+            else if (TxtCartera1.Text != "" && TxtCartera2.Text != "" && TxtCartera3.Text != "" && TxtCartera4.Text == "")
+            {
+                TxtCartera1.Visible = true;
+                TxtCartera2.Visible = true;
+                TxtCartera3.Visible = true;
+                TxtCartera4.Visible = false;
+                lbcartera1.Visible = true;
+                lbcartera2.Visible = true;
+                lbcartera3.Visible = true;
+                lbcartera4.Visible = false;
+            }
+            else if (TxtCartera1.Text != "" && TxtCartera2.Text != "" && TxtCartera3.Text == "" && TxtCartera4.Text == "")
+            {
+                TxtCartera1.Visible = true;
+                TxtCartera2.Visible = true;
+                TxtCartera3.Visible = false;
+                TxtCartera4.Visible = false;
+                lbcartera1.Visible = true;
+                lbcartera2.Visible = true;
+                lbcartera3.Visible = false;
+                lbcartera4.Visible = false;
+            }
+            else if (TxtCartera1.Text != "" && TxtCartera2.Text == "" && TxtCartera3.Text == "" && TxtCartera4.Text == "")
+            {
+                TxtCartera1.Visible = true;
+                TxtCartera2.Visible = false;
+                TxtCartera3.Visible = false;
+                TxtCartera4.Visible = false;
+                lbcartera1.Visible = true;
+                lbcartera2.Visible = false;
+                lbcartera3.Visible = false;
+                lbcartera4.Visible = false;
+            }
+            else
+            {
+                TxtCartera1.Visible = false;
+                TxtCartera2.Visible = false;
+                TxtCartera3.Visible = false;
+                TxtCartera4.Visible = false;
+                lbcartera1.Visible = false;
+                lbcartera2.Visible = false;
+                lbcartera3.Visible = false;
+                lbcartera4.Visible = false;
+            }
         }
 
         private void Btnsalir_Click(object sender, EventArgs e)
@@ -124,7 +172,7 @@ namespace Usuarios_planta.Formularios
             if (Convert.ToDouble(TxtMonto_Aprobado.Text) > 0)
             {
                 TxtMonto_Aprobado.Text = string.Format("{0:#,##0}", double.Parse(TxtMonto_Aprobado.Text));
-                
+
             }
             else if (TxtMonto_Aprobado.Text == "")
             {
@@ -151,12 +199,7 @@ namespace Usuarios_planta.Formularios
             {
                 ok = false;
                 epError.SetError(TxtPlazo_Aprobado, "Debes digitar Plazo");
-            }
-            if (TxtIDfuncionario.Text == "")
-            {
-                ok = false;
-                epError.SetError(TxtIDfuncionario, "Debes digitar N° Identificación");
-            }
+            }            
             return ok;
         }
 
@@ -164,8 +207,7 @@ namespace Usuarios_planta.Formularios
         {
             epError.SetError(TxtScoring, "");
             epError.SetError(TxtMonto_Aprobado, "");
-            epError.SetError(TxtPlazo_Aprobado, "");
-            epError.SetError(TxtIDfuncionario, "");
+            epError.SetError(TxtPlazo_Aprobado, "");            
         }
 
 
@@ -187,21 +229,16 @@ namespace Usuarios_planta.Formularios
               
         private void Btn_Guardar_Click(object sender, EventArgs e)
         {
-            //BorrarMensajeError();
-            //if (validar())
-            //{
-            //    cmds.Insertar_colp(Txtradicado,Txtcedula,Txtnombre, TxtEstado_cliente, Txtafiliacion1,Txtafiliacion2,cmbtipo,
-            //                       Txtscoring,Txtconsecutivo,cmbfuerza,cmbdestino,Txtmonto,Txtplazo,Txtcuota,Txttotal,Txtpagare,Txtnit,Txtentidad,
-            //                       Txtcuota_letras,Txttotal_letras,cmbestado,cmbcargue,dtpcargue,dtpfecha_desembolso,cmbresultado,
-            //                       cmbrechazo,dtpfecha_rpta,Txtplano_dia,Txtplano_pre,TxtN_Plano,Txtcomentarios,TxtIDfuncionario,
-            //                       TxtNomFuncionario);
-
-            //    Btn_Actualizar.Enabled = true;
-            //    Btn_Guardar.Enabled = true;
-            //    this.Close();
-            //    Form formulario = new FormGiros();
-            //    formulario.Show();
-            //}
+            BorrarMensajeError();
+            if (validar())
+            {
+                cmds.Guardar_vobo(TxtRadicado, TxtCedula_Cliente, TxtNombre_Cliente, TxtScoring, cmbFuerza_Venta, TxtCodigo_Convenio, TxtConsecutivo,
+                                  TxtLLave, cmbGrado, TxtCod_Militar1, TxtCod_Militar2, cmbDestino, TxtSubproducto, TxtTasa_E_A, TxtTasa_N_M,
+                                  TxtMonto_Aprobado, TxtPlazo_Aprobado, TxtValor_Cuota, TxtTotal_Credito, TxtMonto_Letras, TxtTotal_Letras, TxtCartera1,
+                                  TxtCartera2, TxtCartera3, TxtCartera4, dtpFecha_Envio, cmbCorte_Envio, dtpHora_Envio, dtpFecha_Posible_Rta,
+                                  dtpFecha_Restriccion, cmbEstado_Operacion, cmbTipologia, TxtEstado_Correo, TtxRespuesta_Correo, dtpFecha_Cierre_Etapa,
+                                  TxtComentarios);               
+            }
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
@@ -248,50 +285,31 @@ namespace Usuarios_planta.Formularios
 
         private void cmbestado_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (TxtIDfuncionario.Text!="")
+            string extrae_codfuncionario;
+
+            extrae_codfuncionario = usuario.Identificacion.Substring(usuario.Identificacion.Length - 3); // extrae los ultimos 5 digitos del textbox 
+
+            if (cmbEstado_Operacion.Text == "Aprobado")
             {
-                string extrae_codfuncionario;
-
-                extrae_codfuncionario = TxtIDfuncionario.Text.Substring(TxtIDfuncionario.Text.Length - 3); // extrae los ultimos 5 digitos del textbox 
-
-                if (cmbEstado_Operacion.Text == "Aprobado")
-                {
-                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Crédito aprobado scoring " + TxtScoring.Text + " Monto " + TxtMonto_Aprobado.Text + " Plazo " + TxtPlazo_Aprobado.Text + " Meses Destino " + cmbDestino.Text + " " + extrae_codfuncionario;
-                }
-                else if (cmbEstado_Operacion.Text == "Negado")
-                {
-                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Crédito negado por el pagador " + extrae_codfuncionario;
-                }
-                else if (cmbEstado_Operacion.Text == "Devuelto 1")
-                {
-                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Gestionar con el pensionado la autorización para la consulta de cupo y reactivar el caso adjuntando el pantallazo de autorizacion en pdf que arroja la herramienta. " + extrae_codfuncionario;
-                }
-                else if (cmbEstado_Operacion.Text == "Devuelto 2")
-                {
-                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Gestionar con el cliente la confirmación de la libranza a través de www.sygnus.co el Plazo máximo para la confirmación es de 48 Horas y reactivar el caso para continuar el proceso de lo contrario se tendrá que reprocesar nuevamente en plataforma. " + extrae_codfuncionario;
-                }
-                else if (cmbEstado_Operacion.Text == "Devuelto 3")
-                {
-                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Se realiza devolución ya que al ingresar a la plataforma Sygnus esta indica que el afiliado debe actualizar sus datos personales. Realizar proceso de actualización con el cliente y reactivar operación. " + extrae_codfuncionario;
-                }
-                else
-                {
-                    TxtComentarios.Text = "";
-                }
+                TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Crédito aprobado scoring " + TxtScoring.Text + " Monto " + TxtMonto_Aprobado.Text + " Plazo " + TxtPlazo_Aprobado.Text + " Meses Destino " + cmbDestino.Text + " " + extrae_codfuncionario;
             }
-            else if(TxtIDfuncionario.Text =="")
+            else if (cmbEstado_Operacion.Text == "Negado")
             {
-                MessageBox.Show("Antes de seleccionar estado de la operacion por favor digitar la cedula del funcionario")
-;           }
-           
+                TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Crédito negado por el pagador " + extrae_codfuncionario;
+            }
+            else if (cmbEstado_Operacion.Text == "Devuelto 1")
+            {
+                TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Gestionar con el pensionado la autorización para la consulta de cupo y reactivar el caso adjuntando el pantallazo de autorizacion en pdf que arroja la herramienta. " + extrae_codfuncionario;
+            }
+            else if (cmbEstado_Operacion.Text == "Devuelto 2")
+            {
+                TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Gestionar con el cliente la confirmación de la libranza a través de www.sygnus.co el Plazo máximo para la confirmación es de 48 Horas y reactivar el caso para continuar el proceso de lo contrario se tendrá que reprocesar nuevamente en plataforma. " + extrae_codfuncionario;
+            }
+            else if (cmbEstado_Operacion.Text == "Devuelto 3")
+            {
+                TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Se realiza devolución ya que al ingresar a la plataforma Sygnus esta indica que el afiliado debe actualizar sus datos personales. Realizar proceso de actualización con el cliente y reactivar operación. " + extrae_codfuncionario;
+            }
         }
-
-        //private void pictureBox10_Click(object sender, EventArgs e)
-        //{
-        //    this.Close();
-        //    Form formulario = new VoBo();
-        //    formulario.Show();
-        //}
 
         private void pictureBox9_Click(object sender, EventArgs e)
         {
@@ -436,7 +454,7 @@ namespace Usuarios_planta.Formularios
 
         private void TxtCod_militar2_Validated(object sender, EventArgs e)
         {
-            if (TxtCod_militar2.Text != TxtCod_Militar1.Text)
+            if (TxtCod_Militar2.Text != TxtCod_Militar1.Text)
             {
                 MessageBox.Show("Codigo militar no coincide, por favor revisar");
                 TxtCod_Militar1.Focus();
@@ -466,32 +484,18 @@ namespace Usuarios_planta.Formularios
                 lbcartera4.Visible = true;
             }
         }
-
-        private void TxtIDfuncionario_Validated(object sender, EventArgs e)
-        {
-            MySqlCommand comando = new MySqlCommand("SELECT * FROM tf_usuarios WHERE Identificacion = @Identificacion ", con);
-            comando.Parameters.AddWithValue("@Identificacion", TxtIDfuncionario.Text);
-            con.Open();
-            MySqlDataReader registro = comando.ExecuteReader();
-            if (registro.Read())
-            {
-                TxtNomFuncionario.Text = registro["Nombre"].ToString();
-            }
-            con.Close();
-        }
-
         private void cmbTipologia_SelectedIndexChanged(object sender, EventArgs e)
         {
             
-            if (cmbEstado_Operacion.Text == "Suspendido" && TxtIDfuncionario.Text!="")
+            if (cmbEstado_Operacion.Text == "Suspendido")
             {
                 string extrae_codfuncionario;
 
-                extrae_codfuncionario = TxtIDfuncionario.Text.Substring(TxtIDfuncionario.Text.Length - 3); // extrae los ultimos 3 digitos del textbox 
+                extrae_codfuncionario = usuario.Identificacion.Substring(usuario.Identificacion.Length - 3); // extrae los ultimos 3 digitos del textbox 
 
                 if (cmbTipologia.Text == "900")
                 {
-                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio " + TxtCodigo_Convenio.Text + " " + cmbDestino.Text + " " + " se envía a VoBo Pagador el " + dtpFecha_Envio.Text + " " + " Con posible fecha de respuesta el " + dtpFecha_Posible_Rta.Text + extrae_codfuncionario + " " + cmbTipologia.Text;
+                    TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Convenio " + TxtCodigo_Convenio.Text + " " + cmbDestino.Text + " " + " se envía a VoBo Pagador el " + dtpFecha_Envio.Text + " " + " Con posible fecha de respuesta el " + dtpFecha_Posible_Rta.Text + " " + extrae_codfuncionario + " " + cmbTipologia.Text;
                 }
                 else if (cmbTipologia.Text == "901")
                 {
@@ -596,21 +600,16 @@ namespace Usuarios_planta.Formularios
                 else if (cmbTipologia.Text == "931")
                 {
                     TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " se remite informacion del credito al comercial para tramite de vobo ante el convenio " + extrae_codfuncionario + " " + cmbTipologia.Text;
-                }
-                
+                }                
             }
             else if (cmbEstado_Operacion.Text == "Gestion Comercial VoBo" && cmbTipologia.Text == "729")
             {
                 string extrae_codfuncionario;
-                extrae_codfuncionario = TxtIDfuncionario.Text.Substring(TxtIDfuncionario.Text.Length - 3); // extrae los ultimos 3 digitos del textbox 
+                extrae_codfuncionario = usuario.Identificacion.Substring(usuario.Identificacion.Length - 3); // extrae los ultimos 3 digitos del textbox 
                 {
                     TxtComentarios.Text = fecha.ToString("dd/MM/yyyy") + " Para la consecución del VoBo se informa Monto "+ TxtMonto_Aprobado.Text + " Plazo " + TxtPlazo_Aprobado.Text + " Meses por un valor de cuota de " + TxtValor_Cuota.Text + " Valor total crédito " + TxtTotal_Credito.Text +" Gracias "+ extrae_codfuncionario + " " + cmbTipologia.Text;
                 }
-            }
-            else if (cmbEstado_Operacion.Text == "Suspendido" && TxtIDfuncionario.Text == "")
-            {
-                MessageBox.Show("Debe digitar cedula del funcionario que esta gestionando la operacion");
-            }
+            }            
             else
             {
                 MessageBox.Show("Antes de seleccionar una tipologia debe indicar en el estado de la operacion Suspendido");   
@@ -669,18 +668,35 @@ namespace Usuarios_planta.Formularios
 
         private void TxtCodigo_Convenio_Validated(object sender, EventArgs e)
         {
-            if (TxtCodigo_Convenio.Text=="NEJ01")
+            string cadena = TxtCodigo_Convenio.Text;
+            string codigo_convenio = cadena.Substring(0, 3);
+
+            MySqlCommand comando = new MySqlCommand("SELECT Nombre_Convenio,Restriccion,Horarios_Gestion FROM matriz_convenios WHERE Codigo_Convenio = @Codigo_Convenio ", con);
+            comando.Parameters.AddWithValue("@Codigo_Convenio", codigo_convenio);
+            con.Open();
+            MySqlDataReader registro = comando.ExecuteReader();
+            if (registro.Read())
+            {
+                TxtNombre_Conveniomt.Text = registro["Nombre_Convenio"].ToString();
+                TxtRestriccionmt.Text = registro["Restriccion"].ToString();
+                Txt_Horarios_gestionmt.Text = registro["Horarios_Gestion"].ToString();
+                
+            }
+
+                if (TxtCodigo_Convenio.Text=="NEJ01")
             {
                 cmbGrado.Enabled = true;
                 TxtCod_Militar1.Enabled = true;
-                TxtCod_militar2.Enabled = true;
+                TxtCod_Militar2.Enabled = true;
             }
             else
             {
                 cmbGrado.Enabled = false;
                 TxtCod_Militar1.Enabled = false;
-                TxtCod_militar2.Enabled = false;
-            }
+                TxtCod_Militar2.Enabled = false;
+            } 
+            
+
         }
 
         private void TxtCodigo_Convenio_TextChanged(object sender, EventArgs e)
@@ -698,6 +714,12 @@ namespace Usuarios_planta.Formularios
                 MessageBox.Show("Numero de scoring no cuenta con los 20 digitos correspondientes !! por favor revisar");
                 TxtScoring.Focus();
             }           
+        }
+
+        private void Abrir_Matriz(object sender, EventArgs e)
+        {
+            Form formulario = new Matriz_Convenios();
+            formulario.Show();
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Usuarios_planta.Formularios
     public partial class Informes : Form
     {
 
-        MySqlConnection con = new MySqlConnection("server=82.2.121.99;Uid=userapp;password=userapp;database=dblibranza;port=3306;persistsecurityinfo=True;");
+        MySqlConnection con = new MySqlConnection("server=;Uid=;password=;database=dblibranza;port=3306;persistsecurityinfo=True;");
 
         Comandos cmds = new Comandos();
         dia_dia cmds_dia = new dia_dia();
@@ -28,7 +28,7 @@ namespace Usuarios_planta.Formularios
 
         private void Btn_busqueda_Click(object sender, EventArgs e)
         {
-            cmds.jueves_cklibranza(dgv_informes,dtpinicio,dtpfinal);
+         
         }
 
         private void Btn_Crear_plano_Click(object sender, EventArgs e)

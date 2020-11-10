@@ -9,64 +9,68 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DocumentFormat.OpenXml.Drawing;
 using MySql.Data.MySqlClient;
-using Usuarios_planta.Formularios;
+
 
 namespace Usuarios_planta
 {
     class Comandos
     {
 
-        MySqlConnection con = new MySqlConnection("server=;Uid=;password=;database=dblibranza;port=3306;persistsecurityinfo=True;");
+        MySqlConnection con = new MySqlConnection("server=localhost;Uid=root;password=Indr42020$;database=dblibranza;port=3306;persistsecurityinfo=True;");
 
 
-
-        public void Insertar_colp(TextBox Txtradicado, TextBox Txtcedula, TextBox Txtnombre, TextBox TxtEstado_cliente, TextBox Txtafiliacion1, TextBox Txtafiliacion2,
-                                  ComboBox cmbtipo, TextBox Txtscoring, TextBox Txtconsecutivo, ComboBox cmbfuerza, ComboBox cmbdestino, TextBox Txtmonto, TextBox Txtplazo, TextBox Txtcuota, TextBox Txttotal,
-                                  TextBox Txtpagare, TextBox Txtnit, TextBox Txtentidad, TextBox Txtcuota_letras, TextBox Txttotal_letras, ComboBox cmbestado, ComboBox cmbcargue,
-                                  DateTimePicker dtpcargue, DateTimePicker dtpfecha_desembolso, ComboBox cmbresultado, ComboBox cmbrechazo, DateTimePicker dtpfecha_rpta,
-                                  TextBox Txtplano_dia, TextBox Txtplano_pre, TextBox TxtN_Plano, TextBox Txtcomentarios, TextBox TxtIDfuncionario, TextBox TxtNomFuncionario)
+        public void Guardar_vobo(TextBox TxtRadicado, TextBox TxtCedula_Cliente, TextBox TxtNombre_Cliente, TextBox TxtScoring, ComboBox cmbFuerza_Venta, TextBox TxtCodigo_Convenio, TextBox TxtConsecutivo, 
+                                  TextBox TxtLLave, ComboBox cmbGrado, TextBox TxtCod_Militar1, TextBox TxtCod_Militar2, ComboBox cmbDestino, TextBox TxtSubproducto, TextBox TxtTasa_E_A, TextBox TxtTasa_N_M, 
+                                  TextBox TxtMonto_Aprobado, TextBox TxtPlazo_Aprobado, TextBox TxtValor_Cuota, TextBox TxtTotal_Credito, TextBox TxtMonto_Letras, TextBox TxtTotal_Letras, TextBox TxtCartera1, 
+                                  TextBox TxtCartera2, TextBox TxtCartera3, TextBox TxtCartera4, DateTimePicker dtpFecha_Envio, ComboBox cmbCorte_Envio, DateTimePicker dtpHora_Envio, DateTimePicker dtpFecha_Posible_Rta, 
+                                  DateTimePicker dtpFecha_Restriccion, ComboBox cmbEstado_Operacion, ComboBox cmbTipologia, ComboBox TxtEstado_Correo, ComboBox TtxRespuesta_Correo, DateTimePicker dtpFecha_Cierre_Etapa, 
+                                  TextBox TxtComentarios)
         {
             con.Open(); 
-            MySqlCommand cmd = new MySqlCommand("insertar_colp", con);
+            MySqlCommand cmd = new MySqlCommand("Guardar_vobo", con);
             MySqlTransaction myTrans; // Iniciar una transacción local 
             myTrans = con.BeginTransaction(); // Debe asignar tanto el objeto de transacción como la conexión // al objeto de Comando para una transacción local pendiente
             try
             {
 
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@_Radicado", Txtradicado.Text);
-                cmd.Parameters.AddWithValue("@_Cedula", Txtcedula.Text);
-                cmd.Parameters.AddWithValue("@_Nombre_Cliente", Txtnombre.Text);
-                cmd.Parameters.AddWithValue("@_Estado_Cliente", TxtEstado_cliente.Text);
-                cmd.Parameters.AddWithValue("@_N_Afiliacion1", Txtafiliacion1.Text);
-                cmd.Parameters.AddWithValue("@_N_Afiliacion2", Txtafiliacion2.Text);
-                cmd.Parameters.AddWithValue("@_Tipo_Documento", cmbtipo.Text);
-                cmd.Parameters.AddWithValue("@_Scoring", Txtscoring.Text);
-                cmd.Parameters.AddWithValue("@_Consecutivo", Txtconsecutivo.Text);
-                cmd.Parameters.AddWithValue("@_Fuerza_Venta", cmbfuerza.Text);
-                cmd.Parameters.AddWithValue("@_Destino", cmbdestino.Text);
-                cmd.Parameters.AddWithValue("@_Monto_Aprobado", Txtmonto.Text);
-                cmd.Parameters.AddWithValue("@_Plazo_Aprobado", Txtplazo.Text);
-                cmd.Parameters.AddWithValue("@_Cuota", string.Format("{0:#}", double.Parse(Txtcuota.Text)));// se formate el numero para que no vaya con el . de la separacion de miles
-                cmd.Parameters.AddWithValue("@_Total", Txttotal.Text);
-                cmd.Parameters.AddWithValue("@_Pagare", Txtpagare.Text);
-                cmd.Parameters.AddWithValue("@_Nit", Txtnit.Text);
-                cmd.Parameters.AddWithValue("@_Entidades", Txtentidad.Text);
-                cmd.Parameters.AddWithValue("@_Cuota_Letras", Txtcuota_letras.Text);
-                cmd.Parameters.AddWithValue("@_Total_Letras", Txttotal_letras.Text);
-                cmd.Parameters.AddWithValue("@_Estado_operacion", cmbestado.Text);
-                cmd.Parameters.AddWithValue("@_Estado_cargue", cmbcargue.Text);
-                cmd.Parameters.AddWithValue("@_Fecha_Cargue", dtpcargue.Text);
-                cmd.Parameters.AddWithValue("@_Fecha_desembolso", dtpfecha_desembolso.Text);
-                cmd.Parameters.AddWithValue("@_Respuesta_Cargue", cmbresultado.Text);
-                cmd.Parameters.AddWithValue("@_Causal_Rechazo", cmbrechazo.Text);
-                cmd.Parameters.AddWithValue("@_Fecha_respuesta", dtpfecha_rpta.Text);
-                cmd.Parameters.AddWithValue("@_Plano_Dia", Txtplano_dia.Text);
-                cmd.Parameters.AddWithValue("@_Plano_Pre", Txtplano_pre.Text);
-                cmd.Parameters.AddWithValue("@_Plano", TxtN_Plano.Text);
-                cmd.Parameters.AddWithValue("@_Comentarios", Txtcomentarios.Text);
-                cmd.Parameters.AddWithValue("@_Id_Funcionario", TxtIDfuncionario.Text);
-                cmd.Parameters.AddWithValue("@_Nombre_Funcionario", TxtNomFuncionario.Text);
+                cmd.Parameters.AddWithValue("@_Radicado", TxtRadicado.Text);
+                cmd.Parameters.AddWithValue("@_Cedula_Cliente", TxtCedula_Cliente.Text);
+                cmd.Parameters.AddWithValue("@_Nombre_Cliente", TxtNombre_Cliente.Text);
+                cmd.Parameters.AddWithValue("@_Scoring", TxtScoring.Text);
+                cmd.Parameters.AddWithValue("@_Fuerza_Venta", cmbFuerza_Venta.Text);
+                cmd.Parameters.AddWithValue("@_Codigo_Convenio", TxtCodigo_Convenio.Text);
+                cmd.Parameters.AddWithValue("@_Consecutivo", TxtConsecutivo.Text);
+                cmd.Parameters.AddWithValue("@_LLave", TxtLLave.Text);
+                cmd.Parameters.AddWithValue("@_Grado", cmbGrado.Text);
+                cmd.Parameters.AddWithValue("@_Cod_Militar1", TxtCod_Militar1.Text);
+                cmd.Parameters.AddWithValue("@_Cod_Militar2", TxtCod_Militar2.Text);                
+                cmd.Parameters.AddWithValue("@_Destino", cmbDestino.Text);
+                cmd.Parameters.AddWithValue("@_Subproducto", TxtSubproducto.Text);
+                cmd.Parameters.AddWithValue("@_Tasa_E_A", TxtTasa_E_A.Text);
+                cmd.Parameters.AddWithValue("@_Tasa_N_M", TxtTasa_N_M.Text);
+                cmd.Parameters.AddWithValue("@_Monto_Aprobado", string.Format("{0:#}", double.Parse(TxtMonto_Aprobado.Text)));
+                cmd.Parameters.AddWithValue("@_Plazo_Aprobado", TxtPlazo_Aprobado.Text);
+                cmd.Parameters.AddWithValue("@_Valor_Cuota", string.Format("{0:#}", double.Parse(TxtValor_Cuota.Text)));
+                cmd.Parameters.AddWithValue("@_Total_Credito", string.Format("{0:#}", double.Parse(TxtTotal_Credito.Text)));
+                cmd.Parameters.AddWithValue("@_Monto_Letras", TxtMonto_Letras.Text);
+                cmd.Parameters.AddWithValue("@_Total_Letras", TxtTotal_Letras.Text);
+                cmd.Parameters.AddWithValue("@_Cartera1", TxtCartera1.Text);
+                cmd.Parameters.AddWithValue("@_Cartera2", TxtCartera2.Text);
+                cmd.Parameters.AddWithValue("@_Cartera3", TxtCartera3.Text);
+                cmd.Parameters.AddWithValue("@_Cartera4", TxtCartera4.Text);
+                cmd.Parameters.AddWithValue("@_Fecha_Envio", dtpFecha_Envio.Text);
+                cmd.Parameters.AddWithValue("@_Corte_Envio", cmbCorte_Envio.Text);
+                cmd.Parameters.AddWithValue("@_Hora_Envio", dtpHora_Envio.Text);
+                cmd.Parameters.AddWithValue("@_Fecha_Posible_Rta", dtpFecha_Posible_Rta.Text);
+                cmd.Parameters.AddWithValue("@_Fecha_Restriccion", dtpFecha_Restriccion.Text);
+                cmd.Parameters.AddWithValue("@_Estado_Operacion", cmbEstado_Operacion.Text);
+                cmd.Parameters.AddWithValue("@_Tipologia", cmbTipologia.Text);
+                cmd.Parameters.AddWithValue("@_Estado_Correo", TxtEstado_Correo.Text);
+                cmd.Parameters.AddWithValue("@_Respuesta_Correo", TtxRespuesta_Correo.Text);
+                cmd.Parameters.AddWithValue("@_Fecha_Cierre_Etapa", dtpFecha_Cierre_Etapa.Text);
+                cmd.Parameters.AddWithValue("@_Comentarios", TxtComentarios.Text);
+                cmd.Parameters.AddWithValue("@_Nombre_Funcionario", usuario.Nombre);
                 cmd.ExecuteNonQuery();
                 myTrans.Commit();
                 MessageBox.Show("Información Almacenada con Éxito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -82,152 +86,98 @@ namespace Usuarios_planta
             }
         }
 
-        public void actualizar_colp(TextBox Txtradicado, TextBox Txtcedula, TextBox Txtnombre, TextBox TxtEstado_cliente, TextBox Txtafiliacion1, TextBox Txtafiliacion2,
-                                    ComboBox cmbtipo, TextBox Txtscoring, TextBox Txtconsecutivo, ComboBox cmbfuerza, ComboBox cmbdestino, TextBox Txtmonto, TextBox Txtplazo, TextBox Txtcuota, TextBox Txttotal,
-                                    TextBox Txtpagare, TextBox Txtnit, TextBox Txtentidad, TextBox Txtcuota_letras, TextBox Txttotal_letras, ComboBox cmbestado, ComboBox cmbcargue,
-                                    DateTimePicker dtpcargue, DateTimePicker dtpfecha_desembolso, ComboBox cmbresultado, ComboBox cmbrechazo, DateTimePicker dtpfecha_rpta,
-                                    TextBox Txtplano_dia, TextBox Txtplano_pre, TextBox TxtN_Plano, TextBox Txtcomentarios, TextBox TxtIDfuncionario, TextBox TxtNomFuncionario)
-        {
-            con.Open();
-            MySqlCommand cmd = new MySqlCommand("actualizar_colp", con);
-            MySqlTransaction myTrans; // Iniciar una transacción local 
-            myTrans = con.BeginTransaction(); // Debe asignar tanto el objeto de transacción como la conexión // al objeto de Comando para una transacción local pendiente 
-
-            try
-            {
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@_Radicado", Txtradicado.Text);
-                cmd.Parameters.AddWithValue("@_Cedula", Txtcedula.Text);
-                cmd.Parameters.AddWithValue("@_Nombre_Cliente", Txtnombre.Text);
-                cmd.Parameters.AddWithValue("@_Estado_Cliente", TxtEstado_cliente.Text);
-                cmd.Parameters.AddWithValue("@_N_Afiliacion1", Txtafiliacion1.Text);
-                cmd.Parameters.AddWithValue("@_N_Afiliacion2", Txtafiliacion2.Text);
-                cmd.Parameters.AddWithValue("@_Tipo_Documento", cmbtipo.Text);
-                cmd.Parameters.AddWithValue("@_Scoring", Txtscoring.Text);
-                cmd.Parameters.AddWithValue("@_Consecutivo", Txtconsecutivo.Text);
-                cmd.Parameters.AddWithValue("@_Fuerza_Venta", cmbfuerza.Text);
-                cmd.Parameters.AddWithValue("@_Destino", cmbdestino.Text);
-                cmd.Parameters.AddWithValue("@_Monto_Aprobado", Txtmonto.Text);
-                cmd.Parameters.AddWithValue("@_Plazo_Aprobado", Txtplazo.Text);
-                cmd.Parameters.AddWithValue("@_Cuota", string.Format("{0:#}", double.Parse(Txtcuota.Text))); // se formate el numero para que no vaya con el . de la separacion de miles
-                cmd.Parameters.AddWithValue("@_Total", Txttotal.Text);
-                cmd.Parameters.AddWithValue("@_Pagare", Txtpagare.Text);
-                cmd.Parameters.AddWithValue("@_Nit", Txtnit.Text);
-                cmd.Parameters.AddWithValue("@_Entidades", Txtentidad.Text);
-                cmd.Parameters.AddWithValue("@_Cuota_Letras", Txtcuota_letras.Text);
-                cmd.Parameters.AddWithValue("@_Total_Letras", Txttotal_letras.Text);
-                cmd.Parameters.AddWithValue("@_Estado_operacion", cmbestado.Text);
-                cmd.Parameters.AddWithValue("@_Estado_cargue", cmbcargue.Text);
-                cmd.Parameters.AddWithValue("@_Fecha_Cargue", dtpcargue.Text);
-                cmd.Parameters.AddWithValue("@_Fecha_desembolso", dtpfecha_desembolso.Text);
-                cmd.Parameters.AddWithValue("@_Respuesta_Cargue", cmbresultado.Text);
-                cmd.Parameters.AddWithValue("@_Causal_Rechazo", cmbrechazo.Text);
-                cmd.Parameters.AddWithValue("@_Fecha_respuesta", dtpfecha_rpta.Text);
-                cmd.Parameters.AddWithValue("@_Plano_Dia", Txtplano_dia.Text);
-                cmd.Parameters.AddWithValue("@_Plano_Pre", Txtplano_pre.Text);
-                cmd.Parameters.AddWithValue("@_Plano", TxtN_Plano.Text);
-                cmd.Parameters.AddWithValue("@_Comentarios", Txtcomentarios.Text);
-                cmd.Parameters.AddWithValue("@_Id_Funcionario", TxtIDfuncionario.Text);
-                cmd.Parameters.AddWithValue("@_Nombre_Funcionario", TxtNomFuncionario.Text);
-                cmd.ExecuteNonQuery();
-                myTrans.Commit();
-                MessageBox.Show("Información Actualizada con Éxito","Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
-            }
-            catch (Exception ex)
-            {
-                myTrans.Rollback();
-                MessageBox.Show(ex.ToString());
-            }
-            finally
-            {
-                con.Close();
-            }
-        }
-
-        public void buscar_colp(TextBox Txtradicado, TextBox Txtcedula, TextBox Txtnombre, TextBox TxtEstado_cliente, TextBox Txtafiliacion1, TextBox Txtafiliacion2,
-                                ComboBox cmbtipo, TextBox Txtscoring, TextBox Txtconsecutivo, ComboBox cmbfuerza, ComboBox cmbdestino, TextBox Txtmonto, TextBox Txtplazo, TextBox Txtcuota, TextBox Txttotal,
-                                TextBox Txtpagare, TextBox Txtnit, TextBox Txtentidad, TextBox Txtcuota_letras, TextBox Txttotal_letras, ComboBox cmbestado, ComboBox cmbcargue, 
-                                DateTimePicker dtpcargue, DateTimePicker dtpfecha_desembolso, ComboBox cmbresultado, ComboBox cmbrechazo, DateTimePicker dtpfecha_rpta,
-                                TextBox Txtplano_dia,TextBox Txtplano_pre, TextBox TxtN_Plano, TextBox Txtcomentarios, TextBox TxtIDfuncionario, TextBox TxtNomFuncionario)
+        public void Buscar_vobo(TextBox TxtRadicado, TextBox TxtCedula_Cliente, TextBox TxtNombre_Cliente, TextBox TxtScoring, ComboBox cmbFuerza_Venta, TextBox TxtCodigo_Convenio, TextBox TxtConsecutivo,
+                                  TextBox TxtLLave, ComboBox cmbGrado, TextBox TxtCod_Militar1, TextBox TxtCod_Militar2, ComboBox cmbDestino, TextBox TxtSubproducto, TextBox TxtTasa_E_A, TextBox TxtTasa_N_M,
+                                  TextBox TxtMonto_Aprobado, TextBox TxtPlazo_Aprobado, TextBox TxtValor_Cuota, TextBox TxtTotal_Credito, TextBox TxtMonto_Letras, TextBox TxtTotal_Letras, TextBox TxtCartera1,
+                                  TextBox TxtCartera2, TextBox TxtCartera3, TextBox TxtCartera4, DateTimePicker dtpFecha_Envio, ComboBox cmbCorte_Envio, DateTimePicker dtpHora_Envio, DateTimePicker dtpFecha_Posible_Rta,
+                                  DateTimePicker dtpFecha_Restriccion, ComboBox cmbEstado_Operacion, ComboBox cmbTipologia, ComboBox TxtEstado_Correo, ComboBox TtxRespuesta_Correo, DateTimePicker dtpFecha_Cierre_Etapa,
+                                  TextBox TxtComentarios)
         {          
-
             try
             {
                 con.Open();
-                MySqlCommand cmd = new MySqlCommand("buscar_colp", con);
+                MySqlCommand cmd = new MySqlCommand("Buscar_vobo", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@_Radicado", Txtradicado.Text);
+                cmd.Parameters.AddWithValue("@_Radicado", TxtRadicado.Text);
                 MySqlDataReader registro;
                 registro = cmd.ExecuteReader();
                 if (registro.Read())
                 {
-                    Txtcedula.Text = registro["Cedula"].ToString();
-                    Txtnombre.Text = registro["Nombre_Cliente"].ToString();
-                    TxtEstado_cliente.Text = registro["Estado_Cliente"].ToString();
-                    Txtafiliacion1.Text = registro["N_Afiliacion1"].ToString();
-                    Txtafiliacion2.Text = registro["N_Afiliacion2"].ToString();
-                    cmbtipo.Text = registro["Tipo_Documento"].ToString();
-                    Txtscoring.Text = registro["Scoring"].ToString();
-                    Txtconsecutivo.Text = registro["Consecutivo"].ToString();
-                    cmbfuerza.Text = registro["Fuerza_Venta"].ToString();
-                    cmbdestino.Text = registro["Destino"].ToString();
-                    Txtmonto.Text = registro["Monto_Aprobado"].ToString();
-                    Txtplazo.Text = registro["Plazo_Aprobado"].ToString();
-                    Txtcuota.Text = registro["Cuota"].ToString();
-                    Txttotal.Text = registro["Total"].ToString();
-                    Txtpagare.Text = registro["Pagare"].ToString();
-                    Txtnit.Text = registro["Nit"].ToString();
-                    Txtentidad.Text = registro["Entidades"].ToString();
-                    Txtcuota_letras.Text = registro["Cuota_Letras"].ToString();
-                    Txttotal_letras.Text = registro["Total_Letras"].ToString();
-                    cmbestado.Text = registro["Estado_operacion"].ToString();
-                    cmbcargue.Text = registro["Estado_cargue"].ToString();
-                    dtpcargue.Text = registro["Fecha_Cargue"].ToString();
-                    dtpfecha_desembolso.Text = registro["Fecha_desembolso"].ToString();
-                    cmbresultado.Text = registro["Respuesta_Cargue"].ToString();
-                    cmbrechazo.Text = registro["Causal_Rechazo"].ToString();
-                    dtpfecha_rpta.Text = registro["Fecha_respuesta"].ToString();
-                    Txtplano_dia.Text = registro["Plano_Dia"].ToString();
-                    Txtplano_pre.Text = registro["Plano_Pre"].ToString();
-                    TxtN_Plano.Text = registro["plano"].ToString();
-                    Txtcomentarios.Text = registro["Comentarios"].ToString();
-                    TxtIDfuncionario.Text = registro["Id_Funcionario"].ToString();
-                    TxtNomFuncionario.Text = registro["Nombre_Funcionario"].ToString();
+                    TxtCedula_Cliente.Text = registro["Cedula_Cliente"].ToString();
+                    TxtNombre_Cliente.Text = registro["Nombre_Cliente"].ToString();
+                    TxtScoring.Text = registro["Scoring"].ToString();
+                    cmbFuerza_Venta.Text = registro["Fuerza_Venta"].ToString();
+                    TxtCodigo_Convenio.Text = registro["Codigo_Convenio"].ToString();
+                    TxtConsecutivo.Text = registro["Consecutivo"].ToString();
+                    TxtLLave.Text = registro["LLave"].ToString();
+                    cmbGrado.Text = registro["Grado"].ToString();
+                    TxtCod_Militar1.Text = registro["Cod_Militar1"].ToString();
+                    TxtCod_Militar2.Text = registro["Cod_Militar2"].ToString();
+                    cmbDestino.Text = registro["Destino"].ToString();
+                    TxtSubproducto.Text = registro["Subproducto"].ToString();
+                    TxtTasa_E_A.Text = registro["Tasa_E_A"].ToString();
+                    TxtTasa_N_M.Text = registro["Tasa_N_M"].ToString();
+                    TxtMonto_Aprobado.Text = registro["Monto_Aprobado"].ToString();
+                    TxtPlazo_Aprobado.Text = registro["Plazo_Aprobado"].ToString();
+                    TxtValor_Cuota.Text = registro["Valor_Cuota"].ToString();
+                    TxtTotal_Credito.Text = registro["Total_Credito"].ToString();
+                    TxtMonto_Letras.Text = registro["Monto_Letras"].ToString();
+                    TxtTotal_Letras.Text = registro["Total_Letras"].ToString();
+                    TxtCartera1.Text = registro["Cartera1"].ToString();
+                    TxtCartera2.Text = registro["Cartera2"].ToString();
+                    TxtCartera3.Text = registro["Cartera3"].ToString();
+                    TxtCartera4.Text = registro["Cartera4"].ToString();
+                    dtpFecha_Envio.Text = registro["Fecha_Envio"].ToString();
+                    cmbCorte_Envio.Text = registro["Corte_Envio"].ToString();
+                    dtpHora_Envio.Text = registro["Hora_Envio"].ToString();
+                    dtpFecha_Posible_Rta.Text = registro["Fecha_Posible_Rta"].ToString();
+                    dtpFecha_Restriccion.Text = registro["Fecha_Restriccion"].ToString();
+                    cmbEstado_Operacion.Text = registro["Estado_Operacion"].ToString();
+                    cmbTipologia.Text = registro["Tipologia"].ToString();
+                    TxtEstado_Correo.Text = registro["Estado_Correo"].ToString();
+                    TtxRespuesta_Correo.Text = registro["Respuesta_Correo"].ToString();
+                    dtpFecha_Cierre_Etapa.Text = registro["Fecha_Cierre_Etapa"].ToString();
+                    TxtComentarios.Text = registro["Comentarios"].ToString();
                     con.Close();
                 }else
                 {
                     MessageBox.Show("Caso no existe", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    dtpcargue.Text = "01/01/2020";
-                    dtpfecha_desembolso.Text = "01/01/2020";
-                    dtpfecha_rpta.Text = "01/01/2020";
-                    Txtnit.Text = "860034133";
-                    cmbdestino.Text = "CPK Libranza";
-                    Txtcedula.Text = null;
-                    Txtnombre.Text = null; 
-                    Txtafiliacion1.Text = null;
-                    Txtafiliacion2.Text = null;
-                    cmbtipo.Text = null;
-                    Txtscoring.Text = null;
-                    Txtconsecutivo.Text = null;
-                    cmbfuerza.Text = null;
-                    Txtmonto.Text = null;
-                    Txtplazo.Text = null;
-                    Txtcuota.Text = null;
-                    Txttotal.Text = null;
-                    Txtpagare.Text = null;
-                    Txtentidad.Text = null;
-                    Txtcuota_letras.Text = null;
-                    Txttotal_letras.Text = null;
-                    cmbestado.Text = null;
-                    cmbcargue.Text = null;
-                    cmbresultado.Text = null;
-                    cmbrechazo.Text = null;
-                    Txtplano_dia.Text = null;
-                    Txtplano_pre.Text = null;
-                    TxtN_Plano.Text = null;
-                    Txtcomentarios.Text = null;
-                    TxtIDfuncionario.Text = null;
-                    TxtNomFuncionario.Text = null;
+                    TxtRadicado.Text = null;
+                    TxtCedula_Cliente.Text = null;
+                    TxtNombre_Cliente.Text = null;
+                    TxtScoring.Text = null;
+                    cmbFuerza_Venta.Text = null;
+                    TxtCodigo_Convenio.Text = null;
+                    TxtConsecutivo.Text = null;
+                    TxtLLave.Text = null;
+                    cmbGrado.Text = null;
+                    TxtCod_Militar1.Text = null;
+                    TxtCod_Militar2.Text = null;
+                    cmbDestino.Text = null;
+                    TxtSubproducto.Text = null;
+                    TxtTasa_E_A.Text = null;
+                    TxtTasa_N_M.Text = null;
+                    TxtMonto_Aprobado.Text = null;
+                    TxtPlazo_Aprobado.Text = null;
+                    TxtValor_Cuota.Text = null;
+                    TxtTotal_Credito.Text = null;
+                    TxtMonto_Letras.Text = null;
+                    TxtTotal_Letras.Text = null;
+                    TxtCartera1.Text = null;
+                    TxtCartera2.Text = null;
+                    TxtCartera3.Text = null;
+                    TxtCartera4.Text = null;
+                    dtpFecha_Envio.Text = null;
+                    cmbCorte_Envio.Text = null;
+                    dtpHora_Envio.Text = "01/01/2020"; 
+                    dtpFecha_Posible_Rta.Text = "01/01/2020";
+                    dtpFecha_Restriccion.Text = "01/01/2020";
+                    cmbEstado_Operacion.Text = null;
+                    cmbTipologia.Text = null;
+                    TxtEstado_Correo.Text = null;
+                    TtxRespuesta_Correo.Text = null;
+                    dtpFecha_Cierre_Etapa.Text = "01/01/2020";
+                    TxtComentarios.Text = null;
                 }
                 con.Close();
             }
@@ -237,309 +187,44 @@ namespace Usuarios_planta
                 con.Close();
                 MessageBox.Show("Conexion cerrada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
-      
-        public void buscar_negadosckl(DateTimePicker dtpproximo, DataGridView dataGridView2)
+        public void Buscar_matriz( TextBox TxtCodigo_Convenio, TextBox TxtNombre_Convenio, TextBox TxtDirigido, TextBox TtxRestriccion , TextBox TxtDocumentos_Requeridos, 
+                                   TextBox TxtGestion_Comer, TextBox TxtGestion_Red, TextBox TxtHorarios_Gestion, TextBox TxtCondiciones_Especiales, TextBox TxtPaz_Salvo, 
+                                   TextBox TxtContacto_Convenio, TextBox TxtContacto_Gic, TextBox TxtFecha_Actualizacion_Matriz)
         {
             try
             {
                 con.Open();
-                DataTable dt = new DataTable();
-                MySqlCommand cmd = new MySqlCommand("buscar_negadosckl", con);
+                MySqlCommand cmd = new MySqlCommand("Buscar_matriz", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@_Proximo_Cargue", dtpproximo.Text);
-                MySqlDataAdapter registro = new MySqlDataAdapter(cmd);
-                registro.Fill(dt);
-                dataGridView2.DataSource = dt;
-                con.Close();
-            }
-            catch (Exception ex)
-            {                
-                MessageBox.Show("No hay operaciones para cargar el dia seleccionado", ex.ToString());
-                con.Close();
-                MessageBox.Show("Conexion cerrada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-
-        public void contabilizados_altas(DateTimePicker dtp_cargue, DataGridView dgv_altas)
-        {
-            try
-            {
-                con.Open();
-                DataTable dt = new DataTable();
-                MySqlCommand cmd = new MySqlCommand("contabilizados_altas", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@_Fecha_desembolso", dtp_cargue.Text);
-                MySqlDataAdapter registro = new MySqlDataAdapter(cmd);
-                registro.Fill(dt);
-                dgv_altas.DataSource = dt;
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("", ex.ToString());
-                con.Close();
-                MessageBox.Show("Conexion cerrada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        public void contabilizados_bajas(DateTimePicker dtp_cargue, DataGridView dgv_bajas)
-        {
-            try
-            {
-                con.Open();
-                DataTable dt = new DataTable();
-                MySqlCommand cmd = new MySqlCommand("contabilizados_bajas", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@_Fecha_desembolso", dtp_cargue.Text);
-                MySqlDataAdapter registro = new MySqlDataAdapter(cmd);
-                registro.Fill(dt);
-                dgv_bajas.DataSource = dt;
-                con.Close();
-            }
-            catch (Exception ex)
-            {                
-                MessageBox.Show("", ex.ToString());
-                con.Close();
-                MessageBox.Show("Conexion cerrada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        public void busqueda_plano(DataGridView dgv_datos_plano, TextBox Txtbusqueda)
-        {
-
-            try
-            {
-                con.Open();
-                DataTable dt = new DataTable();
-                MySqlCommand cmd = new MySqlCommand("busqueda_plano", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@_plano", Txtbusqueda.Text);
-                MySqlDataAdapter registro = new MySqlDataAdapter(cmd);
-                registro.Fill(dt);
-                dgv_datos_plano.DataSource = dt;
-                con.Close();
-            }
-            catch (Exception ex)
-            {                
-                MessageBox.Show("", ex.ToString());
-                con.Close();
-                MessageBox.Show("Conexion cerrada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        public void buscar_fallecido(TextBox Txtcedula, TextBox TxtEstado_cliente)
-        {
-
-            try
-            {
-                con.Open();
-                MySqlCommand cmd = new MySqlCommand("buscar_fallecido", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@_Cedula", Txtcedula.Text);
+                cmd.Parameters.AddWithValue("@_Codigo_Convenio", TxtCodigo_Convenio.Text);
                 MySqlDataReader registro;
                 registro = cmd.ExecuteReader();
                 if (registro.Read())
                 {
-                    TxtEstado_cliente.Text = "Fallecido";
+                    TxtNombre_Convenio.Text = registro["Nombre_Convenio"].ToString();
+                    TxtDirigido.Text = registro["Dirigido"].ToString();
+                    TtxRestriccion.Text = registro["Restriccion"].ToString();
+                    TxtDocumentos_Requeridos.Text = registro["Documentos_Requeridos"].ToString();
+                    TxtGestion_Comer.Text = registro["Gestion_Comer"].ToString();
+                    TxtGestion_Red.Text = registro["Gestion_Red"].ToString();
+                    TxtHorarios_Gestion.Text = registro["Horarios_Gestion"].ToString();
+                    TxtCondiciones_Especiales.Text = registro["Condiciones_Especiales"].ToString();
+                    TxtPaz_Salvo.Text = registro["Paz_Salvo"].ToString();
+                    TxtContacto_Convenio.Text = registro["Correo_Convenio"].ToString();
+                    TxtContacto_Gic.Text = registro["Correo_GicVb"].ToString();
+                    TxtFecha_Actualizacion_Matriz.Text = registro["Fecha_Actualizacion_Matriz"].ToString();
                     con.Close();
                 }
                 else
                 {
-                    TxtEstado_cliente.Text = "Activo";
+                    MessageBox.Show("Consecutivo no existe en la base de datos", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
                 }
                 con.Close();
             }
             catch (Exception ex)
-            {                
-                MessageBox.Show("", ex.ToString());
-                con.Close();
-                MessageBox.Show("Conexion cerrada");
-            }
-        }
-
-        public void planos_cargue(DataGridView dgv_altas, TextBox Txtplano_alta)
-        {
-            try
             {
-                con.Open();
-                MySqlCommand cmd = new MySqlCommand("planos_cargue", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                
-                foreach (DataGridViewRow row in dgv_altas.Rows)
-                {
-                    cmd.Parameters.Clear();
-
-                    cmd.Parameters.AddWithValue("@_Afiliacion", Convert.ToString(row.Cells[0].Value));
-                    cmd.Parameters.AddWithValue("@_plano", Txtplano_alta.Text);
-                    cmd.Parameters.AddWithValue("@_Fecha_cargue", fecha.ToString("dd/MM/yyyy"));
-                    cmd.ExecuteNonQuery();
-                }
-                con.Close();
-                MessageBox.Show("Información Actualizada con Éxito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-            }
-            catch (Exception ex)
-            {                
-                MessageBox.Show("", ex.ToString());
-                con.Close();
-                MessageBox.Show("Conexion cerrada","Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Error);
-            }
-        }
-
-        DateTime fecha = DateTime.Now;
-
-        public void cargue_contabilizados(DataGridView dgv_altas, DateTimePicker dtp_cargue, TextBox Txtplano_alta)
-        {
-            try
-            {
-                con.Open();
-                MySqlCommand cmd = new MySqlCommand("cargue_contabilizados", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                foreach (DataGridViewRow row in dgv_altas.Rows)
-                {
-                    cmd.Parameters.Clear();
-                    cmd.Parameters.AddWithValue("@_N_Afiliacion2", Convert.ToString(row.Cells[0].Value));
-                    cmd.Parameters.AddWithValue("@_Estado_cargue", "Ok Cargue");
-                    cmd.Parameters.AddWithValue("@_Fecha_Cargue", fecha.ToString("dd/MM/yyyy"));
-                    cmd.Parameters.AddWithValue("@_Fecha_desembolso", dtp_cargue.Text);
-                    cmd.Parameters.AddWithValue("@_Respuesta_Cargue", "Pdte Dictamen");
-                    cmd.Parameters.AddWithValue("@_Plano", Txtplano_alta.Text);
-                    cmd.ExecuteNonQuery();
-                }
-                con.Close();
-                MessageBox.Show("Información Actualizada con Éxito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-            }
-            catch (Exception ex)
-            {                
-                MessageBox.Show("", ex.ToString());
-                con.Close();
-                MessageBox.Show("Conexion cerrada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        public void actualizar_cargueckl(DataGridView dgv_altas,TextBox Txtplano_alta)
-        {
-            try
-            {
-                con.Open();
-                MySqlCommand cmd = new MySqlCommand("actualizar_cargueckl", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                foreach (DataGridViewRow row in dgv_altas.Rows)
-                {
-                    cmd.Parameters.Clear();
-                    cmd.Parameters.AddWithValue("@_N_Afiliacion2", Convert.ToString(row.Cells[0].Value));
-                    cmd.Parameters.AddWithValue("@_Estado_cargue", "Ok Cargue");
-                    cmd.Parameters.AddWithValue("@_Fecha_Cargue", fecha.ToString("dd/MM/yyyy"));
-                    cmd.Parameters.AddWithValue("@_Respuesta_Cargue", "Pdte Dictamen");
-                    cmd.Parameters.AddWithValue("@_Plano", Txtplano_alta.Text);
-                    cmd.ExecuteNonQuery();
-                }
-                con.Close();
-                MessageBox.Show("Información Actualizada con Éxito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-            }
-            catch (Exception ex)
-            {                
-                MessageBox.Show("", ex.ToString());
-                con.Close();
-                MessageBox.Show("Conexion cerrada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        public void actualizar_rtackl(DataGridView dgv_datos_plano)
-        {
-            try
-            {
-                con.Open();
-                MySqlCommand cmd = new MySqlCommand("actualizar_rtackl", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                foreach (DataGridViewRow row in dgv_datos_plano.Rows)
-                {
-                    cmd.Parameters.Clear();
-                    cmd.Parameters.AddWithValue("@_N_Afiliacion2", Convert.ToString(row.Cells[2].Value));
-                    cmd.Parameters.AddWithValue("@_Respuesta_Cargue", Convert.ToString(row.Cells[3].Value));
-                    cmd.Parameters.AddWithValue("@_Fecha_respuesta", fecha.ToString("dd/MM/yyyy"));
-                    cmd.Parameters.AddWithValue("@_Causal_Rechazo", Convert.ToString(row.Cells[4].Value));
-                    cmd.ExecuteNonQuery();
-                }
-                con.Close();
-                MessageBox.Show("Información Actualizada con Éxito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-            }
-            catch (Exception ex)
-            {             
-                MessageBox.Show("", ex.ToString());
-                con.Close();
-                MessageBox.Show("Conexion cerrada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        public void agregar_historico_colp(DataGridView dgv_altas)
-        {
-            try
-            {
-                con.Open();
-                MySqlCommand cmd = new MySqlCommand("agregar_historico_colp", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                foreach (DataGridViewRow row in dgv_altas.Rows)
-                {
-                    cmd.Parameters.Clear();
-                    cmd.Parameters.AddWithValue("@_N_Afiliacion2", Convert.ToString(row.Cells[0].Value));
-                    cmd.ExecuteNonQuery();
-                }
-                con.Close();
-                MessageBox.Show("Información Actualizada con Éxito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-            }
-            catch (Exception ex)
-            {                
-                MessageBox.Show("", ex.ToString());
-                con.Close();
-                MessageBox.Show("Conexion cerrada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        public void agregar_historico_colp_1(DataGridView dgv_altas)
-        {
-            try
-            {
-                con.Open();
-                MySqlCommand cmd = new MySqlCommand("agregar_historico_colp", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                foreach (DataGridViewRow row in dgv_altas.Rows)
-                {
-                    cmd.Parameters.Clear();
-                    cmd.Parameters.AddWithValue("@_N_Afiliacion2", Convert.ToString(row.Cells[2].Value));
-                    cmd.ExecuteNonQuery();
-                }
-                con.Close();
-                MessageBox.Show("Información Actualizada con Éxito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-            }
-            catch (Exception ex)
-            {             
-                MessageBox.Show("", ex.ToString());
-                con.Close();
-                MessageBox.Show("Conexion cerrada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        public void jueves_cklibranza(DataGridView dgv_informes, DateTimePicker dtpinicio, DateTimePicker dtpfinal)
-        {
-            try
-            {
-                con.Open();
-                DataTable dt = new DataTable();
-                MySqlCommand cmd = new MySqlCommand("jueves_cklibranza", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@_fecha_inicio", dtpinicio.Text);
-                cmd.Parameters.AddWithValue("@_fecha_final", dtpfinal.Text);
-                MySqlDataAdapter registro = new MySqlDataAdapter(cmd);
-                registro.Fill(dt);
-                dgv_informes.DataSource = dt;
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("", ex.ToString());
+                MessageBox.Show("Consecutivo no existe", ex.ToString());
                 con.Close();
                 MessageBox.Show("Conexion cerrada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

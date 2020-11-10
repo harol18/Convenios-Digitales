@@ -606,8 +606,6 @@ C:\Users\BBVA\Desktop\Convenios Digitales\Usuarios_planta\Usuarios_planta\obj\Re
 C:\Users\BBVA\Desktop\Convenios Digitales\Usuarios_planta\Usuarios_planta\obj\Release\Interop.OutlookSocialProvider.dll
 C:\Users\BBVA\Desktop\Convenios Digitales\Usuarios_planta\Usuarios_planta\obj\Release\Interop.SharePointProvider.dll
 C:\Users\BBVA\Desktop\Convenios Digitales\Usuarios_planta\Usuarios_planta\obj\Release\Usuarios_planta.csproj.ResolveComReference.cache
-C:\Users\BBVA\Desktop\Convenios Digitales\Usuarios_planta\Usuarios_planta\obj\Release\Usuarios_planta.Capa_presentacion.Planos.resources
-C:\Users\BBVA\Desktop\Convenios Digitales\Usuarios_planta\Usuarios_planta\obj\Release\Usuarios_planta.Capa_presentacion.Planos_dia.resources
 C:\Users\BBVA\Desktop\Convenios Digitales\Usuarios_planta\Usuarios_planta\obj\Release\Usuarios_planta.VoBo.resources
 C:\Users\BBVA\Desktop\Convenios Digitales\Usuarios_planta\Usuarios_planta\obj\Release\Usuarios_planta.Formularios.FormGiros.resources
 C:\Users\BBVA\Desktop\Convenios Digitales\Usuarios_planta\Usuarios_planta\obj\Release\Usuarios_planta.Formularios.Informes.resources
@@ -619,3 +617,4 @@ C:\Users\BBVA\Desktop\Convenios Digitales\Usuarios_planta\Usuarios_planta\obj\Re
 C:\Users\BBVA\Desktop\Convenios Digitales\Usuarios_planta\Usuarios_planta\obj\Release\Usuarios_planta.exe
 C:\Users\BBVA\Desktop\Convenios Digitales\Usuarios_planta\Usuarios_planta\obj\Release\Usuarios_planta.pdb
 C:\Users\BBVA\Desktop\Convenios Digitales\Usuarios_planta\Usuarios_planta\obj\Release\Usuarios_planta.csprojAssemblyReference.cache
+C:\Users\BBVA\Desktop\Convenios Digitales\Usuarios_planta\Usuarios_planta\obj\Release\Usuarios_planta.Capa_presentacion.Matriz_Convenios.resources
