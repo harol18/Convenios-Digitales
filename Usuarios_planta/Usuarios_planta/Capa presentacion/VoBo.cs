@@ -7,9 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Usuarios_planta.Formularios;
-using Usuarios_planta.Capa_presentacion;
 using FontAwesome.Sharp; // libreria para utilizar los iconbutton
+using Usuarios_planta.Formularios;
 
 namespace Usuarios_planta
 {
@@ -83,9 +82,7 @@ namespace Usuarios_planta
         public void hideSubMenu()
         {
             panelCheques.Visible = false;
-            panelinformes.Visible = false;
-            panel_planos.Visible = false;
-            
+            panelinformes.Visible = false;                       
         }
 
         public void showSubMenu(Panel subMenu)
@@ -157,18 +154,6 @@ namespace Usuarios_planta
             ActivateButton(sender, RGBColors.color2);            
         }
 
-        private void Btncklb_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Form formulario = new FormGiros();
-            formulario.Show();
-        }
-
-        private void BtnInformes_colp_Click(object sender, EventArgs e)
-        {
-            AbrirFormHijo(new Informes());
-        }
-
         private void iconButton1_Click(object sender, EventArgs e)
         {
             panelSideMenu.Visible = false;
@@ -177,11 +162,6 @@ namespace Usuarios_planta
         private void BtnCargue_archivos_MouseHover(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color4);
-        }
-
-        private void BtnCrear_planos_Click(object sender, EventArgs e)
-        {            
-            showSubMenu(panel_planos);
         }
 
         private void BtnCrear_planos_MouseHover(object sender, EventArgs e)
@@ -197,11 +177,6 @@ namespace Usuarios_planta
         private void Btnplanos_dia_MouseHover(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color7);
-        }
-
-        private void Btnplanos_ckl_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void panelTitulo_MouseMove(object sender, MouseEventArgs e)
@@ -222,20 +197,16 @@ namespace Usuarios_planta
             move = false;
         }
 
-        private void Btnplanos_dia_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void Btn_Notificacion_Click(object sender, EventArgs e)
-        {
-
-            AbrirFormHijo(new Informes());
-        }
-
         private void VoBo_Load(object sender, EventArgs e)
         {
             lbfuncionario.Text = usuario.Nombre;
+        }
+
+        private void Btn_formulario_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form formulario = new Formulario_Captura();
+            formulario.Show();
         }
     }
 }

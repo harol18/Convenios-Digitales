@@ -523,6 +523,16 @@ namespace Usuarios_planta.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap right_button_80px {
+            get {
+                object obj = ResourceManager.GetObject("right_button_80px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap save_26px {
             get {
                 object obj = ResourceManager.GetObject("save_26px", resourceCulture);

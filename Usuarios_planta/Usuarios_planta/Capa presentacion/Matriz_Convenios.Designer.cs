@@ -37,8 +37,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.TxtDirigido = new System.Windows.Forms.TextBox();
             this.TtxRestriccion = new System.Windows.Forms.TextBox();
             this.TxtDocumentos_Requeridos = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -124,7 +122,7 @@
             this.TxtNombre_Convenio.MaxLength = 10;
             this.TxtNombre_Convenio.Multiline = true;
             this.TxtNombre_Convenio.Name = "TxtNombre_Convenio";
-            this.TxtNombre_Convenio.Size = new System.Drawing.Size(454, 30);
+            this.TxtNombre_Convenio.Size = new System.Drawing.Size(496, 30);
             this.TxtNombre_Convenio.TabIndex = 254;
             this.TxtNombre_Convenio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -142,7 +140,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(691, 89);
+            this.label4.Location = new System.Drawing.Point(617, 89);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(110, 16);
             this.label4.TabIndex = 258;
@@ -158,39 +156,16 @@
             this.label5.TabIndex = 259;
             this.label5.Text = "Gestion Red";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(535, 89);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(81, 16);
-            this.label6.TabIndex = 260;
-            this.label6.Text = "Dirigido A:";
-            // 
-            // TxtDirigido
-            // 
-            this.TxtDirigido.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtDirigido.Enabled = false;
-            this.TxtDirigido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtDirigido.Location = new System.Drawing.Point(469, 108);
-            this.TxtDirigido.MaxLength = 10;
-            this.TxtDirigido.Multiline = true;
-            this.TxtDirigido.Name = "TxtDirigido";
-            this.TxtDirigido.Size = new System.Drawing.Size(201, 30);
-            this.TxtDirigido.TabIndex = 262;
-            this.TxtDirigido.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // TtxRestriccion
             // 
             this.TtxRestriccion.BackColor = System.Drawing.SystemColors.Window;
             this.TtxRestriccion.Enabled = false;
             this.TtxRestriccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TtxRestriccion.Location = new System.Drawing.Point(670, 108);
+            this.TtxRestriccion.Location = new System.Drawing.Point(511, 108);
             this.TtxRestriccion.MaxLength = 10;
             this.TtxRestriccion.Multiline = true;
             this.TtxRestriccion.Name = "TtxRestriccion";
-            this.TtxRestriccion.Size = new System.Drawing.Size(154, 30);
+            this.TtxRestriccion.Size = new System.Drawing.Size(313, 30);
             this.TtxRestriccion.TabIndex = 263;
             this.TtxRestriccion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -283,7 +258,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(517, 224);
+            this.label8.Location = new System.Drawing.Point(535, 224);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(176, 16);
             this.label8.TabIndex = 272;
@@ -316,7 +291,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(535, 312);
+            this.label10.Location = new System.Drawing.Point(560, 312);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(138, 16);
             this.label10.TabIndex = 275;
@@ -363,7 +338,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(560, 397);
+            this.label11.Location = new System.Drawing.Point(535, 397);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(192, 16);
             this.label11.TabIndex = 279;
@@ -386,6 +361,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(842, 553);
             this.Controls.Add(this.TxtFecha_Actualizacion_Matriz);
             this.Controls.Add(this.label11);
@@ -404,8 +380,6 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.TxtDocumentos_Requeridos);
             this.Controls.Add(this.TtxRestriccion);
-            this.Controls.Add(this.TxtDirigido);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -435,8 +409,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox TxtDirigido;
         private System.Windows.Forms.TextBox TtxRestriccion;
         private System.Windows.Forms.TextBox TxtDocumentos_Requeridos;
         private System.Windows.Forms.Label label7;

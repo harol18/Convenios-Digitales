@@ -18,7 +18,7 @@ using Usuarios_planta.Capa_presentacion;
 
 namespace Usuarios_planta.Formularios
 {
-    public partial class FormGiros : Form
+    public partial class FrmEnvio_Correos : Form
     {
         MySqlConnection con = new MySqlConnection("server=localhost;Uid=root;password=Indr42020$;database=dblibranza;port=3306;persistsecurityinfo=True;");
 
@@ -27,7 +27,7 @@ namespace Usuarios_planta.Formularios
         private Button currentBtn;
         
 
-        public FormGiros()
+        public FrmEnvio_Correos()
         {
             InitializeComponent();
         }
@@ -68,8 +68,8 @@ namespace Usuarios_planta.Formularios
         DateTime fecha = DateTime.Now;
 
         private void FormGiros_Load(object sender, EventArgs e)
-        {
-            lblfecha_actual.Text = fecha.ToString("dd/MM/yyyy");
+        {            
+            timer1.Enabled = true;
             dtpFecha_Envio.Text = "01/01/2020";
             dtpFecha_Posible_Rta.Text = "01/01/2020";
             dtpFecha_Restriccion.Text = "01/01/2020";
@@ -95,7 +95,7 @@ namespace Usuarios_planta.Formularios
         private void Btnbuscar_Click(object sender, EventArgs e)
         {
             cmds.Buscar_vobo(TxtRadicado, TxtCedula_Cliente, TxtNombre_Cliente, TxtScoring, cmbFuerza_Venta, TxtCodigo_Convenio, TxtConsecutivo,
-                             TxtLLave, cmbGrado, TxtCod_Militar1, TxtCod_Militar2, cmbDestino, TxtSubproducto, TxtTasa_E_A, TxtTasa_N_M,
+                             TxtCod_Consecutivo, cmbGrado, TxtCod_Militar1, TxtCod_Militar2, cmbDestino, TxtSubproducto, TxtTasa_E_A, TxtTasa_N_M,
                              TxtMonto_Aprobado, TxtPlazo_Aprobado, TxtValor_Cuota, TxtTotal_Credito, TxtMonto_Letras, TxtTotal_Letras, TxtCartera1,
                              TxtCartera2, TxtCartera3, TxtCartera4, dtpFecha_Envio, cmbCorte_Envio, dtpHora_Envio, dtpFecha_Posible_Rta,
                              dtpFecha_Restriccion, cmbEstado_Operacion, cmbTipologia, TxtEstado_Correo, TtxRespuesta_Correo, dtpFecha_Cierre_Etapa,
@@ -233,7 +233,7 @@ namespace Usuarios_planta.Formularios
             if (validar())
             {
                 cmds.Guardar_vobo(TxtRadicado, TxtCedula_Cliente, TxtNombre_Cliente, TxtScoring, cmbFuerza_Venta, TxtCodigo_Convenio, TxtConsecutivo,
-                                  TxtLLave, cmbGrado, TxtCod_Militar1, TxtCod_Militar2, cmbDestino, TxtSubproducto, TxtTasa_E_A, TxtTasa_N_M,
+                                  TxtCod_Consecutivo, cmbGrado, TxtCod_Militar1, TxtCod_Militar2, cmbDestino, TxtSubproducto, TxtTasa_E_A, TxtTasa_N_M,
                                   TxtMonto_Aprobado, TxtPlazo_Aprobado, TxtValor_Cuota, TxtTotal_Credito, TxtMonto_Letras, TxtTotal_Letras, TxtCartera1,
                                   TxtCartera2, TxtCartera3, TxtCartera4, dtpFecha_Envio, cmbCorte_Envio, dtpHora_Envio, dtpFecha_Posible_Rta,
                                   dtpFecha_Restriccion, cmbEstado_Operacion, cmbTipologia, TxtEstado_Correo, TtxRespuesta_Correo, dtpFecha_Cierre_Etapa,
@@ -270,13 +270,6 @@ namespace Usuarios_planta.Formularios
         {
             ActivateButton(sender, RGBColors.color4);
         }
-
-        //private void button1_Click(object sender, EventArgs e)
-        //{
-        //    this.Close();
-        //    Form formulario = new VoBo();
-        //    formulario.Show();
-        //}
 
         private void pictureBox8_Click(object sender, EventArgs e)
         {
@@ -642,20 +635,20 @@ namespace Usuarios_planta.Formularios
             {
                 TxtConsecutivo.Text = "0000" + TxtConsecutivo.Text;
                 extrae = TxtConsecutivo.Text.Substring(TxtConsecutivo.Text.Length - 1); // extrae los ultimos 5 digitos del textbox 
-                TxtLLave.Text = TxtCodigo_Convenio.Text + extrae;
+                TxtCod_Consecutivo.Text = TxtCodigo_Convenio.Text + extrae;
             }
             else if (length == "2")
             {
                 TxtConsecutivo.Text = "000" + TxtConsecutivo.Text;
                 extrae = TxtConsecutivo.Text.Substring(TxtConsecutivo.Text.Length - 2); // extrae los ultimos 5 digitos del textbox 
-                TxtLLave.Text = TxtCodigo_Convenio.Text + extrae;
+                TxtCod_Consecutivo.Text = TxtCodigo_Convenio.Text + extrae;
             }          
         }
 
         private void Btn_Nuevo_Click(object sender, EventArgs e)
         {
             this.Close();
-            Form formulario = new FormGiros();
+            Form formulario = new FrmEnvio_Correos();
             formulario.Show();
         }
 
@@ -680,7 +673,15 @@ namespace Usuarios_planta.Formularios
                 TxtNombre_Conveniomt.Text = registro["Nombre_Convenio"].ToString();
                 TxtRestriccionmt.Text = registro["Restriccion"].ToString();
                 Txt_Horarios_gestionmt.Text = registro["Horarios_Gestion"].ToString();
-                
+                con.Close();
+            }
+            else
+            {
+                con.Close();
+                TxtNombre_Conveniomt.Text = null;
+                TxtRestriccionmt.Text = null;
+                Txt_Horarios_gestionmt.Text = null;
+                MessageBox.Show("Consecutivo no se encuentra en la matriz, por favor reportar","Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
 
                 if (TxtCodigo_Convenio.Text=="NEJ01")
@@ -701,7 +702,7 @@ namespace Usuarios_planta.Formularios
 
         private void TxtCodigo_Convenio_TextChanged(object sender, EventArgs e)
         {
-            TxtLLave.Text = TxtCodigo_Convenio.Text + TxtConsecutivo.Text;
+            TxtCod_Consecutivo.Text = TxtCodigo_Convenio.Text + TxtConsecutivo.Text;
         }
 
         private void TxtScoring_Validated(object sender, EventArgs e)
@@ -721,5 +722,33 @@ namespace Usuarios_planta.Formularios
             Form formulario = new Matriz_Convenios();
             formulario.Show();
         }
+
+        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            move = true;
+        }
+
+        private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
+        {
+            move = false;
+        }
+
+        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (move == true)
+            {
+                this.Location = Cursor.Position;
+            }
+        }
+        private void Abrir_Form_Correos(object sender, EventArgs e)
+        {
+            Form formulario = new FormEnvio_Correos();
+            formulario.Show();
+        }
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }

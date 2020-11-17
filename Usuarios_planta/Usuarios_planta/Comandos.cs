@@ -20,7 +20,7 @@ namespace Usuarios_planta
 
 
         public void Guardar_vobo(TextBox TxtRadicado, TextBox TxtCedula_Cliente, TextBox TxtNombre_Cliente, TextBox TxtScoring, ComboBox cmbFuerza_Venta, TextBox TxtCodigo_Convenio, TextBox TxtConsecutivo, 
-                                  TextBox TxtLLave, ComboBox cmbGrado, TextBox TxtCod_Militar1, TextBox TxtCod_Militar2, ComboBox cmbDestino, TextBox TxtSubproducto, TextBox TxtTasa_E_A, TextBox TxtTasa_N_M, 
+                                  TextBox TxtCod_Consecutivo, ComboBox cmbGrado, TextBox TxtCod_Militar1, TextBox TxtCod_Militar2, ComboBox cmbDestino, TextBox TxtSubproducto, TextBox TxtTasa_E_A, TextBox TxtTasa_N_M, 
                                   TextBox TxtMonto_Aprobado, TextBox TxtPlazo_Aprobado, TextBox TxtValor_Cuota, TextBox TxtTotal_Credito, TextBox TxtMonto_Letras, TextBox TxtTotal_Letras, TextBox TxtCartera1, 
                                   TextBox TxtCartera2, TextBox TxtCartera3, TextBox TxtCartera4, DateTimePicker dtpFecha_Envio, ComboBox cmbCorte_Envio, DateTimePicker dtpHora_Envio, DateTimePicker dtpFecha_Posible_Rta, 
                                   DateTimePicker dtpFecha_Restriccion, ComboBox cmbEstado_Operacion, ComboBox cmbTipologia, ComboBox TxtEstado_Correo, ComboBox TtxRespuesta_Correo, DateTimePicker dtpFecha_Cierre_Etapa, 
@@ -41,7 +41,7 @@ namespace Usuarios_planta
                 cmd.Parameters.AddWithValue("@_Fuerza_Venta", cmbFuerza_Venta.Text);
                 cmd.Parameters.AddWithValue("@_Codigo_Convenio", TxtCodigo_Convenio.Text);
                 cmd.Parameters.AddWithValue("@_Consecutivo", TxtConsecutivo.Text);
-                cmd.Parameters.AddWithValue("@_LLave", TxtLLave.Text);
+                cmd.Parameters.AddWithValue("@_Cod_Consecutivo", TxtCod_Consecutivo.Text);
                 cmd.Parameters.AddWithValue("@_Grado", cmbGrado.Text);
                 cmd.Parameters.AddWithValue("@_Cod_Militar1", TxtCod_Militar1.Text);
                 cmd.Parameters.AddWithValue("@_Cod_Militar2", TxtCod_Militar2.Text);                
@@ -87,7 +87,7 @@ namespace Usuarios_planta
         }
 
         public void Buscar_vobo(TextBox TxtRadicado, TextBox TxtCedula_Cliente, TextBox TxtNombre_Cliente, TextBox TxtScoring, ComboBox cmbFuerza_Venta, TextBox TxtCodigo_Convenio, TextBox TxtConsecutivo,
-                                  TextBox TxtLLave, ComboBox cmbGrado, TextBox TxtCod_Militar1, TextBox TxtCod_Militar2, ComboBox cmbDestino, TextBox TxtSubproducto, TextBox TxtTasa_E_A, TextBox TxtTasa_N_M,
+                                  TextBox TxtCod_Consecutivo, ComboBox cmbGrado, TextBox TxtCod_Militar1, TextBox TxtCod_Militar2, ComboBox cmbDestino, TextBox TxtSubproducto, TextBox TxtTasa_E_A, TextBox TxtTasa_N_M,
                                   TextBox TxtMonto_Aprobado, TextBox TxtPlazo_Aprobado, TextBox TxtValor_Cuota, TextBox TxtTotal_Credito, TextBox TxtMonto_Letras, TextBox TxtTotal_Letras, TextBox TxtCartera1,
                                   TextBox TxtCartera2, TextBox TxtCartera3, TextBox TxtCartera4, DateTimePicker dtpFecha_Envio, ComboBox cmbCorte_Envio, DateTimePicker dtpHora_Envio, DateTimePicker dtpFecha_Posible_Rta,
                                   DateTimePicker dtpFecha_Restriccion, ComboBox cmbEstado_Operacion, ComboBox cmbTipologia, ComboBox TxtEstado_Correo, ComboBox TtxRespuesta_Correo, DateTimePicker dtpFecha_Cierre_Etapa,
@@ -96,7 +96,7 @@ namespace Usuarios_planta
             try
             {
                 con.Open();
-                MySqlCommand cmd = new MySqlCommand("Buscar_vobo", con);
+                MySqlCommand cmd = new MySqlCommand("buscar_vobo", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@_Radicado", TxtRadicado.Text);
                 MySqlDataReader registro;
@@ -109,7 +109,7 @@ namespace Usuarios_planta
                     cmbFuerza_Venta.Text = registro["Fuerza_Venta"].ToString();
                     TxtCodigo_Convenio.Text = registro["Codigo_Convenio"].ToString();
                     TxtConsecutivo.Text = registro["Consecutivo"].ToString();
-                    TxtLLave.Text = registro["LLave"].ToString();
+                    TxtCod_Consecutivo.Text = registro["Cod_Consecutivo"].ToString();
                     cmbGrado.Text = registro["Grado"].ToString();
                     TxtCod_Militar1.Text = registro["Cod_Militar1"].ToString();
                     TxtCod_Militar2.Text = registro["Cod_Militar2"].ToString();
@@ -149,7 +149,7 @@ namespace Usuarios_planta
                     cmbFuerza_Venta.Text = null;
                     TxtCodigo_Convenio.Text = null;
                     TxtConsecutivo.Text = null;
-                    TxtLLave.Text = null;
+                    TxtCod_Consecutivo.Text = null;
                     cmbGrado.Text = null;
                     TxtCod_Militar1.Text = null;
                     TxtCod_Militar2.Text = null;
@@ -188,7 +188,7 @@ namespace Usuarios_planta
                 MessageBox.Show("Conexion cerrada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        public void Buscar_matriz( TextBox TxtCodigo_Convenio, TextBox TxtNombre_Convenio, TextBox TxtDirigido, TextBox TtxRestriccion , TextBox TxtDocumentos_Requeridos, 
+        public void Buscar_matriz( TextBox TxtCodigo_Convenio, TextBox TxtNombre_Convenio,TextBox TtxRestriccion , TextBox TxtDocumentos_Requeridos, 
                                    TextBox TxtGestion_Comer, TextBox TxtGestion_Red, TextBox TxtHorarios_Gestion, TextBox TxtCondiciones_Especiales, TextBox TxtPaz_Salvo, 
                                    TextBox TxtContacto_Convenio, TextBox TxtContacto_Gic, TextBox TxtFecha_Actualizacion_Matriz)
         {
@@ -202,8 +202,7 @@ namespace Usuarios_planta
                 registro = cmd.ExecuteReader();
                 if (registro.Read())
                 {
-                    TxtNombre_Convenio.Text = registro["Nombre_Convenio"].ToString();
-                    TxtDirigido.Text = registro["Dirigido"].ToString();
+                    TxtNombre_Convenio.Text = registro["Nombre_Convenio"].ToString();                    
                     TtxRestriccion.Text = registro["Restriccion"].ToString();
                     TxtDocumentos_Requeridos.Text = registro["Documentos_Requeridos"].ToString();
                     TxtGestion_Comer.Text = registro["Gestion_Comer"].ToString();
@@ -225,6 +224,34 @@ namespace Usuarios_planta
             catch (Exception ex)
             {
                 MessageBox.Show("Consecutivo no existe", ex.ToString());
+                con.Close();
+                MessageBox.Show("Conexion cerrada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        public void Buscar_matriz_correos(TextBox Txtcod_convenio, TextBox TxtDestinatario_Correo)
+        {
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("Buscar_matriz", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@_Codigo_Convenio", Txtcod_convenio.Text);
+                MySqlDataReader registro;
+                registro = cmd.ExecuteReader();
+                if (registro.Read())
+                {
+                    TxtDestinatario_Correo.Text = registro["Nombre_Convenio"].ToString();                                  
+                    con.Close();
+                }
+                else
+                {
+                    MessageBox.Show("No hay casos para enviar al convenio", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(" ", ex.ToString());
                 con.Close();
                 MessageBox.Show("Conexion cerrada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

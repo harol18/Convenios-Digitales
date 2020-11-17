@@ -30,10 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VoBo));
             this.panelSideMenu = new System.Windows.Forms.Panel();
-            this.panel_planos = new System.Windows.Forms.Panel();
-            this.Btnplanos_dia = new FontAwesome.Sharp.IconButton();
-            this.Btnplanos_ckl = new FontAwesome.Sharp.IconButton();
-            this.BtnCrear_planos = new FontAwesome.Sharp.IconButton();
             this.panelinformes = new System.Windows.Forms.Panel();
             this.BtnInformes_dia = new FontAwesome.Sharp.IconButton();
             this.BtnInformes_ckl = new FontAwesome.Sharp.IconButton();
@@ -46,11 +42,10 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelTitulo = new System.Windows.Forms.Panel();
-            this.panelContenedor = new System.Windows.Forms.Panel();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.lbfuncionario = new System.Windows.Forms.Label();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelSideMenu.SuspendLayout();
-            this.panel_planos.SuspendLayout();
             this.panelinformes.SuspendLayout();
             this.panelCheques.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -61,8 +56,6 @@
             // panelSideMenu
             // 
             this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.panelSideMenu.Controls.Add(this.panel_planos);
-            this.panelSideMenu.Controls.Add(this.BtnCrear_planos);
             this.panelSideMenu.Controls.Add(this.panelinformes);
             this.panelSideMenu.Controls.Add(this.BtnInformes);
             this.panelSideMenu.Controls.Add(this.BtnSalir);
@@ -74,96 +67,6 @@
             this.panelSideMenu.Name = "panelSideMenu";
             this.panelSideMenu.Size = new System.Drawing.Size(155, 714);
             this.panelSideMenu.TabIndex = 0;
-            // 
-            // panel_planos
-            // 
-            this.panel_planos.Controls.Add(this.Btnplanos_dia);
-            this.panel_planos.Controls.Add(this.Btnplanos_ckl);
-            this.panel_planos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_planos.Location = new System.Drawing.Point(0, 429);
-            this.panel_planos.Name = "panel_planos";
-            this.panel_planos.Size = new System.Drawing.Size(155, 77);
-            this.panel_planos.TabIndex = 15;
-            // 
-            // Btnplanos_dia
-            // 
-            this.Btnplanos_dia.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btnplanos_dia.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Btnplanos_dia.FlatAppearance.BorderSize = 0;
-            this.Btnplanos_dia.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(118)))), ((int)(((byte)(176)))));
-            this.Btnplanos_dia.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(37)))), ((int)(((byte)(81)))));
-            this.Btnplanos_dia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btnplanos_dia.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.Btnplanos_dia.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btnplanos_dia.ForeColor = System.Drawing.Color.LightGray;
-            this.Btnplanos_dia.IconChar = FontAwesome.Sharp.IconChar.Bars;
-            this.Btnplanos_dia.IconColor = System.Drawing.Color.Gainsboro;
-            this.Btnplanos_dia.IconSize = 25;
-            this.Btnplanos_dia.Location = new System.Drawing.Point(0, 40);
-            this.Btnplanos_dia.Name = "Btnplanos_dia";
-            this.Btnplanos_dia.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
-            this.Btnplanos_dia.Rotation = 0D;
-            this.Btnplanos_dia.Size = new System.Drawing.Size(155, 40);
-            this.Btnplanos_dia.TabIndex = 2;
-            this.Btnplanos_dia.Text = "Dia - Dia";
-            this.Btnplanos_dia.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btnplanos_dia.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.Btnplanos_dia.UseVisualStyleBackColor = true;
-            this.Btnplanos_dia.Click += new System.EventHandler(this.Btnplanos_dia_Click);
-            this.Btnplanos_dia.MouseHover += new System.EventHandler(this.Btnplanos_dia_MouseHover);
-            // 
-            // Btnplanos_ckl
-            // 
-            this.Btnplanos_ckl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btnplanos_ckl.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Btnplanos_ckl.FlatAppearance.BorderSize = 0;
-            this.Btnplanos_ckl.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(118)))), ((int)(((byte)(176)))));
-            this.Btnplanos_ckl.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(27)))), ((int)(((byte)(81)))));
-            this.Btnplanos_ckl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btnplanos_ckl.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.Btnplanos_ckl.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btnplanos_ckl.ForeColor = System.Drawing.Color.LightGray;
-            this.Btnplanos_ckl.IconChar = FontAwesome.Sharp.IconChar.GripHorizontal;
-            this.Btnplanos_ckl.IconColor = System.Drawing.Color.Gainsboro;
-            this.Btnplanos_ckl.IconSize = 25;
-            this.Btnplanos_ckl.Location = new System.Drawing.Point(0, 0);
-            this.Btnplanos_ckl.Name = "Btnplanos_ckl";
-            this.Btnplanos_ckl.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
-            this.Btnplanos_ckl.Rotation = 0D;
-            this.Btnplanos_ckl.Size = new System.Drawing.Size(155, 40);
-            this.Btnplanos_ckl.TabIndex = 1;
-            this.Btnplanos_ckl.Text = "CK Libranza";
-            this.Btnplanos_ckl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btnplanos_ckl.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.Btnplanos_ckl.UseVisualStyleBackColor = true;
-            this.Btnplanos_ckl.Click += new System.EventHandler(this.Btnplanos_ckl_Click);
-            this.Btnplanos_ckl.MouseHover += new System.EventHandler(this.Btnplanos_ckl_MouseHover);
-            // 
-            // BtnCrear_planos
-            // 
-            this.BtnCrear_planos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnCrear_planos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnCrear_planos.FlatAppearance.BorderSize = 0;
-            this.BtnCrear_planos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCrear_planos.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.BtnCrear_planos.Font = new System.Drawing.Font("Segoe UI Emoji", 11.25F);
-            this.BtnCrear_planos.ForeColor = System.Drawing.Color.Gainsboro;
-            this.BtnCrear_planos.IconChar = FontAwesome.Sharp.IconChar.FileAlt;
-            this.BtnCrear_planos.IconColor = System.Drawing.Color.Gainsboro;
-            this.BtnCrear_planos.IconSize = 25;
-            this.BtnCrear_planos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCrear_planos.Location = new System.Drawing.Point(0, 369);
-            this.BtnCrear_planos.Name = "BtnCrear_planos";
-            this.BtnCrear_planos.Padding = new System.Windows.Forms.Padding(1, 0, 20, 0);
-            this.BtnCrear_planos.Rotation = 0D;
-            this.BtnCrear_planos.Size = new System.Drawing.Size(155, 60);
-            this.BtnCrear_planos.TabIndex = 14;
-            this.BtnCrear_planos.Text = "Planos";
-            this.BtnCrear_planos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCrear_planos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnCrear_planos.UseVisualStyleBackColor = true;
-            this.BtnCrear_planos.Click += new System.EventHandler(this.BtnCrear_planos_Click);
-            this.BtnCrear_planos.MouseHover += new System.EventHandler(this.BtnCrear_planos_MouseHover);
             // 
             // panelinformes
             // 
@@ -224,7 +127,6 @@
             this.BtnInformes_ckl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnInformes_ckl.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnInformes_ckl.UseVisualStyleBackColor = true;
-            this.BtnInformes_ckl.Click += new System.EventHandler(this.BtnInformes_colp_Click);
             // 
             // BtnInformes
             // 
@@ -312,7 +214,6 @@
             this.Btn_Notificacion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Btn_Notificacion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Btn_Notificacion.UseVisualStyleBackColor = true;
-            this.Btn_Notificacion.Click += new System.EventHandler(this.Btn_Notificacion_Click);
             // 
             // Btn_formulario
             // 
@@ -337,7 +238,7 @@
             this.Btn_formulario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Btn_formulario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Btn_formulario.UseVisualStyleBackColor = true;
-            this.Btn_formulario.Click += new System.EventHandler(this.Btncklb_Click);
+            this.Btn_formulario.Click += new System.EventHandler(this.Btn_formulario_Click);
             this.Btn_formulario.MouseHover += new System.EventHandler(this.BtnGiros_MouseHover_1);
             // 
             // BtnConvenios
@@ -400,16 +301,16 @@
             this.panelTitulo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelTitulo_MouseMove);
             this.panelTitulo.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelTitulo_MouseUp);
             // 
-            // panelContenedor
+            // lbfuncionario
             // 
-            this.panelContenedor.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelContenedor.BackgroundImage")));
-            this.panelContenedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedor.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.panelContenedor.Location = new System.Drawing.Point(155, 45);
-            this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1150, 669);
-            this.panelContenedor.TabIndex = 2;
+            this.lbfuncionario.AutoSize = true;
+            this.lbfuncionario.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbfuncionario.ForeColor = System.Drawing.Color.White;
+            this.lbfuncionario.Location = new System.Drawing.Point(883, 8);
+            this.lbfuncionario.Name = "lbfuncionario";
+            this.lbfuncionario.Size = new System.Drawing.Size(52, 21);
+            this.lbfuncionario.TabIndex = 4;
+            this.lbfuncionario.Text = "label1";
             // 
             // iconButton1
             // 
@@ -433,16 +334,16 @@
             this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton1.UseVisualStyleBackColor = true;
             // 
-            // lbfuncionario
+            // panelContenedor
             // 
-            this.lbfuncionario.AutoSize = true;
-            this.lbfuncionario.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbfuncionario.ForeColor = System.Drawing.Color.White;
-            this.lbfuncionario.Location = new System.Drawing.Point(883, 8);
-            this.lbfuncionario.Name = "lbfuncionario";
-            this.lbfuncionario.Size = new System.Drawing.Size(52, 21);
-            this.lbfuncionario.TabIndex = 4;
-            this.lbfuncionario.Text = "label1";
+            this.panelContenedor.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelContenedor.BackgroundImage")));
+            this.panelContenedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContenedor.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.panelContenedor.Location = new System.Drawing.Point(155, 45);
+            this.panelContenedor.Name = "panelContenedor";
+            this.panelContenedor.Size = new System.Drawing.Size(1150, 669);
+            this.panelContenedor.TabIndex = 2;
             // 
             // VoBo
             // 
@@ -458,7 +359,6 @@
             this.Text = "Vobo Pagador";
             this.Load += new System.EventHandler(this.VoBo_Load);
             this.panelSideMenu.ResumeLayout(false);
-            this.panel_planos.ResumeLayout(false);
             this.panelinformes.ResumeLayout(false);
             this.panelCheques.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -482,10 +382,6 @@
         private FontAwesome.Sharp.IconButton BtnInformes_dia;
         private FontAwesome.Sharp.IconButton BtnInformes_ckl;
         private FontAwesome.Sharp.IconButton Btn_formulario;
-        private FontAwesome.Sharp.IconButton BtnCrear_planos;
-        private System.Windows.Forms.Panel panel_planos;
-        private FontAwesome.Sharp.IconButton Btnplanos_dia;
-        private FontAwesome.Sharp.IconButton Btnplanos_ckl;
         private FontAwesome.Sharp.IconButton BtnInformes;
         private FontAwesome.Sharp.IconButton BtnConvenios;
         private FontAwesome.Sharp.IconButton Btn_Notificacion;
