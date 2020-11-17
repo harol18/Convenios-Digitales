@@ -56,6 +56,8 @@
             this.btnEnviar_Correo = new FontAwesome.Sharp.IconButton();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnVer_pte_Correos = new FontAwesome.Sharp.IconButton();
+            this.label6 = new System.Windows.Forms.Label();
+            this.TxtNombre_Archivo = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCorreos_Pendientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -75,6 +77,7 @@
             this.Txtcod_convenio.Size = new System.Drawing.Size(119, 28);
             this.Txtcod_convenio.TabIndex = 31;
             this.Txtcod_convenio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Txtcod_convenio.TextChanged += new System.EventHandler(this.Txtcod_convenio_TextChanged);
             // 
             // label30
             // 
@@ -114,11 +117,14 @@
             // 
             // dgvDatos
             // 
+            this.dgvDatos.AllowUserToAddRows = false;
+            this.dgvDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvDatos.BackgroundColor = System.Drawing.Color.White;
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatos.Location = new System.Drawing.Point(15, 88);
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            this.dgvDatos.RowHeadersVisible = false;
             this.dgvDatos.Size = new System.Drawing.Size(475, 237);
             this.dgvDatos.TabIndex = 253;
             // 
@@ -253,7 +259,7 @@
             this.dtpHora_Envio.CustomFormat = "HH:mm";
             this.dtpHora_Envio.Font = new System.Drawing.Font("Segoe UI Emoji", 11.25F);
             this.dtpHora_Envio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpHora_Envio.Location = new System.Drawing.Point(158, 26);
+            this.dtpHora_Envio.Location = new System.Drawing.Point(152, 26);
             this.dtpHora_Envio.Name = "dtpHora_Envio";
             this.dtpHora_Envio.Size = new System.Drawing.Size(121, 27);
             this.dtpHora_Envio.TabIndex = 266;
@@ -263,7 +269,7 @@
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.label34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label34.Location = new System.Drawing.Point(155, 7);
+            this.label34.Location = new System.Drawing.Point(149, 7);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(75, 16);
             this.label34.TabIndex = 267;
@@ -315,6 +321,7 @@
             // btnDescargar_Excel
             // 
             this.btnDescargar_Excel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnDescargar_Excel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDescargar_Excel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDescargar_Excel.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnDescargar_Excel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -330,11 +337,12 @@
             this.btnDescargar_Excel.Text = "Exp. Excel";
             this.btnDescargar_Excel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDescargar_Excel.UseVisualStyleBackColor = false;
-           
+            this.btnDescargar_Excel.Click += new System.EventHandler(this.btnDescargar_Excel_Click);
             // 
             // btnActualizar_BD
             // 
             this.btnActualizar_BD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnActualizar_BD.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnActualizar_BD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizar_BD.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnActualizar_BD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -355,6 +363,7 @@
             // btnEnviar_Correo
             // 
             this.btnEnviar_Correo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnEnviar_Correo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEnviar_Correo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEnviar_Correo.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnEnviar_Correo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -375,7 +384,9 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.Gainsboro;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.label6);
             this.panel4.Controls.Add(this.btnEnviar_Correo);
+            this.panel4.Controls.Add(this.TxtNombre_Archivo);
             this.panel4.Controls.Add(this.btnActualizar_BD);
             this.panel4.Controls.Add(this.Btnbuscar);
             this.panel4.Controls.Add(this.btnDescargar_Excel);
@@ -410,6 +421,27 @@
             this.btnVer_pte_Correos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnVer_pte_Correos.UseVisualStyleBackColor = false;
             this.btnVer_pte_Correos.Click += new System.EventHandler(this.btnVer_pte_Correos_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.label6.Location = new System.Drawing.Point(283, 8);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(105, 16);
+            this.label6.TabIndex = 280;
+            this.label6.Text = "Nombre Archivo";
+            // 
+            // TxtNombre_Archivo
+            // 
+            this.TxtNombre_Archivo.BackColor = System.Drawing.SystemColors.Window;
+            this.TxtNombre_Archivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtNombre_Archivo.Location = new System.Drawing.Point(285, 27);
+            this.TxtNombre_Archivo.Multiline = true;
+            this.TxtNombre_Archivo.Name = "TxtNombre_Archivo";
+            this.TxtNombre_Archivo.Size = new System.Drawing.Size(205, 28);
+            this.TxtNombre_Archivo.TabIndex = 279;
             // 
             // FormEnvio_Correos
             // 
@@ -482,5 +514,7 @@
         private FontAwesome.Sharp.IconButton btnEnviar_Correo;
         private System.Windows.Forms.Panel panel4;
         private FontAwesome.Sharp.IconButton btnVer_pte_Correos;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox TxtNombre_Archivo;
     }
 }

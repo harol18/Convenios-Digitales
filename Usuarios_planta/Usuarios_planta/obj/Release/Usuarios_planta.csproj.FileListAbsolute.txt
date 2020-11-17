@@ -663,3 +663,5 @@ C:\Users\BBVA\Desktop\Desarrollo c# fabrica\VoBo Pagador\Convenios Digitales\Usu
 C:\Users\BBVA\Desktop\Desarrollo c# fabrica\VoBo Pagador\Convenios Digitales\Usuarios_planta\Usuarios_planta\obj\Release\Interop.OutlookSocialProvider.dll
 C:\Users\BBVA\Desktop\Desarrollo c# fabrica\VoBo Pagador\Convenios Digitales\Usuarios_planta\Usuarios_planta\obj\Release\Usuarios_planta.csprojAssemblyReference.cache
 C:\Users\BBVA\Desktop\Desarrollo c# fabrica\VoBo Pagador\Convenios Digitales\Usuarios_planta\Usuarios_planta\bin\Release\System.Drawing.Common.dll
+C:\Users\BBVA\Desktop\Desarrollo c# fabrica\VoBo Pagador\Convenios Digitales\Usuarios_planta\Usuarios_planta\bin\Release\SpreadsheetLight.dll
+C:\Users\BBVA\Desktop\Desarrollo c# fabrica\VoBo Pagador\Convenios Digitales\Usuarios_planta\Usuarios_planta\bin\Release\SpreadsheetLight.xml
