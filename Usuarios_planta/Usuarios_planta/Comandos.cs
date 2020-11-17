@@ -27,7 +27,7 @@ namespace Usuarios_planta
                                   TextBox TxtComentarios)
         {
             con.Open(); 
-            MySqlCommand cmd = new MySqlCommand("Guardar_vobo", con);
+            MySqlCommand cmd = new MySqlCommand("guardar_vobo", con);
             MySqlTransaction myTrans; // Iniciar una transacción local 
             myTrans = con.BeginTransaction(); // Debe asignar tanto el objeto de transacción como la conexión // al objeto de Comando para una transacción local pendiente
             try
@@ -141,8 +141,7 @@ namespace Usuarios_planta
                     con.Close();
                 }else
                 {
-                    MessageBox.Show("Caso no existe", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    TxtRadicado.Text = null;
+                    MessageBox.Show("Caso no existe", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
                     TxtCedula_Cliente.Text = null;
                     TxtNombre_Cliente.Text = null;
                     TxtScoring.Text = null;
@@ -228,30 +227,47 @@ namespace Usuarios_planta
                 MessageBox.Show("Conexion cerrada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        public void Buscar_matriz_correos(TextBox Txtcod_convenio, TextBox TxtDestinatario_Correo)
+        public void Enviar_correos(Label lblfecha, TextBox Txtcod_convenio, DateTimePicker dtpHora_Envio, DataGridView dgvDatos)
         {
             try
             {
                 con.Open();
-                MySqlCommand cmd = new MySqlCommand("Buscar_matriz", con);
+                DataTable dt = new DataTable();
+                MySqlCommand cmd = new MySqlCommand("enviar_correo", con);
                 cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@_Fecha_Envio", lblfecha.Text);
                 cmd.Parameters.AddWithValue("@_Codigo_Convenio", Txtcod_convenio.Text);
-                MySqlDataReader registro;
-                registro = cmd.ExecuteReader();
-                if (registro.Read())
-                {
-                    TxtDestinatario_Correo.Text = registro["Nombre_Convenio"].ToString();                                  
-                    con.Close();
-                }
-                else
-                {
-                    MessageBox.Show("No hay casos para enviar al convenio", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
+                cmd.Parameters.AddWithValue("@_Hora_Envio", dtpHora_Envio.Text);
+                MySqlDataAdapter registro = new MySqlDataAdapter(cmd);
+                registro.Fill(dt);
+                dgvDatos.DataSource = dt;
                 con.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(" ", ex.ToString());
+                MessageBox.Show("", ex.ToString());
+                con.Close();
+                MessageBox.Show("Conexion cerrada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void Pendiente_correo(DataGridView dgvCorreos_Pendientes,Label lblfecha)
+        {
+            try
+            {
+                con.Open();
+                DataTable dt = new DataTable();
+                MySqlCommand cmd = new MySqlCommand("pendiente_correo", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@_Fecha_Envio", lblfecha.Text);
+                MySqlDataAdapter registro = new MySqlDataAdapter(cmd);
+                registro.Fill(dt);
+                dgvCorreos_Pendientes.DataSource = dt;
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("", ex.ToString());
                 con.Close();
                 MessageBox.Show("Conexion cerrada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

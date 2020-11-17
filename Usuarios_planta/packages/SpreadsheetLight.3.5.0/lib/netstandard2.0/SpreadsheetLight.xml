@@ -3500,121 +3500,6 @@
             </summary>
             <returns>True if operation is successful. False otherwise. Note that if the worksheet is password protected or if the worksheet has no sheet protection in the first place, false is also returned.</returns>
         </member>
-        <member name="P:SpreadsheetLight.Charts.SLTrendline.TrendlineType">
-            <summary>
-            Trendline type.
-            </summary>
-        </member>
-        <member name="P:SpreadsheetLight.Charts.SLTrendline.PolynomialOrder">
-            <summary>
-            Polynomial trendline order. This is the power of the polynomial, and is between 2 (default value) and 6 (both inclusive). This is only applicable if the trendline type is polynomial.
-            </summary>
-        </member>
-        <member name="P:SpreadsheetLight.Charts.SLTrendline.Period">
-            <summary>
-            Moving average period, and is only 2 (default value) or 3. THis is only applicable if the trendline type is "moving average".
-            </summary>
-        </member>
-        <member name="P:SpreadsheetLight.Charts.SLTrendline.TrendlineName">
-            <summary>
-            Trendline name.
-            </summary>
-        </member>
-        <member name="P:SpreadsheetLight.Charts.SLTrendline.Forward">
-            <summary>
-            Forward period. Default value is 0 (if null it's also 0). From Open XML SDK documentation: This is the number of categories (or units on a scatter chart) that the trendline extends after the data for the series that is being trended. On non-scatter charts, the value shall be a multiple of 0.5. (Excel seems to NOT adhere to the restriction though...)
-            </summary>
-        </member>
-        <member name="P:SpreadsheetLight.Charts.SLTrendline.Backward">
-            <summary>
-            Backward period. Default value is 0 (if null it's also 0). From Open XML SDK documentation: This is the number of categories (or units on a scatter chart) that the trend line extends before the data for the series that is being trended. On non-scatter charts, the value shall be 0 or 0.5. (Excel seems to NOT adhere to the restriction though...)
-            </summary>
-        </member>
-        <member name="P:SpreadsheetLight.Charts.SLTrendline.Intercept">
-            <summary>
-            The intercept value where the trendline crosses the Y-axis. This is only supported if the trendline type is exponential, linear or polynomial. Default value is 0 (if null then no intercept value is set).
-            </summary>
-        </member>
-        <member name="P:SpreadsheetLight.Charts.SLTrendline.DisplayEquation">
-            <summary>
-            Set true to display equation on chart. False otherwise.
-            </summary>
-        </member>
-        <member name="P:SpreadsheetLight.Charts.SLTrendline.DisplayRSquared">
-            <summary>
-            Set true to display R-squared value on chart. False otherwise.
-            </summary>
-        </member>
-        <member name="P:SpreadsheetLight.Charts.SLTrendline.Fill">
-            <summary>
-            Fill properties.
-            </summary>
-        </member>
-        <member name="P:SpreadsheetLight.Charts.SLTrendline.Border">
-            <summary>
-            Border properties.
-            </summary>
-        </member>
-        <member name="P:SpreadsheetLight.Charts.SLTrendline.Shadow">
-            <summary>
-            Shadow properties.
-            </summary>
-        </member>
-        <member name="P:SpreadsheetLight.Charts.SLTrendline.Glow">
-            <summary>
-            Glow properties.
-            </summary>
-        </member>
-        <member name="P:SpreadsheetLight.Charts.SLTrendline.SoftEdge">
-            <summary>
-            Soft edge properties.
-            </summary>
-        </member>
-        <member name="P:SpreadsheetLight.Charts.SLTrendline.Format3D">
-            <summary>
-            3D format properties.
-            </summary>
-        </member>
-        <member name="P:SpreadsheetLight.Charts.SLTrendlineLabel.FormatCode">
-            <summary>
-            Format code for the trendline label.
-            </summary>
-        </member>
-        <member name="P:SpreadsheetLight.Charts.SLTrendlineLabel.SourceLinked">
-            <summary>
-            Whether the format code is linked to the data source.
-            </summary>
-        </member>
-        <member name="P:SpreadsheetLight.Charts.SLTrendlineLabel.Fill">
-            <summary>
-            Fill properties.
-            </summary>
-        </member>
-        <member name="P:SpreadsheetLight.Charts.SLTrendlineLabel.Border">
-            <summary>
-            Border properties.
-            </summary>
-        </member>
-        <member name="P:SpreadsheetLight.Charts.SLTrendlineLabel.Shadow">
-            <summary>
-            Shadow properties.
-            </summary>
-        </member>
-        <member name="P:SpreadsheetLight.Charts.SLTrendlineLabel.Glow">
-            <summary>
-            Glow properties.
-            </summary>
-        </member>
-        <member name="P:SpreadsheetLight.Charts.SLTrendlineLabel.SoftEdge">
-            <summary>
-            Soft edge properties.
-            </summary>
-        </member>
-        <member name="P:SpreadsheetLight.Charts.SLTrendlineLabel.Format3D">
-            <summary>
-            3D format properties.
-            </summary>
-        </member>
         <member name="T:SpreadsheetLight.Charts.EGAxShared">
             <summary>
             For CategoryAxis, ValueAxis, SeriesAxis and DateAxis from namespace DocumentFormat.OpenXml.Drawing.Charts.
@@ -6393,6 +6278,121 @@
             Set the title with a rich text string.
             </summary>
             <param name="RichText">The rich text.</param>
+        </member>
+        <member name="P:SpreadsheetLight.Charts.SLTrendline.TrendlineType">
+            <summary>
+            Trendline type.
+            </summary>
+        </member>
+        <member name="P:SpreadsheetLight.Charts.SLTrendline.PolynomialOrder">
+            <summary>
+            Polynomial trendline order. This is the power of the polynomial, and is between 2 (default value) and 6 (both inclusive). This is only applicable if the trendline type is polynomial.
+            </summary>
+        </member>
+        <member name="P:SpreadsheetLight.Charts.SLTrendline.Period">
+            <summary>
+            Moving average period, and is only 2 (default value) or 3. THis is only applicable if the trendline type is "moving average".
+            </summary>
+        </member>
+        <member name="P:SpreadsheetLight.Charts.SLTrendline.TrendlineName">
+            <summary>
+            Trendline name.
+            </summary>
+        </member>
+        <member name="P:SpreadsheetLight.Charts.SLTrendline.Forward">
+            <summary>
+            Forward period. Default value is 0 (if null it's also 0). From Open XML SDK documentation: This is the number of categories (or units on a scatter chart) that the trendline extends after the data for the series that is being trended. On non-scatter charts, the value shall be a multiple of 0.5. (Excel seems to NOT adhere to the restriction though...)
+            </summary>
+        </member>
+        <member name="P:SpreadsheetLight.Charts.SLTrendline.Backward">
+            <summary>
+            Backward period. Default value is 0 (if null it's also 0). From Open XML SDK documentation: This is the number of categories (or units on a scatter chart) that the trend line extends before the data for the series that is being trended. On non-scatter charts, the value shall be 0 or 0.5. (Excel seems to NOT adhere to the restriction though...)
+            </summary>
+        </member>
+        <member name="P:SpreadsheetLight.Charts.SLTrendline.Intercept">
+            <summary>
+            The intercept value where the trendline crosses the Y-axis. This is only supported if the trendline type is exponential, linear or polynomial. Default value is 0 (if null then no intercept value is set).
+            </summary>
+        </member>
+        <member name="P:SpreadsheetLight.Charts.SLTrendline.DisplayEquation">
+            <summary>
+            Set true to display equation on chart. False otherwise.
+            </summary>
+        </member>
+        <member name="P:SpreadsheetLight.Charts.SLTrendline.DisplayRSquared">
+            <summary>
+            Set true to display R-squared value on chart. False otherwise.
+            </summary>
+        </member>
+        <member name="P:SpreadsheetLight.Charts.SLTrendline.Fill">
+            <summary>
+            Fill properties.
+            </summary>
+        </member>
+        <member name="P:SpreadsheetLight.Charts.SLTrendline.Border">
+            <summary>
+            Border properties.
+            </summary>
+        </member>
+        <member name="P:SpreadsheetLight.Charts.SLTrendline.Shadow">
+            <summary>
+            Shadow properties.
+            </summary>
+        </member>
+        <member name="P:SpreadsheetLight.Charts.SLTrendline.Glow">
+            <summary>
+            Glow properties.
+            </summary>
+        </member>
+        <member name="P:SpreadsheetLight.Charts.SLTrendline.SoftEdge">
+            <summary>
+            Soft edge properties.
+            </summary>
+        </member>
+        <member name="P:SpreadsheetLight.Charts.SLTrendline.Format3D">
+            <summary>
+            3D format properties.
+            </summary>
+        </member>
+        <member name="P:SpreadsheetLight.Charts.SLTrendlineLabel.FormatCode">
+            <summary>
+            Format code for the trendline label.
+            </summary>
+        </member>
+        <member name="P:SpreadsheetLight.Charts.SLTrendlineLabel.SourceLinked">
+            <summary>
+            Whether the format code is linked to the data source.
+            </summary>
+        </member>
+        <member name="P:SpreadsheetLight.Charts.SLTrendlineLabel.Fill">
+            <summary>
+            Fill properties.
+            </summary>
+        </member>
+        <member name="P:SpreadsheetLight.Charts.SLTrendlineLabel.Border">
+            <summary>
+            Border properties.
+            </summary>
+        </member>
+        <member name="P:SpreadsheetLight.Charts.SLTrendlineLabel.Shadow">
+            <summary>
+            Shadow properties.
+            </summary>
+        </member>
+        <member name="P:SpreadsheetLight.Charts.SLTrendlineLabel.Glow">
+            <summary>
+            Glow properties.
+            </summary>
+        </member>
+        <member name="P:SpreadsheetLight.Charts.SLTrendlineLabel.SoftEdge">
+            <summary>
+            Soft edge properties.
+            </summary>
+        </member>
+        <member name="P:SpreadsheetLight.Charts.SLTrendlineLabel.Format3D">
+            <summary>
+            3D format properties.
+            </summary>
         </member>
         <member name="T:SpreadsheetLight.Charts.SLUpBars">
             <summary>

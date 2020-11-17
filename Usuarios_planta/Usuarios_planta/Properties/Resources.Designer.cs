@@ -473,6 +473,16 @@ namespace Usuarios_planta.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap notification_80px {
+            get {
+                object obj = ResourceManager.GetObject("notification_80px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap paper_money_32px {
             get {
                 object obj = ResourceManager.GetObject("paper_money_32px", resourceCulture);

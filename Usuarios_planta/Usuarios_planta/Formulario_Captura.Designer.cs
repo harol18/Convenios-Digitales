@@ -40,6 +40,7 @@
             this.lbcartera4 = new System.Windows.Forms.Label();
             this.lbcartera1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.TxtScoring = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.cmbFuerza_Venta = new System.Windows.Forms.ComboBox();
@@ -114,7 +115,7 @@
             this.btnAbrir_Frm_Correos = new System.Windows.Forms.PictureBox();
             this.label42 = new System.Windows.Forms.Label();
             this.lbltotal = new System.Windows.Forms.Label();
-            this.dtgCorreos = new System.Windows.Forms.DataGridView();
+            this.dgvCorreos_Pendientes = new System.Windows.Forms.DataGridView();
             this.label38 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label39 = new System.Windows.Forms.Label();
@@ -126,14 +127,17 @@
             this.TxtRestriccionmt = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
-            this.BtnCerrar = new System.Windows.Forms.PictureBox();
-            this.BtnMinimizar = new System.Windows.Forms.PictureBox();
             this.Btn_Nuevo = new System.Windows.Forms.Button();
             this.Btn_Guardar = new System.Windows.Forms.Button();
             this.epError = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lblfecha = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.BtnCerrar = new System.Windows.Forms.PictureBox();
+            this.BtnMinimizar = new System.Windows.Forms.PictureBox();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnAñadir_cartera)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnCopiar_Total_Letras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnCopiar_Monto_letras)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -142,11 +146,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.BtnCopiar_Comentarios)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnAbrir_Frm_Correos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgCorreos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCorreos_Pendientes)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.epError)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnMinimizar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.epError)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox4
@@ -191,6 +196,7 @@
             this.btnAñadir_cartera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnAñadir_cartera.TabIndex = 212;
             this.btnAñadir_cartera.TabStop = false;
+            this.btnAñadir_cartera.Click += new System.EventHandler(this.btnAñadir_cartera_Click);
             // 
             // TxtCartera1
             // 
@@ -270,6 +276,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.pictureBox2);
             this.groupBox3.Controls.Add(this.TxtScoring);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.cmbFuerza_Venta);
@@ -315,6 +322,19 @@
             this.groupBox3.TabIndex = 271;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Información Prestamo";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.SystemColors.Window;
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox2.Image = global::Usuarios_planta.Properties.Resources.copy_64px;
+            this.pictureBox2.Location = new System.Drawing.Point(822, 147);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 223;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // TxtScoring
             // 
@@ -732,7 +752,7 @@
             // 
             this.TxtValor_Cuota.BackColor = System.Drawing.SystemColors.Window;
             this.TxtValor_Cuota.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.TxtValor_Cuota.Location = new System.Drawing.Point(444, 145);
+            this.TxtValor_Cuota.Location = new System.Drawing.Point(434, 145);
             this.TxtValor_Cuota.MaxLength = 100;
             this.TxtValor_Cuota.Multiline = true;
             this.TxtValor_Cuota.Name = "TxtValor_Cuota";
@@ -746,7 +766,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label12.Location = new System.Drawing.Point(630, 125);
+            this.label12.Location = new System.Drawing.Point(611, 125);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(85, 16);
             this.label12.TabIndex = 30;
@@ -756,7 +776,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label17.Location = new System.Drawing.Point(441, 125);
+            this.label17.Location = new System.Drawing.Point(431, 125);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(78, 16);
             this.label17.TabIndex = 17;
@@ -767,11 +787,11 @@
             this.TxtTotal_Credito.BackColor = System.Drawing.SystemColors.Menu;
             this.TxtTotal_Credito.Enabled = false;
             this.TxtTotal_Credito.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.TxtTotal_Credito.Location = new System.Drawing.Point(633, 145);
+            this.TxtTotal_Credito.Location = new System.Drawing.Point(614, 145);
             this.TxtTotal_Credito.MaxLength = 100;
             this.TxtTotal_Credito.Multiline = true;
             this.TxtTotal_Credito.Name = "TxtTotal_Credito";
-            this.TxtTotal_Credito.Size = new System.Drawing.Size(204, 28);
+            this.TxtTotal_Credito.Size = new System.Drawing.Size(207, 28);
             this.TxtTotal_Credito.TabIndex = 17;
             this.TxtTotal_Credito.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TxtTotal_Credito.TextChanged += new System.EventHandler(this.TxtTotal_Credito_TextChanged);
@@ -965,7 +985,7 @@
             // dtpHora_Envio
             // 
             this.dtpHora_Envio.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dtpHora_Envio.CustomFormat = "HH:mm tt";
+            this.dtpHora_Envio.CustomFormat = "HH:mm";
             this.dtpHora_Envio.Font = new System.Drawing.Font("Segoe UI Emoji", 11.25F);
             this.dtpHora_Envio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpHora_Envio.Location = new System.Drawing.Point(367, 43);
@@ -1200,7 +1220,7 @@
             this.panel2.Controls.Add(this.btnAbrir_Frm_Correos);
             this.panel2.Controls.Add(this.label42);
             this.panel2.Controls.Add(this.lbltotal);
-            this.panel2.Controls.Add(this.dtgCorreos);
+            this.panel2.Controls.Add(this.dgvCorreos_Pendientes);
             this.panel2.Controls.Add(this.label38);
             this.panel2.Location = new System.Drawing.Point(897, 400);
             this.panel2.Name = "panel2";
@@ -1242,14 +1262,14 @@
             this.lbltotal.TabIndex = 250;
             this.lbltotal.Text = "Total";
             // 
-            // dtgCorreos
+            // dgvCorreos_Pendientes
             // 
-            this.dtgCorreos.BackgroundColor = System.Drawing.Color.White;
-            this.dtgCorreos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgCorreos.Location = new System.Drawing.Point(7, 38);
-            this.dtgCorreos.Name = "dtgCorreos";
-            this.dtgCorreos.Size = new System.Drawing.Size(377, 288);
-            this.dtgCorreos.TabIndex = 249;
+            this.dgvCorreos_Pendientes.BackgroundColor = System.Drawing.Color.White;
+            this.dgvCorreos_Pendientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCorreos_Pendientes.Location = new System.Drawing.Point(7, 38);
+            this.dgvCorreos_Pendientes.Name = "dgvCorreos_Pendientes";
+            this.dgvCorreos_Pendientes.Size = new System.Drawing.Size(377, 288);
+            this.dgvCorreos_Pendientes.TabIndex = 249;
             // 
             // label38
             // 
@@ -1301,6 +1321,7 @@
             this.btnMatriz.TabIndex = 261;
             this.btnMatriz.Text = "Ver";
             this.btnMatriz.UseVisualStyleBackColor = false;
+            this.btnMatriz.Click += new System.EventHandler(this.btnMatriz_Click);
             // 
             // label48
             // 
@@ -1381,32 +1402,6 @@
             this.label30.TabIndex = 247;
             this.label30.Text = "Gestion Convenio Matriz";
             // 
-            // BtnCerrar
-            // 
-            this.BtnCerrar.BackColor = System.Drawing.Color.White;
-            this.BtnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnCerrar.Image = global::Usuarios_planta.Properties.Resources.close_window_50px;
-            this.BtnCerrar.Location = new System.Drawing.Point(1335, -1);
-            this.BtnCerrar.Name = "BtnCerrar";
-            this.BtnCerrar.Size = new System.Drawing.Size(23, 23);
-            this.BtnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.BtnCerrar.TabIndex = 276;
-            this.BtnCerrar.TabStop = false;
-            this.BtnCerrar.Click += new System.EventHandler(this.Cerrar);
-            // 
-            // BtnMinimizar
-            // 
-            this.BtnMinimizar.BackColor = System.Drawing.Color.White;
-            this.BtnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnMinimizar.Image = global::Usuarios_planta.Properties.Resources.minimize_window_50px;
-            this.BtnMinimizar.Location = new System.Drawing.Point(1307, -1);
-            this.BtnMinimizar.Name = "BtnMinimizar";
-            this.BtnMinimizar.Size = new System.Drawing.Size(23, 23);
-            this.BtnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.BtnMinimizar.TabIndex = 275;
-            this.BtnMinimizar.TabStop = false;
-            this.BtnMinimizar.Click += new System.EventHandler(this.Minimizar);
-            // 
             // Btn_Nuevo
             // 
             this.Btn_Nuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
@@ -1441,12 +1436,62 @@
             // 
             this.epError.ContainerControl = this;
             // 
+            // lblfecha
+            // 
+            this.lblfecha.AutoSize = true;
+            this.lblfecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblfecha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lblfecha.Location = new System.Drawing.Point(1101, 9);
+            this.lblfecha.Name = "lblfecha";
+            this.lblfecha.Size = new System.Drawing.Size(0, 20);
+            this.lblfecha.TabIndex = 279;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = global::Usuarios_planta.Properties.Resources.notification_80px;
+            this.pictureBox1.Location = new System.Drawing.Point(1315, 351);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(29, 27);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 252;
+            this.pictureBox1.TabStop = false;
+            // 
+            // BtnCerrar
+            // 
+            this.BtnCerrar.BackColor = System.Drawing.Color.White;
+            this.BtnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnCerrar.Image = global::Usuarios_planta.Properties.Resources.close_window_50px;
+            this.BtnCerrar.Location = new System.Drawing.Point(1335, -1);
+            this.BtnCerrar.Name = "BtnCerrar";
+            this.BtnCerrar.Size = new System.Drawing.Size(23, 23);
+            this.BtnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BtnCerrar.TabIndex = 276;
+            this.BtnCerrar.TabStop = false;
+            this.BtnCerrar.Click += new System.EventHandler(this.Cerrar);
+            // 
+            // BtnMinimizar
+            // 
+            this.BtnMinimizar.BackColor = System.Drawing.Color.White;
+            this.BtnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnMinimizar.Image = global::Usuarios_planta.Properties.Resources.minimize_window_50px;
+            this.BtnMinimizar.Location = new System.Drawing.Point(1307, -1);
+            this.BtnMinimizar.Name = "BtnMinimizar";
+            this.BtnMinimizar.Size = new System.Drawing.Size(23, 23);
+            this.BtnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BtnMinimizar.TabIndex = 275;
+            this.BtnMinimizar.TabStop = false;
+            this.BtnMinimizar.Click += new System.EventHandler(this.Minimizar);
+            // 
             // Formulario_Captura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1373, 787);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.lblfecha);
             this.Controls.Add(this.Btn_Nuevo);
             this.Controls.Add(this.Btn_Guardar);
             this.Controls.Add(this.BtnCerrar);
@@ -1467,6 +1512,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnAñadir_cartera)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnCopiar_Total_Letras)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnCopiar_Monto_letras)).EndInit();
             this.groupBox2.ResumeLayout(false);
@@ -1478,13 +1524,15 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnAbrir_Frm_Correos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgCorreos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCorreos_Pendientes)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.epError)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnMinimizar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.epError)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1575,7 +1623,7 @@
         private System.Windows.Forms.PictureBox btnAbrir_Frm_Correos;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Label lbltotal;
-        private System.Windows.Forms.DataGridView dtgCorreos;
+        private System.Windows.Forms.DataGridView dgvCorreos_Pendientes;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label39;
@@ -1592,5 +1640,8 @@
         private System.Windows.Forms.Button Btn_Nuevo;
         private System.Windows.Forms.Button Btn_Guardar;
         private System.Windows.Forms.ErrorProvider epError;
+        private System.Windows.Forms.Label lblfecha;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

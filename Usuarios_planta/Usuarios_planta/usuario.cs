@@ -10,5 +10,7 @@ namespace Usuarios_planta
     {
         public static string Identificacion { get; set; }
         public static string Nombre { get; set; }
+        public static string Correo_Convenio { get; set; }
+        public static string Correo_Gic { get; set; }
     }
 }

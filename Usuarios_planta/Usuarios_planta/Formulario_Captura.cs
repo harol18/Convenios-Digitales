@@ -110,6 +110,7 @@ namespace Usuarios_planta
 
         private void Formulario_Captura_Load(object sender, EventArgs e)
         {
+            lblfecha.Text = fecha.ToString("dd/MM/yyyy");
             dtpFecha_Envio.Text = "01/01/2020";
             dtpFecha_Posible_Rta.Text = "01/01/2020";
             dtpFecha_Restriccion.Text = "01/01/2020";
@@ -125,6 +126,7 @@ namespace Usuarios_planta
             lbcartera2.Visible = false;
             lbcartera3.Visible = false;
             lbcartera4.Visible = false;
+            cmds.Pendiente_correo(dgvCorreos_Pendientes,lblfecha);
         }
 
         private void TxtTotal_Credito_TextChanged(object sender, EventArgs e)
@@ -476,6 +478,41 @@ namespace Usuarios_planta
                 MessageBox.Show("Antes de seleccionar una tipologia debe indicar en el estado de la operacion Suspendido");
                 cmbTipologia.Text = null;
             }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetDataObject(TxtTotal_Credito.Text, true);
+        }
+
+        private void btnAñadir_cartera_Click(object sender, EventArgs e)
+        {
+            if (TxtCartera1.Visible == false)
+            {
+                TxtCartera1.Visible = true;
+                lbcartera1.Visible = true;
+            }
+            else if (TxtCartera1.Visible == true && TxtCartera2.Visible == false)
+            {
+                TxtCartera2.Visible = true;
+                lbcartera2.Visible = true;
+            }
+            else if (TxtCartera1.Visible == true && TxtCartera2.Visible == true && TxtCartera3.Visible == false)
+            {
+                TxtCartera3.Visible = true;
+                lbcartera3.Visible = true;
+            }
+            else if (TxtCartera1.Visible == true && TxtCartera2.Visible == true && TxtCartera3.Visible == true && TxtCartera4.Visible == false)
+            {
+                TxtCartera4.Visible = true;
+                lbcartera4.Visible = true;
+            }
+        }
+
+        private void btnMatriz_Click(object sender, EventArgs e)
+        {
+            Form formulario = new Capa_presentacion.Matriz_Convenios();
+            formulario.Show();
         }
     }
 }

@@ -145,8 +145,8 @@
   <data name="exit_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exit_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="colpensiones" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\colpensiones.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="right_button_80px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\right_button_80px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="close_window_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\close_window_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,9 +166,6 @@
   <data name="settings_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\settings_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="mas" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="synchronize_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\synchronize_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -180,6 +177,9 @@
   </data>
   <data name="pdf_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pdf_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_0002_lema-minsait" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\_0002_lema-minsait.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="minimize_window_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\minimize_window_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -196,6 +196,12 @@
   <data name="buscar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\buscar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="denied_30px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\denied_30px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Captura1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Captura1.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="save_26px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\save_26px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -208,17 +214,11 @@
   <data name="close_window_48px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\close_window_48px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="awareness-ribbon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\awareness-ribbon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="identidad_visual_minsait_version_principal" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\identidad_visual_minsait_version_principal.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="indra-aplicacion7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\indra-aplicacion7.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="search_26px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\search_26px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="broom_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\broom_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="minimize_window_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\minimize_window_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -226,41 +226,44 @@
   <data name="images" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\images.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="broom_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\broom_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="mas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="exit_100px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exit_100px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Captura1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Captura1.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="exit_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exit_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="search_26px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\search_26px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="close_window_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\close_window_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="colpensiones-ConvertImage1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\colpensiones-ConvertImage.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Captura" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Captura.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="txt_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\txt_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="eye_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\eye_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="search_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\search_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="receive_cash_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\receive_cash_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="exit_50px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\exit_50px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="awareness-ribbon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\awareness-ribbon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Captura" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Captura.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eye_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eye_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="colpensiones-ConvertImage1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\colpensiones-ConvertImage.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="save_as_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\save_as_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="exit_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\exit_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="txt_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\txt_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="meadow-4485609_1920" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\meadow-4485609_1920.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -274,19 +277,19 @@
   <data name="paper_money_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\paper_money_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="denied_30px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\denied_30px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="colpensiones" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\colpensiones.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="identidad_visual_minsait_color" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\identidad_visual_minsait_color.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="search_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\search_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="exit_50px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exit_50px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="_0002_lema-minsait" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\_0002_lema-minsait.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="identidad_visual_minsait_version_principal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\identidad_visual_minsait_version_principal.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="right_button_80px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\right_button_80px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="notification_80px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\notification_80px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
